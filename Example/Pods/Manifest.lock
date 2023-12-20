@@ -1,0 +1,16 @@
+PODS:
+  - FSCollectionKit (1.0.0)
+
+DEPENDENCIES:
+  - FSCollectionKit (from `../`)
+
+EXTERNAL SOURCES:
+  FSCollectionKit:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  FSCollectionKit: e9e7f2e0b9cc392f68ac93146366715d8474d264
+
+PODFILE CHECKSUM: 4e699d4a7a12c7a839c5584b13e76a53aef3cb85
+
+COCOAPODS: 1.14.2

@@ -1,0 +1,6 @@
+framework module FSCollectionKit {
+  umbrella header "FSCollectionKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
