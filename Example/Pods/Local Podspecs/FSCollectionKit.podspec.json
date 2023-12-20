@@ -17,6 +17,15 @@
   "platforms": {
     "ios": "11.0"
   },
+  "frameworks": [
+    "UIKit",
+    "Foundation"
+  ],
   "source_files": "Sources/Classes/**/*",
+  "resource_bundles": {
+    "FSCollectionKit": [
+      "Sources/Assets/*.xcassets"
+    ]
+  },
   "swift_version": "5"
 }

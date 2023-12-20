@@ -13,6 +13,10 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.swift_version = '5'
   s.ios.deployment_target = '11.0'
-
+  
+  s.frameworks = 'UIKit', 'Foundation'
   s.source_files = 'Sources/Classes/**/*'
+  s.resource_bundles = {
+    'FSCollectionKit' => ['Sources/Assets/*.xcassets']
+  }
 end

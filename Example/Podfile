@@ -5,3 +5,7 @@ platform :ios, '11.0'
 target 'FSCollectionKit_Example' do
   pod 'FSCollectionKit', :path => '../'
 end
+
+post_install do |installer|
+  installer.pods_project.root_object.attributes["ORGANIZATIONNAME"] = "Sheng"
+end

@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4ECEF69AF322D727488C71CB58CE4537"
-               BuildableName = "FSCollectionKit"
+               BuildableName = "FSCollectionKit.framework"
                BlueprintName = "FSCollectionKit"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
