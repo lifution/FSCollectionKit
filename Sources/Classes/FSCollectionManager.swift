@@ -181,9 +181,6 @@ private extension FSCollectionManager {
     
     func p_updateEmptyView() {
         guard let collection = collectionView, let view = emptyView else {
-            emptyView?.removeFromSuperview()
-            emptyView = nil
-            collectionView?.backgroundView = nil
             return
         }
         collection.backgroundView = view
