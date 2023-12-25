@@ -41,6 +41,8 @@ public final class FSCollectionManager {
     /// 记录已注册的 footerClass，以免多次注册。
     private var registeredFooterMap: [String: AnyClass] = [:]
     
+    private var emptyView: UIView?
+    
     // MARK: Initialization
     
     public init(sections: [FSCollectionSectionConvertable] = []) {
@@ -137,8 +139,6 @@ private extension FSCollectionManager {
         }
     }
     
-    func p_updateEmptyViewVisibleStatus() {}
-    
     func p_collectionDataDidUpdate() {
         p_registerIfNeeded()
         p_updateReloadHandlers()
@@ -161,6 +161,34 @@ private extension FSCollectionManager {
         }
         return indexPaths
     }
+    
+    func p_updateEmptyViewVisibleStatus() {
+        guard let view = emptyView else { return }
+        let count = sections.count
+        if count == 0 {
+            view.isHidden = false
+        } else {
+            var shouldHide = false
+            for i in 0..<count {
+                if sections[i].items.count > 0 {
+                    shouldHide = true
+                    break
+                }
+            }
+            view.isHidden = shouldHide
+        }
+    }
+    
+    func p_updateEmptyView() {
+        guard let collection = collectionView, let view = emptyView else {
+            emptyView?.removeFromSuperview()
+            emptyView = nil
+            collectionView?.backgroundView = nil
+            return
+        }
+        collection.backgroundView = view
+        p_updateEmptyViewVisibleStatus()
+    }
 }
 
 // MARK: - Internal
@@ -175,6 +203,7 @@ extension FSCollectionManager {
         }
         self.collectionView = collectionView
         p_registerIfNeeded()
+        p_updateEmptyView()
         collectionView.delegate = delegater
         collectionView.dataSource = delegater
     }
@@ -261,5 +290,15 @@ public extension FSCollectionManager {
             return nil
         }
         return section.items[indexPath.item]
+    }
+    
+    func setEmptyView(_ view: UIView?) {
+        do {
+            emptyView?.removeFromSuperview()
+            emptyView = nil
+            collectionView?.backgroundView = nil
+        }
+        emptyView = view
+        p_updateEmptyView()
     }
 }

@@ -11,14 +11,20 @@ import FSCollectionKit
 
 class ViewController: UIViewController {
     
+    // MARK: Properties
+    
     private var isFirstTimeAppear = true
+    
+    private let manager = FSCollectionManager()
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.collectionManager = FSCollectionManager()
+        collection.collectionManager = manager
         return collection
     }()
+    
+    // MARK: Override
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +43,8 @@ class ViewController: UIViewController {
         super.viewDidLayoutSubviews()
         collectionView.frame = .init(origin: .zero, size: view.frame.size)
     }
+    
+    // MARK: Private
     
     private func p_addItems() {
         let sections1: [FSCollectionSectionConvertable] = {

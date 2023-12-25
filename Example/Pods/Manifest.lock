@@ -1,5 +1,5 @@
 PODS:
-  - FSCollectionKit (1.0.0)
+  - FSCollectionKit (1.0.1)
 
 DEPENDENCIES:
   - FSCollectionKit (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FSCollectionKit: 71cb24fc8844ccfb8e965d406f4e44116873f8ef
+  FSCollectionKit: 2df070c362e26b2dd6eccfd48c5dd8efc6a0aa16
 
 PODFILE CHECKSUM: b6f3f1bbbe94cfa61a27bad5e3558a9a5c167706
 
