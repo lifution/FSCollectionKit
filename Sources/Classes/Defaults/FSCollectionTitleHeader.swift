@@ -137,6 +137,17 @@ open class FSCollectionTitleHeader: FSCollectionHeaderFooter {
     ///
     public var accessoryViewSize: CGSize = .zero
     
+    /// 是否隐藏底部分割线，默认为 true。
+    public var isSeparatorHidden = true
+    
+    /// 底部分割线颜色
+    public var separatorColor = UIColor(red: 0.90, green: 0.90, blue: 0.90, alpha: 1.00)
+    
+    /// 底部分割线缩进
+    public var separatorInset: UIEdgeInsets = .zero
+    
+    public var separatorHeight: CGFloat = 1 / UIScreen.main.scale
+    
     // MARK: Properties/Fileprivate
     
     fileprivate private(set) var iconFrame: CGRect = .zero
@@ -146,6 +157,7 @@ open class FSCollectionTitleHeader: FSCollectionHeaderFooter {
     /// accessoryView 的 frame，自定义和默认的 accessoryView 有且只有
     /// 一个会生效，因此用一个 accessoryFrame 表示即可。
     fileprivate private(set) var accessoryFrame: CGRect = .zero
+    fileprivate private(set) var separatorFrame: CGRect = .zero
     
     fileprivate private(set) var titleText: NSAttributedString?
     fileprivate private(set) var subTitleText: NSAttributedString?
@@ -186,6 +198,7 @@ open class FSCollectionTitleHeader: FSCollectionHeaderFooter {
             titleFrame = .zero
             subTitleFrame = .zero
             accessoryFrame = .zero
+            separatorFrame = .zero
             titleText = nil
             subTitleText = nil
             r_accessoryDetailIcon = nil
@@ -334,6 +347,21 @@ open class FSCollectionTitleHeader: FSCollectionHeaderFooter {
             subTitleFrame.origin.y = _FSFlat((height - subTitleFrame.height) / 2)
             accessoryFrame.origin.y = _FSFlat((height - accessoryFrame.height) / 2)
         }
+        do {
+            let x = separatorInset.left
+            let w = containerWidth - separatorInset.right - x
+            let h = max(0, separatorHeight)
+            let y = size.height - h
+            separatorFrame = .init(x: x, y: y, width: w, height: h)
+        }
+    }
+    
+    // MARK: Public
+    
+    /// 刷新当前 header
+    /// 该方法仅当 header 对应的 view 为可视状态下才有效。
+    public func reload() {
+        reloadHandler?(self)
     }
 }
 
@@ -367,6 +395,8 @@ private class FSCollectionTitleHeaderView: UICollectionReusableView, FSCollectio
         view.isHidden = true
         return view
     }()
+    
+    private let separatorView = _FSSeparatorView()
     
     private weak var accessoryView: UIView?
     
@@ -407,6 +437,7 @@ private class FSCollectionTitleHeaderView: UICollectionReusableView, FSCollectio
             addSubview(titleLabel)
             addSubview(subTitleLabel)
             addSubview(accessoryDetailView)
+            addSubview(separatorView)
         }
     }
     
@@ -420,11 +451,15 @@ private class FSCollectionTitleHeaderView: UICollectionReusableView, FSCollectio
         titleLabel.frame = header.titleFrame
         subTitleLabel.frame = header.subTitleFrame
         accessoryDetailView.frame = header.accessoryFrame
+        separatorView.frame = header.separatorFrame
         
         iconView.isHidden = header.isIconHidden
         titleLabel.isHidden = header.isTitleHidden
         subTitleLabel.isHidden = header.isSubTitleHidden
         accessoryDetailView.isHidden = header.isAccessoryDetailHidden
+        separatorView.isHidden = header.isSeparatorHidden
+        
+        separatorView.color = header.separatorColor
         
         if !header.isIconHidden {
             iconView.image = header.icon
