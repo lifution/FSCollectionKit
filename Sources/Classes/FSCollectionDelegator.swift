@@ -1,5 +1,5 @@
 //
-//  FSCollectionDelegater.swift
+//  FSCollectionDelegator.swift
 //  FSCollectionKit
 //
 //  Created by Sheng on 2023/12/20.
@@ -8,17 +8,17 @@
 
 import UIKit
 
-final class FSCollectionDelegater: NSObject {
-    weak var collectionManager: FSCollectionManager!
+final class FSCollectionDelegator: NSObject {
+    weak var manager: FSCollectionManager!
 }
 
-private extension FSCollectionDelegater {
+private extension FSCollectionDelegator {
     
     func p_section(at index: Int) -> FSCollectionSectionConvertable? {
-        guard index >= 0, index < collectionManager.sections.count else {
+        guard index >= 0, index < manager.sections.count else {
             return nil
         }
-        return collectionManager.sections[index]
+        return manager.sections[index]
     }
     
     func p_item(at indexPath: IndexPath) -> FSCollectionItemConvertable? {
@@ -32,12 +32,12 @@ private extension FSCollectionDelegater {
     }
 }
 
-extension FSCollectionDelegater: UICollectionViewDataSource {
+extension FSCollectionDelegator: UICollectionViewDataSource {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         /// 每次数据更新都必经过该方法，因此在此处做一些数据更新后的相关操作。
-        collectionManager.collectionDataDidUpdate()
-        return collectionManager.sections.count
+        manager.collectionDataDidUpdate()
+        return manager.sections.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -85,7 +85,7 @@ extension FSCollectionDelegater: UICollectionViewDataSource {
     }
 }
 
-extension FSCollectionDelegater: UICollectionViewDelegate {
+extension FSCollectionDelegator: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, shouldHighlightItemAt indexPath: IndexPath) -> Bool {
         if let item = p_item(at: indexPath) {
@@ -187,7 +187,7 @@ extension FSCollectionDelegater: UICollectionViewDelegate {
     }
 }
 
-extension FSCollectionDelegater: UICollectionViewDelegateFlowLayout {
+extension FSCollectionDelegator: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let section = p_section(at: indexPath.section), indexPath.item < section.items.count else {
@@ -280,61 +280,61 @@ extension FSCollectionDelegater: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension FSCollectionDelegater: UIScrollViewDelegate {
+extension FSCollectionDelegator: UIScrollViewDelegate {
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        collectionManager.scrollDelegate?.scrollViewDidScroll?(scrollView)
+        manager.scrollDelegate?.scrollViewDidScroll?(scrollView)
     }
     
     func scrollViewDidZoom(_ scrollView: UIScrollView) {
-        collectionManager.scrollDelegate?.scrollViewDidZoom?(scrollView)
+        manager.scrollDelegate?.scrollViewDidZoom?(scrollView)
     }
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        collectionManager.scrollDelegate?.scrollViewWillBeginDragging?(scrollView)
+        manager.scrollDelegate?.scrollViewWillBeginDragging?(scrollView)
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
-        collectionManager.scrollDelegate?.scrollViewWillEndDragging?(scrollView, withVelocity: velocity, targetContentOffset: targetContentOffset)
+        manager.scrollDelegate?.scrollViewWillEndDragging?(scrollView, withVelocity: velocity, targetContentOffset: targetContentOffset)
     }
     
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
-        collectionManager.scrollDelegate?.scrollViewDidEndDragging?(scrollView, willDecelerate: decelerate)
+        manager.scrollDelegate?.scrollViewDidEndDragging?(scrollView, willDecelerate: decelerate)
     }
     
     func scrollViewWillBeginDecelerating(_ scrollView: UIScrollView) {
-        collectionManager.scrollDelegate?.scrollViewWillBeginDecelerating?(scrollView)
+        manager.scrollDelegate?.scrollViewWillBeginDecelerating?(scrollView)
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        collectionManager.scrollDelegate?.scrollViewDidEndDecelerating?(scrollView)
+        manager.scrollDelegate?.scrollViewDidEndDecelerating?(scrollView)
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView)  {
-        collectionManager.scrollDelegate?.scrollViewDidEndScrollingAnimation?(scrollView)
+        manager.scrollDelegate?.scrollViewDidEndScrollingAnimation?(scrollView)
     }
     
     func viewForZooming(in scrollView: UIScrollView) -> UIView? {
-        return collectionManager.scrollDelegate?.viewForZooming?(in: scrollView)
+        return manager.scrollDelegate?.viewForZooming?(in: scrollView)
     }
 
     func scrollViewWillBeginZooming(_ scrollView: UIScrollView, with view: UIView?) {
-        collectionManager.scrollDelegate?.scrollViewWillBeginZooming?(scrollView, with: view)
+        manager.scrollDelegate?.scrollViewWillBeginZooming?(scrollView, with: view)
     }
     
     func scrollViewDidEndZooming(_ scrollView: UIScrollView, with view: UIView?, atScale scale: CGFloat) {
-        collectionManager.scrollDelegate?.scrollViewDidEndZooming?(scrollView, with: view, atScale: scale)
+        manager.scrollDelegate?.scrollViewDidEndZooming?(scrollView, with: view, atScale: scale)
     }
     
     func scrollViewShouldScrollToTop(_ scrollView: UIScrollView) -> Bool {
-        return collectionManager.scrollDelegate?.scrollViewShouldScrollToTop?(scrollView) ?? true
+        return manager.scrollDelegate?.scrollViewShouldScrollToTop?(scrollView) ?? true
     }
     
     func scrollViewDidScrollToTop(_ scrollView: UIScrollView) {
-        collectionManager.scrollDelegate?.scrollViewDidScrollToTop?(scrollView)
+        manager.scrollDelegate?.scrollViewDidScrollToTop?(scrollView)
     }
     
     func scrollViewDidChangeAdjustedContentInset(_ scrollView: UIScrollView) {
-        collectionManager.scrollDelegate?.scrollViewDidChangeAdjustedContentInset?(scrollView)
+        manager.scrollDelegate?.scrollViewDidChangeAdjustedContentInset?(scrollView)
     }
 }

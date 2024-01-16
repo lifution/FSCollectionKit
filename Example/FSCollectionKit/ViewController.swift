@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collection.collectionManager = manager
+        collection.fsck.manager = manager
         return collection
     }()
     
@@ -131,7 +131,7 @@ class ViewController: UIViewController {
             }
             return sections
         }()
-        collectionView.collectionManager?.sections = sections2
+        collectionView.fsck.manager?.sections = sections2
         collectionView.reloadData()
     }
 }

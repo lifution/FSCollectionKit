@@ -30,7 +30,7 @@ public final class FSCollectionManager {
     
     // MARK: Properties/Private
     
-    private let delegater: FSCollectionDelegater = FSCollectionDelegater()
+    private let delegator: FSCollectionDelegator = FSCollectionDelegator()
     
     /// 记录已注册的 cellClass，以免多次注册。
     private var registeredCellMap: [String: AnyClass] = [:]
@@ -46,7 +46,7 @@ public final class FSCollectionManager {
     // MARK: Initialization
     
     public init(sections: [FSCollectionSectionConvertable] = []) {
-        delegater.collectionManager = self
+        delegator.manager = self
         self.sections = sections
     }
 }
@@ -201,12 +201,12 @@ extension FSCollectionManager {
         self.collectionView = collectionView
         p_registerIfNeeded()
         p_updateEmptyView()
-        collectionView.delegate = delegater
-        collectionView.dataSource = delegater
+        collectionView.delegate = delegator
+        collectionView.dataSource = delegator
     }
     
     /// 当数据更新后，而且 UI 还没 reload 前，会回调到该方法。
-    /// 该方法是提供给 FSCollectionDelegater 使用的，其它地方不可调用，以免出现不可预知的问题。
+    /// 该方法是提供给 FSCollectionDelegator 使用的，其它地方不可调用，以免出现不可预知的问题。
     func collectionDataDidUpdate() {
         p_collectionDataDidUpdate()
         p_updateEmptyViewVisibleStatus()

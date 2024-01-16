@@ -11,15 +11,15 @@ import Foundation
 import ObjectiveC
 
 private var _key = 0
-public extension UICollectionView {
+public extension FSCollectionKitWrapper where Base: UICollectionView {
     
-    var collectionManager: FSCollectionManager? {
+    var manager: FSCollectionManager? {
         get {
-            return objc_getAssociatedObject(self, &_key) as? FSCollectionManager
+            return objc_getAssociatedObject(base, &_key) as? FSCollectionManager
         }
         set {
-            newValue?.bind(to: self)
-            objc_setAssociatedObject(self, &_key, newValue, .OBJC_ASSOCIATION_RETAIN)
+            newValue?.bind(to: base)
+            objc_setAssociatedObject(base, &_key, newValue, .OBJC_ASSOCIATION_RETAIN)
         }
     }
 }
