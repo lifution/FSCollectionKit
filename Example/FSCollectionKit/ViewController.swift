@@ -58,7 +58,7 @@ class ViewController: UIViewController {
                 items.append(item)
             }
             
-            let header = FSCollectionTitleHeader()
+            let header = FSCollectionTitleHeaderFooter()
             header.icon = UIImage(named: "book")
             header.title = "洗尽铅华"
             header.subTitle = "天地不仁，以万物为刍狗"
@@ -96,7 +96,7 @@ class ViewController: UIViewController {
                     items.append(item)
                 }
                 
-                let header = FSCollectionTitleHeader()
+                let header = FSCollectionTitleHeaderFooter()
                 if i.isMultiple(of: 2) {
                     header.icon = UIImage(named: "book")
                     header.title = "洗尽铅华"

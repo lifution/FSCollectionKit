@@ -1,5 +1,5 @@
 //
-//  FSCollectionTitleHeader.swift
+//  FSCollectionTitleHeaderFooter.swift
 //  FSCollectionKit
 //
 //  Created by Sheng on 2023/12/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-/// 该类是带标题的 section header 的通用类，通常情况下，该类可以应付绝大多数场景。
+/// 该类是带标题的 section header/footer 的通用类，通常情况下，该类可以应付绝大多数场景。
 ///
 /// - 该类支持一下功能：
 ///   * 在标题的左边设置图标
@@ -20,7 +20,7 @@ import UIKit
 /// - 该类仅适用于垂直方向滚动的 UICollectionView。
 /// - 当部分与 UI 相关的属性更新后（比如 containerSize、image、title、subTitle等），
 ///   需外部手动调用 `updateLayout()` 方法，内部不会自动更新。
-/// - 该类内部已默认适配了 DarkMode 更新。
+/// - 该类内部已默认适配了 dark mode 更新。
 /// - 不建议更改 `viewType` (即使是子类也不建议更改该属性)，该类对应的 view 做了比较多的适配，
 ///   比如 reload 监听等操作，如果更改了 `viewType` 则可能会导致部分功能异常。
 ///
@@ -29,7 +29,7 @@ import UIKit
 /// │-<contentInset.left>-[icon]-<iconSpacing>-[title]-<titleSpacing>-[subTitle]             [accessory]-<contentInset.right>-│
 /// └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ///
-open class FSCollectionTitleHeader: FSCollectionHeaderFooter {
+open class FSCollectionTitleHeaderFooter: FSCollectionHeaderFooter {
     
     /// 右边附件类型。
     public enum AccessoryType {
@@ -111,12 +111,12 @@ open class FSCollectionTitleHeader: FSCollectionHeaderFooter {
     /// - Note:
     ///   * 当 accessoryView 属性不为 nil 时，当前属性无效。
     ///
-    public var accessoryType: FSCollectionTitleHeader.AccessoryType = .none
+    public var accessoryType: FSCollectionTitleHeaderFooter.AccessoryType = .none
     
     /// accessoryType 为 `.detail` 时显示的图标，默认为一个箭头的图标。
     public var accessoryDetailIcon: UIImage? = UIImage.inner.image(named: "icon_accessory_detail")
     
-    /// 自定义右边附件视图，当 FSCollectionTitleHeader.AccessoryType 无法满足需求时，
+    /// 自定义右边附件视图，当 FSCollectionTitleHeaderFooter.AccessoryType 无法满足需求时，
     /// 可使用该属性自定义视图。
     ///
     /// - Note:
@@ -130,9 +130,9 @@ open class FSCollectionTitleHeader: FSCollectionHeaderFooter {
     ///
     /// - 如果外部定义了 accessoryView，则必须调整 accessoryViewSize 为
     ///   自定义 accessoryView 的 size，否则 accessoryView 的 size 默认为 `.zero`。
-    /// - FSCollectionTitleHeader 的所有控件都是默认垂直居中的，因此外部只需要
+    /// - FSCollectionTitleHeaderFooter 的所有控件都是默认垂直居中的，因此外部只需要
     ///   为自定义 accessoryView 设置 size 即可。
-    /// - 如果更复杂的 accessoryView 需求，则不建议继续使用 FSCollectionTitleHeader，
+    /// - 如果更复杂的 accessoryView 需求，则不建议继续使用 FSCollectionTitleHeaderFooter，
     ///   建议另外创建自定义的 FSCollectionHeaderFooter。
     ///
     public var accessoryViewSize: CGSize = .zero
@@ -171,14 +171,14 @@ open class FSCollectionTitleHeader: FSCollectionHeaderFooter {
     fileprivate private(set) var isAccessoryDetailHidden = true
     
     /// 用于通知 view 更新。
-    fileprivate var reloadHandler: ((FSCollectionTitleHeader) -> Void)?
+    fileprivate var reloadHandler: ((FSCollectionTitleHeaderFooter) -> Void)?
     
     // MARK: Initialization
     
     public override init() {
         super.init()
         size = .init(width: 0.0, height: 44.0)
-        viewType = FSCollectionTitleHeaderView.self
+        viewType = FSCollectionTitleHeaderFooterView.self
     }
     
     // MARK: Open
@@ -365,11 +365,12 @@ open class FSCollectionTitleHeader: FSCollectionHeaderFooter {
     }
 }
 
-private class FSCollectionTitleHeaderView: UICollectionReusableView, FSCollectionHeaderFooterViewRenderable {
+
+private class FSCollectionTitleHeaderFooterView: UICollectionReusableView, FSCollectionHeaderFooterViewRenderable {
     
     // MARK: Properties/Private
     
-    private weak var header: FSCollectionTitleHeader?
+    private weak var header: FSCollectionTitleHeaderFooter?
     
     private let iconView: UIImageView = {
         let view = UIImageView()
@@ -480,7 +481,7 @@ private class FSCollectionTitleHeaderView: UICollectionReusableView, FSCollectio
         }
     }
     
-    private func p_reload(with header: FSCollectionTitleHeader) {
+    private func p_reload(with header: FSCollectionTitleHeaderFooter) {
         guard self.header === header else {
             return
         }
@@ -495,7 +496,7 @@ private class FSCollectionTitleHeaderView: UICollectionReusableView, FSCollectio
     // MARK: FSCollectionHeaderFooterViewRenderable
     
     func render(with headerFooter: FSCollectionHeaderFooterConvertable) {
-        guard let header = headerFooter as? FSCollectionTitleHeader else { return }
+        guard let header = headerFooter as? FSCollectionTitleHeaderFooter else { return }
         self.header = header
         p_reload()
         header.reloadHandler = { [weak self] h in

@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'FSCollectionKit'
-  s.version  = '1.0.5'
+  s.version  = '1.0.6'
   s.summary  = 'A data-driven UICollectionView framework.'
   s.homepage = 'https://github.com/lifution/FSCollectionKit'
   s.license  = { :type => 'MIT', :file => 'LICENSE' }
