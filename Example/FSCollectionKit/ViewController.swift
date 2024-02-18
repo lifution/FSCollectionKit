@@ -69,7 +69,7 @@ class ViewController: UIViewController {
             }
             header.updateLayout()
             
-            let footer = FSCollectionSeparatorFooter()
+            let footer = FSCollectionSeparatorHeaderFooter()
             footer.inset = .init(top: 0.0, left: 15.0, bottom: 0.0, right: 15.0)
             footer.size.height = 1.0/UIScreen.main.scale
             
@@ -118,7 +118,7 @@ class ViewController: UIViewController {
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }
                 
-                let footer = FSCollectionSeparatorFooter()
+                let footer = FSCollectionSeparatorHeaderFooter()
                 footer.inset = .init(top: 10.0, left: 15.0, bottom: 10.0, right: 15.0)
                 footer.size.height = 1.0/UIScreen.main.scale
                 

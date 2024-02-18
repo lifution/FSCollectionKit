@@ -1,5 +1,5 @@
 //
-//  FSCollectionSeparatorFooter.swift
+//  FSCollectionSeparatorHeaderFooter.swift
 //  FSCollectionKit
 //
 //  Created by Sheng on 2023/12/20.
@@ -14,7 +14,7 @@ import UIKit
 ///   改后，headerView/footerView 不会立马刷新 UI，只有当 headerView/footerView 的
 ///   `render(with headerFooter:)` 方法被调用后才会更新 UI。
 ///
-open class FSCollectionSeparatorFooter: FSCollectionHeaderFooter {
+open class FSCollectionSeparatorHeaderFooter: FSCollectionHeaderFooter {
     
     // MARK: Properties/Public
     
@@ -36,13 +36,14 @@ open class FSCollectionSeparatorFooter: FSCollectionHeaderFooter {
     public override init() {
         super.init()
         size = .init(width: 10.0, height: 10.0)
-        viewType = FSCollectionSeparatorFooterView.self
+        viewType = FSCollectionSeparatorHeaderFooterView.self
     }
 }
 
-private class FSCollectionSeparatorFooterView: UICollectionReusableView, FSCollectionHeaderFooterViewRenderable {
+
+private class FSCollectionSeparatorHeaderFooterView: UICollectionReusableView, FSCollectionHeaderFooterViewRenderable {
     
-    private var footer: FSCollectionSeparatorFooter?
+    private var footer: FSCollectionSeparatorHeaderFooter?
     
     private let separator = _FSSeparatorView()
     
@@ -132,7 +133,7 @@ private class FSCollectionSeparatorFooterView: UICollectionReusableView, FSColle
     // MARK: FSCollectionHeaderFooterViewRenderable
     
     func render(with headerFooter: FSCollectionHeaderFooterConvertable) {
-        guard let footer = headerFooter as? FSCollectionSeparatorFooter else {
+        guard let footer = headerFooter as? FSCollectionSeparatorHeaderFooter else {
             return
         }
         self.footer = footer
