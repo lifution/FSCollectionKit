@@ -57,6 +57,8 @@ open class FSCollectionTitleItem: FSCollectionItem {
     /// - Important:
     ///   * 如果需要固定 item 的高度为某个数值，则需要设置该属性为 false。
     ///   * 当该属性为 false 时，在布局时会忽略 `contentInset` 的 top 和 bottom 参数。
+    ///   * 当该属性为 true 时，所有控件都会自动垂直居中，当该属性为 false 时，所有控件
+    ///     按照 contentInset 偏移。
     ///
     public var automaticallyAdjustsHeight = true
     
@@ -309,25 +311,27 @@ open class FSCollectionTitleItem: FSCollectionItem {
         }
         do {
             // 计算高度
-            let height: CGFloat
             if automaticallyAdjustsHeight {
-                height = {
+                let contentHeight = {
                     let heights = [
                         iconFrame.height,
                         titleFrame.height,
                         subTitleFrame.height,
                         accessoryFrame.height
                     ]
-                    return (heights.max() ?? 0.0) + contentInset.inner.verticalValue()
+                    return heights.max() ?? 0.0
                 }()
+                iconFrame.origin.y = contentInset.top + _FSFlat((contentHeight - titleFrame.height) / 2)
+                titleFrame.origin.y = contentInset.top + _FSFlat((contentHeight - titleFrame.height) / 2)
+                subTitleFrame.origin.y = contentInset.top + _FSFlat((contentHeight - subTitleFrame.height) / 2)
+                accessoryFrame.origin.y = contentInset.top + _FSFlat((contentHeight - accessoryFrame.height) / 2)
+                size.height = contentHeight + contentInset.inner.verticalValue()
             } else {
-                height = size.height
+                iconFrame.origin.y = _FSFlat((size.height - iconFrame.height) / 2)
+                titleFrame.origin.y = _FSFlat((size.height - titleFrame.height) / 2)
+                subTitleFrame.origin.y = _FSFlat((size.height - subTitleFrame.height) / 2)
+                accessoryFrame.origin.y = _FSFlat((size.height - accessoryFrame.height) / 2)
             }
-            self.size.height = height
-            iconFrame.origin.y = _FSFlat((height - iconFrame.height) / 2)
-            titleFrame.origin.y = _FSFlat((height - titleFrame.height) / 2)
-            subTitleFrame.origin.y = _FSFlat((height - subTitleFrame.height) / 2)
-            accessoryFrame.origin.y = _FSFlat((height - accessoryFrame.height) / 2)
         }
         do {
             let x = separatorInset.left
