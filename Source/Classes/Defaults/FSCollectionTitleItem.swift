@@ -16,6 +16,8 @@ import UIKit
 ///   * 设置副标题
 ///   * 右边 accessory 有默认的样式：AccessoryType
 ///   * 支持外部自定义 accessory 控件。
+/// - ⚠️ FSCollectionTitleItem 内部不计算 size.width，由外部设置，而且外部在调用 `updateLayout`
+///   方法之前必须要设置一个有效的 size.width，否则将无法计算各控件的布局。
 /// - 当外部自定义了 accessory 控件之后，自带的 accessoryType 自动无效。
 /// - 该类仅适用于**垂直方向**滚动的 UICollectionView。
 /// - 当部分与 UI 相关的属性更新后（比如 containerSize、image、title、subTitle等），
@@ -43,16 +45,6 @@ open class FSCollectionTitleItem: FSCollectionItem {
     /*
      > 以下属性，凡是有所改动，都需要调用 `updateLayout()` 方法，否则不会生效。
      */
-    
-    /// 预设的 item 宽度，该数值也将作为当前 item size 的宽度。
-    ///
-    /// - FSCollectionTitleItem 内部不计算 size.width，由外部通过设置该属性来更改 size.width。
-    /// - 外部也可直接设置 size.width，在 updateLayout 时，以 size.width 为准。
-    ///
-    public var itemWidth: CGFloat {
-        get { return size.width }
-        set { size.width = newValue }
-    }
     
     /// 内容内边距。
     ///
