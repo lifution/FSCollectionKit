@@ -20,7 +20,6 @@ import UIKit
 /// - 该类仅适用于垂直方向滚动的 UICollectionView。
 /// - 当部分与 UI 相关的属性更新后（比如 containerSize、image、title、subTitle等），
 ///   需外部手动调用 `updateLayout()` 方法，内部不会自动更新。
-/// - 该类内部已默认适配了 dark mode 更新。
 /// - 不建议更改 `viewType` (即使是子类也不建议更改该属性)，该类对应的 view 做了比较多的适配，
 ///   比如 reload 监听等操作，如果更改了 `viewType` 则可能会导致部分功能异常。
 ///

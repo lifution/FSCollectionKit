@@ -20,14 +20,13 @@ import UIKit
 /// - 该类仅适用于**垂直方向**滚动的 UICollectionView。
 /// - 当部分与 UI 相关的属性更新后（比如 containerSize、image、title、subTitle等），
 ///   需外部手动调用 `updateLayout()` 方法，内部不会自动更新。
-/// - 该类内部已默认适配了 dark mode 更新。
-/// - 不建议更改 `cellType` (即使是子类也不建议更改该属性)，该类对应的 view 做了比较多的适配，
-///   比如 reload 监听等操作，如果更改了 `cellType` 则可能会导致部分功能异常。
+/// - 如果子类需要自定义 cellType 则 cellType 必须继承于 FSCollectionTitleCell，否则可能
+///   会出现 UI 不生效的问题。
 ///
 /// > 该 item 的 UI 样式如下：
-/// ┌─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-/// │-<contentInset.left>-[icon]-<iconSpacing>-[title]-<titleSpacing>-[subTitle]             [accessory]-<contentInset.right>-│
-/// └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+/// ┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+/// │-<contentInset.left>-[icon]-<iconSpacing>-[title]-<titleSpacing>-[subTitle]          [accessory]-<contentInset.right>-│
+/// └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ///
 open class FSCollectionTitleItem: FSCollectionItem {
     
@@ -45,16 +44,15 @@ open class FSCollectionTitleItem: FSCollectionItem {
      > 以下属性，凡是有所改动，都需要调用 `updateLayout()` 方法，否则不会生效。
      */
     
-    /// item 所在容器的宽度。
+    /// 预设的 item 宽度，该数值也将作为当前 item size 的宽度。
     ///
-    /// - 该 宽度 即 collection view 的 size。
-    /// - 该属性有默认的初始值：当前设备的屏幕 size。
-    /// - 如果 item 所在的 collection view 的宽度与初始值不一致，则外部必须调整该属性，否则 UI 会与预期不符。
+    /// - FSCollectionTitleItem 内部不计算 size.width，由外部通过设置该属性来更改 size.width。
+    /// - 外部也可直接设置 size.width，在 updateLayout 时，以 size.width 为准。
     ///
-    public var containerSize: CGSize = UIScreen.main.bounds.size
-    
-    /// 所在 section 的 inset。
-    public var sectionInset: UIEdgeInsets = .zero
+    public var itemWidth: CGFloat {
+        get { return size.width }
+        set { size.width = newValue }
+    }
     
     /// 内容内边距。
     ///
@@ -183,7 +181,6 @@ open class FSCollectionTitleItem: FSCollectionItem {
     ///
     open func updateLayout() {
         
-        size.width = containerSize.width - sectionInset.inner.horizontalValue()
         let layoutWidth = size.width - contentInset.inner.horizontalValue()
         
         guard layoutWidth > 0 else {
@@ -351,7 +348,7 @@ open class FSCollectionTitleItem: FSCollectionItem {
 }
 
 
-private class FSCollectionTitleCell: UICollectionViewCell, FSCollectionCellRenderable {
+open class FSCollectionTitleCell: UICollectionViewCell, FSCollectionCellRenderable {
     
     // MARK: Properties/Private
     
@@ -386,19 +383,19 @@ private class FSCollectionTitleCell: UICollectionViewCell, FSCollectionCellRende
     
     // MARK: Initialization
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
         p_didInitialize()
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         p_didInitialize()
     }
     
     // MARK: Override
     
-    override func prepareForReuse() {
+    open override func prepareForReuse() {
         super.prepareForReuse()
         iconView.isHidden = true
         accessoryDetailView.isHidden = true
@@ -419,7 +416,7 @@ private class FSCollectionTitleCell: UICollectionViewCell, FSCollectionCellRende
     
     // MARK: FSCollectionCellRenderable
     
-    func render(with item: any FSCollectionItemConvertable) {
+    open func render(with item: any FSCollectionItemConvertable) {
         guard let item = item as? FSCollectionTitleItem else { return }
         
         iconView.frame = item.iconFrame
