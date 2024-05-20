@@ -41,7 +41,7 @@ extension FSCollectionInternalWrapper where Base: NSAttributedString {
         guard let att_string = attributedString, !att_string.string.isEmpty else {
             return .zero
         }
-        let numberOfLines = max(limitedNumberOfLines, 0)
+//        let numberOfLines = max(limitedNumberOfLines, 0)
         let constraints: CGSize = {
             if let size = limitedSize, size.width > 0, size.height > 0 {
                 return .init(width: ceil(size.width), height: ceil(size.height))
