@@ -22,6 +22,7 @@ open class FSCollectionLayoutableItem: FSCollectionItem, FSCollectionItemLayouta
     
     open var separatorInset = UIEdgeInsets.zero
     open var separatorHeight = UIScreen.inner.pixelOne
+    open var separatorColor = UIColor.inner.color(hexed: "#CFCFCF") ?? .gray
     open var isSeparatorHidden = false
     
     // MARK: Initialization
@@ -110,7 +111,6 @@ open class FSCollectionLayoutableCell: UICollectionViewCell, FSCollectionCellRen
         backgroundColor = .white
         contentView.backgroundColor = .white
         separatorView.color = .inner.color(hexed: "#CFCFCF")
-        separatorView.color = .black
         separatorView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(separatorView)
         do {
@@ -163,6 +163,7 @@ open class FSCollectionLayoutableCell: UICollectionViewCell, FSCollectionCellRen
     
     open func render(with item: FSCollectionItemConvertable) {
         guard let item = item as? FSCollectionLayoutableItem else { return }
+        separatorView.color = item.separatorColor
         separatorView.isHidden = item.isSeparatorHidden
         if !item.isSeparatorHidden {
             leftConstraint.constant   = item.separatorInset.left
