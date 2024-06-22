@@ -14,23 +14,22 @@ import UIKit
 ///   * 在标题的左边设置图标
 ///   * 设置标题
 ///   * 设置副标题
+///   * 设置右边副标题
 ///   * 右边 accessory 有默认的样式：AccessoryType
 ///   * 支持外部自定义 accessory 控件。
-/// - ⚠️ FSCollectionTitleItem 内部不计算 size.width，由外部设置，而且外部在调用 `updateLayout`
-///   方法之前必须要设置一个有效的 size.width，否则将无法计算各控件的布局。
+/// - ⚠️ 外部在调用 `updateLayout` 方法之前必须要设置一个有效的 `containerSize`，否则将无法计算各控件的布局。
 /// - 当外部自定义了 accessory 控件之后，自带的 accessoryType 自动无效。
 /// - 该类仅适用于**垂直方向**滚动的 UICollectionView。
-/// - 当部分与 UI 相关的属性更新后（比如 containerSize、image、title、subTitle等），
-///   需外部手动调用 `updateLayout()` 方法，内部不会自动更新。
-/// - 如果子类需要自定义 cellType 则 cellType 必须继承于 FSCollectionTitleCell，否则可能
-///   会出现 UI 不生效的问题。
+/// - 当部分与 UI 相关的属性更新后（比如 containerSize、image、title、subTitle等），需外部手动
+///   调用 `updateLayout()` 方法，内部不会自动更新。
+/// - 如果子类需要自定义 cellType 则 cellType 必须继承于 FSCollectionTitleCell，否则可能会出现 UI 不生效的问题。
 ///
 /// > 该 item 的 UI 样式如下：
-/// ┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-/// │-<contentInset.left>-[icon]-<iconSpacing>-[title]-<titleSpacing>-[subTitle]          [accessory]-<contentInset.right>-│
-/// └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+/// ┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+/// │-<contentInset.left>-[icon]-<iconSpacing>-[title]-<titleSpacing>-[subTitle]          [detail]-<titleSpacing>-[accessory]-<contentInset.right>-│
+/// └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ///
-open class FSCollectionTitleItem: FSCollectionItem {
+open class FSCollectionTitleItem: FSCollectionItem, FSCollectionItemLayoutable {
     
     /// 右边附件类型。
     public enum AccessoryType {
@@ -40,17 +39,35 @@ open class FSCollectionTitleItem: FSCollectionItem {
         case detail
     }
     
-    // MARK: Properties/Public/UI
-    
     /*
-     > 以下属性，凡是有所改动，都需要调用 `updateLayout()` 方法，否则不会生效。
+     > 以下属性，凡是有所改动，都需要调用 `updateLayout()` 方法，否则布局不会更新。
      */
     
-    /// 内容内边距。
+    // MARK: Properties/FSCollectionItemLayoutable
+    
+    /// item 所在 section 的 inset，由外部赋值，默认为 `.zero`。
     ///
-    /// - 当 `automaticallyAdjustsHeight` 为 false 时，则会忽略该属性的 top 和 bottom 参数。
+    /// - Note:
+    ///   * 设置该属性不会自动调用 `updateLayout()` 方法，更新时机由外部控制。
     ///
-    public var contentInset: UIEdgeInsets = .init(top: 12.0, left: 16.0, bottom: 12.0, right: 16.0)
+    open var sectionInset: UIEdgeInsets = .zero
+    
+    /// item 内容四边边距，由外部赋值，默认为 `.zero`。
+    ///
+    /// - Note:
+    ///   * 设置该属性不会自动调用 `updateLayout()` 方法，更新时机由外部控制。
+    ///   * 当 `automaticallyAdjustsHeight` 为 false 时，则会忽略该属性的 top 和 bottom 参数。
+    ///
+    open var contentInset: UIEdgeInsets = .init(top: 12.0, left: 16.0, bottom: 12.0, right: 16.0)
+    
+    /// item 所在 UICollectionView 的 size，由外部赋值，默认为 `.zero`。
+    ///
+    /// - Note:
+    ///   * 设置该属性不会自动调用 `updateLayout()` 方法，更新时机由外部控制。
+    ///
+    open var containerSize: CGSize = .zero
+    
+    // MARK: Properties/Public
     
     /// 是否自动计算 item 高度，默认为 true。
     ///
@@ -74,6 +91,12 @@ open class FSCollectionTitleItem: FSCollectionItem {
     ///
     public var titleSpacing: CGFloat = 5.0
     
+    /// detail 和 accessory 之间的距离。
+    ///
+    /// - 如果 detail / accessory 不存在，则该属性无效。
+    ///
+    public var detailSpacing: CGFloat = 5.0
+    
     /// 标题左边的图标
     public var icon: UIImage?
     
@@ -94,6 +117,15 @@ open class FSCollectionTitleItem: FSCollectionItem {
     
     /// 副标题文本颜色
     public var subTitleColor: UIColor? = .gray
+    
+    /// 右边 detail 标题
+    public var detail: String?
+    
+    /// 右边 detail 标题字体
+    public var detailFont: UIFont? = .systemFont(ofSize: 14.0)
+    
+    /// 右边 detail 标题文本颜色
+    public var detailColor: UIColor? = .black
     
     /// 右边附件类型，默认为 `.none`。
     ///
@@ -142,6 +174,7 @@ open class FSCollectionTitleItem: FSCollectionItem {
     fileprivate private(set) var iconFrame: CGRect = .zero
     fileprivate private(set) var titleFrame: CGRect = .zero
     fileprivate private(set) var subTitleFrame: CGRect = .zero
+    fileprivate private(set) var detailFrame: CGRect = .zero
     /// 该属性既可以表示自定义 accessoryView 的 frame，也可表示默认的
     /// accessoryView 的 frame，自定义和默认的 accessoryView 有且只有
     /// 一个会生效，因此用一个 accessoryFrame 表示即可。
@@ -150,12 +183,14 @@ open class FSCollectionTitleItem: FSCollectionItem {
     
     fileprivate private(set) var titleText: NSAttributedString?
     fileprivate private(set) var subTitleText: NSAttributedString?
+    fileprivate private(set) var detailText: NSAttributedString?
     
     fileprivate private(set) var r_accessoryDetailIcon: UIImage?
     
     fileprivate private(set) var isIconHidden = true
     fileprivate private(set) var isTitleHidden = true
     fileprivate private(set) var isSubTitleHidden = true
+    fileprivate private(set) var isDetailHidden = true
     fileprivate private(set) var isAccessoryHidden = true
     fileprivate private(set) var isAccessoryDetailHidden = true
     
@@ -167,7 +202,7 @@ open class FSCollectionTitleItem: FSCollectionItem {
         cellType = FSCollectionTitleCell.self
     }
     
-    // MARK: Open
+    // MARK: Properties/FSCollectionItemLayoutable
     
     /// 更新布局。
     ///
@@ -175,28 +210,33 @@ open class FSCollectionTitleItem: FSCollectionItem {
     ///
     open func updateLayout() {
         
+        size.width = containerSize.width - sectionInset.inner.horizontalValue()
         let layoutWidth = size.width - contentInset.inner.horizontalValue()
         
         guard layoutWidth > 0 else {
             iconFrame = .zero
             titleFrame = .zero
             subTitleFrame = .zero
+            detailFrame = .zero
             accessoryFrame = .zero
             separatorFrame = .zero
             titleText = nil
             subTitleText = nil
+            detailText = nil
             r_accessoryDetailIcon = nil
             isIconHidden = true
             isTitleHidden = true
             isSubTitleHidden = true
+            isDetailHidden = true
             isAccessoryHidden = true
             isAccessoryDetailHidden = true
             return
         }
         
         isIconHidden = icon == nil
-        isTitleHidden = title?.isEmpty ?? true
-        isSubTitleHidden = subTitle?.isEmpty ?? true
+        isTitleHidden = (title?.isEmpty ?? true) || (titleColor == nil)
+        isSubTitleHidden = (subTitle?.isEmpty ?? true) || (subTitleColor == nil)
+        isDetailHidden = (detail?.isEmpty ?? true) || (detailColor == nil)
         isAccessoryHidden = accessoryView == nil && accessoryType == .none
         
         do {
@@ -245,37 +285,58 @@ open class FSCollectionTitleItem: FSCollectionItem {
             accessoryFrame.size = size
             accessoryFrame.origin.x = self.size.width - contentInset.right - size.width
         }
+        // detail
+        do {
+            detailText = nil
+            detailFrame = .zero
+            let x: CGFloat
+            let size: CGSize
+            if !isDetailHidden, let text = detail {
+                let spacing = isAccessoryHidden ? 0.0 : detailSpacing
+                let maxLayoutWidth = accessoryFrame.minX - spacing - layoutWidth / 2
+                let attr_text = NSAttributedString.inner.attributedString(string: text, font: detailFont, color: detailColor)
+                detailText = attr_text
+                size = attr_text.inner.size(limitedWidth: maxLayoutWidth)
+                x = accessoryFrame.minX - spacing - size.width
+            } else {
+                x = accessoryFrame.minX
+                size = .zero
+            }
+            detailFrame.size = size
+            detailFrame.origin.x = x
+        }
         // title
         do {
             titleText = nil
             titleFrame = .zero
-            let x: CGFloat
+            let x: CGFloat = {
+                if isIconHidden {
+                    return contentInset.left
+                }
+                return iconFrame.maxX + iconSpacing
+            }()
             let size: CGSize
             if let text = title, !text.isEmpty {
-                x = {
-                    if isIconHidden {
-                        return contentInset.left
-                    }
-                    return iconFrame.maxX + iconSpacing
-                }()
-                let color = titleColor
-                let maxLayoutWidth = accessoryFrame.minX - x - {
+                let maxLayoutWidth = detailFrame.minX - x - {
                     var spacing: CGFloat = 0.0
-                    if !isAccessoryHidden {
+                    if !isDetailHidden {
+                        spacing += 5.0
+                    } else if !isAccessoryHidden {
                         // accessory left spacing
-                        spacing += 10.0
+                        spacing += 5.0
                     }
                     if !isSubTitleHidden {
                         // 预留给 subTitle 的空间
-                        spacing += 50.0 + titleSpacing
+                        let attr_text = NSAttributedString.inner.attributedString(string: subTitle ?? "", font: subTitleFont)
+                        let size = attr_text.inner.size(limitedWidth: 1000.0)
+                        spacing += min(size.width, 50.0) + titleSpacing
                     }
                     return spacing
                 }()
-                let attr_text = NSAttributedString.inner.attributedString(string: text, font: titleFont, color: color)
+                let attr_text = NSAttributedString.inner.attributedString(string: text, font: titleFont, color: titleColor)
                 titleText = attr_text
                 size = attr_text.inner.size(limitedWidth: maxLayoutWidth)
             } else {
-                x = 0.0
                 size = .zero
             }
             titleFrame.size = size
@@ -285,25 +346,31 @@ open class FSCollectionTitleItem: FSCollectionItem {
         do {
             subTitleText = nil
             subTitleFrame = .zero
-            let x: CGFloat
+            let x: CGFloat = {
+                if !isTitleHidden {
+                    return titleFrame.maxX + titleSpacing
+                }
+                if !isIconHidden {
+                    return iconFrame.maxX + iconSpacing
+                }
+                return contentInset.left
+            }()
             let size: CGSize
             if let text = subTitle, !text.isEmpty {
-                x = {
-                    if !isTitleHidden {
-                        return titleFrame.maxX + titleSpacing
+                let maxLayoutWidth = detailFrame.minX - x - {
+                    var spacing: CGFloat = 0.0
+                    if !isDetailHidden {
+                        spacing += 5.0
+                    } else if !isAccessoryHidden {
+                        // accessory left spacing
+                        spacing += 5.0
                     }
-                    if !isIconHidden {
-                        return iconFrame.maxX + iconSpacing
-                    }
-                    return contentInset.left
+                    return spacing
                 }()
-                let color = subTitleColor
-                let maxLayoutWidth = accessoryFrame.minX - x - (isAccessoryHidden ? 0.0 : 10.0/*accessory left spacing*/)
-                let attr_text = NSAttributedString.inner.attributedString(string: text, font: subTitleFont, color: color)
+                let attr_text = NSAttributedString.inner.attributedString(string: text, font: subTitleFont, color: subTitleColor)
                 subTitleText = attr_text
                 size = attr_text.inner.size(limitedWidth: maxLayoutWidth)
             } else {
-                x = 0.0
                 size = .zero
             }
             subTitleFrame.size = size
@@ -312,26 +379,20 @@ open class FSCollectionTitleItem: FSCollectionItem {
         do {
             // 计算高度
             if automaticallyAdjustsHeight {
-                let contentHeight = {
-                    let heights = [
-                        iconFrame.height,
-                        titleFrame.height,
-                        subTitleFrame.height,
-                        accessoryFrame.height
-                    ]
-                    return heights.max() ?? 0.0
-                }()
-                iconFrame.origin.y = contentInset.top + _FSFlat((contentHeight - titleFrame.height) / 2)
-                titleFrame.origin.y = contentInset.top + _FSFlat((contentHeight - titleFrame.height) / 2)
-                subTitleFrame.origin.y = contentInset.top + _FSFlat((contentHeight - subTitleFrame.height) / 2)
-                accessoryFrame.origin.y = contentInset.top + _FSFlat((contentHeight - accessoryFrame.height) / 2)
+                let contentHeight = [
+                    iconFrame.height,
+                    titleFrame.height,
+                    subTitleFrame.height,
+                    detailFrame.height,
+                    accessoryFrame.height
+                ].max() ?? 0.0
                 size.height = contentHeight + contentInset.inner.verticalValue()
-            } else {
-                iconFrame.origin.y = _FSFlat((size.height - iconFrame.height) / 2)
-                titleFrame.origin.y = _FSFlat((size.height - titleFrame.height) / 2)
-                subTitleFrame.origin.y = _FSFlat((size.height - subTitleFrame.height) / 2)
-                accessoryFrame.origin.y = _FSFlat((size.height - accessoryFrame.height) / 2)
             }
+            iconFrame.origin.y = _FSFloorFlat((size.height - iconFrame.height) / 2)
+            titleFrame.origin.y = _FSFloorFlat((size.height - titleFrame.height) / 2)
+            subTitleFrame.origin.y = _FSFloorFlat((size.height - subTitleFrame.height) / 2)
+            detailFrame.origin.y = _FSFloorFlat((size.height - detailFrame.height) / 2)
+            accessoryFrame.origin.y = _FSFloorFlat((size.height - accessoryFrame.height) / 2)
         }
         do {
             let x = separatorInset.left
@@ -340,6 +401,13 @@ open class FSCollectionTitleItem: FSCollectionItem {
             let y = size.height - h
             separatorFrame = .init(x: x, y: y, width: w, height: h)
         }
+    }
+    
+    // MARK: Open
+    
+    /// 渲染自定义的 accessory view，如果没有自定义，则不会回调该方法。
+    open func renderAccessoryView() {
+        
     }
 }
 
@@ -358,12 +426,22 @@ open class FSCollectionTitleCell: UICollectionViewCell, FSCollectionCellRenderab
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.isHidden = true
+        label.numberOfLines = 0
         return label
     }()
     
     private let subTitleLabel: UILabel = {
         let label = UILabel()
         label.isHidden = true
+        label.numberOfLines = 0
+        return label
+    }()
+    
+    private let detailLabel: UILabel = {
+        let label = UILabel()
+        label.isHidden = true
+        label.numberOfLines = 0
+        label.textAlignment = .right
         return label
     }()
     
@@ -391,6 +469,11 @@ open class FSCollectionTitleCell: UICollectionViewCell, FSCollectionCellRenderab
     
     // MARK: Override
     
+    open override func layoutSubviews() {
+        super.layoutSubviews()
+        contentView.bringSubviewToFront(separatorView)
+    }
+    
     open override func prepareForReuse() {
         super.prepareForReuse()
         iconView.isHidden = true
@@ -403,11 +486,12 @@ open class FSCollectionTitleCell: UICollectionViewCell, FSCollectionCellRenderab
     
     /// Invoked after initialization.
     private func p_didInitialize() {
-        addSubview(iconView)
-        addSubview(titleLabel)
-        addSubview(subTitleLabel)
-        addSubview(accessoryDetailView)
-        addSubview(separatorView)
+        contentView.addSubview(iconView)
+        contentView.addSubview(titleLabel)
+        contentView.addSubview(subTitleLabel)
+        contentView.addSubview(detailLabel)
+        contentView.addSubview(accessoryDetailView)
+        contentView.addSubview(separatorView)
     }
     
     // MARK: FSCollectionCellRenderable
@@ -418,33 +502,29 @@ open class FSCollectionTitleCell: UICollectionViewCell, FSCollectionCellRenderab
         iconView.frame = item.iconFrame
         titleLabel.frame = item.titleFrame
         subTitleLabel.frame = item.subTitleFrame
+        detailLabel.frame = item.detailFrame
         accessoryDetailView.frame = item.accessoryFrame
         separatorView.frame = item.separatorFrame
         
         iconView.isHidden = item.isIconHidden
         titleLabel.isHidden = item.isTitleHidden
         subTitleLabel.isHidden = item.isSubTitleHidden
+        detailLabel.isHidden = item.isDetailHidden
         accessoryDetailView.isHidden = item.isAccessoryDetailHidden
         separatorView.isHidden = item.isSeparatorHidden
         
+        iconView.image = item.icon
+        titleLabel.attributedText = item.titleText
+        subTitleLabel.attributedText = item.subTitleText
+        detailLabel.attributedText = item.detailText
+        accessoryDetailView.image = item.r_accessoryDetailIcon
         separatorView.color = item.separatorColor
         
-        if !item.isIconHidden {
-            iconView.image = item.icon
-        }
-        if !item.isTitleHidden {
-            titleLabel.attributedText = item.titleText
-        }
-        if !item.isSubTitleHidden {
-            subTitleLabel.attributedText = item.subTitleText
-        }
-        if !item.isAccessoryDetailHidden {
-            accessoryDetailView.image = item.r_accessoryDetailIcon
-        }
         if let view = item.accessoryView {
             view.frame = item.accessoryFrame
             addSubview(view)
             accessoryView = view
+            item.renderAccessoryView()
         }
     }
 }

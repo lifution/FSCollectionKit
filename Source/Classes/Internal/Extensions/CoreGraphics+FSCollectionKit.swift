@@ -21,6 +21,19 @@ func _FSFlat<T: FloatingPoint>(_ x: T) -> T {
     return flattedValue
 }
 
+func _FSFloorFlat<T: FloatingPoint>(_ x: T) -> T {
+    guard
+        x != T.leastNormalMagnitude,
+        x != T.leastNonzeroMagnitude,
+        x != T.greatestFiniteMagnitude
+    else {
+        return x
+    }
+    let scale: T = T(Int(UIScreen.main.scale))
+    let flattedValue = floor(x * scale) / scale
+    return flattedValue
+}
+
 extension FSCollectionInternalWrapper where Base == CGRect {
     
     var flattedValue: CGRect {
