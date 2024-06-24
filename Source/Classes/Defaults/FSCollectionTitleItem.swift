@@ -522,7 +522,7 @@ open class FSCollectionTitleCell: UICollectionViewCell, FSCollectionCellRenderab
         
         if let view = item.accessoryView {
             view.frame = item.accessoryFrame
-            addSubview(view)
+            contentView.addSubview(view)
             accessoryView = view
             item.renderAccessoryView()
         }
