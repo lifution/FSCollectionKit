@@ -137,27 +137,6 @@ open class FSCollectionTitleItem: FSCollectionItem, FSCollectionItemLayoutable {
     /// accessoryType 为 `.detail` 时显示的图标，默认为一个箭头的图标。
     public var accessoryDetailIcon: UIImage? = .inner.image(named: "icon_accessory_detail")
     
-    /// 自定义右边附件视图，当 FSCollectionTitleItem.AccessoryType 无法满足需求时，
-    /// 可使用该属性自定义视图。
-    ///
-    /// - Note:
-    ///   * 当该属性不为 nil 时，accessoryType 无效。
-    ///   * 当外部需要实现该属性时，则**必须**设置属性 `accessoryViewSize`，否则该自定义的
-    ///     视图的 frame 会默认为 `.zero`。
-    ///
-    public var accessoryView: UIView?
-    
-    /// 自定义的 accessoryView 的 size，默认为 `.zero`。
-    ///
-    /// - 如果外部定义了 accessoryView，则必须调整 accessoryViewSize 为
-    ///   自定义 accessoryView 的 size，否则 accessoryView 的 size 默认为 `.zero`。
-    /// - FSCollectionTitleItem 的所有控件都是默认垂直居中的，因此外部只需要
-    ///   为自定义 accessoryView 设置 size 即可。
-    /// - 如果更复杂的 accessoryView 需求，则不建议继续使用 FSCollectionTitleItem，
-    ///   建议另外创建自定义的 FSCollectionItem。
-    ///
-    public var accessoryViewSize: CGSize = .zero
-    
     /// 是否隐藏底部分割线，默认为 true。
     public var isSeparatorHidden = true
     
@@ -184,8 +163,6 @@ open class FSCollectionTitleItem: FSCollectionItem, FSCollectionItemLayoutable {
     fileprivate private(set) var titleText: NSAttributedString?
     fileprivate private(set) var subTitleText: NSAttributedString?
     fileprivate private(set) var detailText: NSAttributedString?
-    
-    fileprivate private(set) var r_accessoryDetailIcon: UIImage?
     
     fileprivate private(set) var isIconHidden = true
     fileprivate private(set) var isTitleHidden = true
@@ -223,7 +200,6 @@ open class FSCollectionTitleItem: FSCollectionItem, FSCollectionItemLayoutable {
             titleText = nil
             subTitleText = nil
             detailText = nil
-            r_accessoryDetailIcon = nil
             isIconHidden = true
             isTitleHidden = true
             isSubTitleHidden = true
@@ -237,21 +213,9 @@ open class FSCollectionTitleItem: FSCollectionItem, FSCollectionItemLayoutable {
         isTitleHidden = (title?.isEmpty ?? true) || (titleColor == nil)
         isSubTitleHidden = (subTitle?.isEmpty ?? true) || (subTitleColor == nil)
         isDetailHidden = (detail?.isEmpty ?? true) || (detailColor == nil)
-        isAccessoryHidden = accessoryView == nil && accessoryType == .none
+        isAccessoryHidden = accessoryType == .none
+        isAccessoryDetailHidden = accessoryType != .detail
         
-        do {
-            r_accessoryDetailIcon = nil
-            isAccessoryDetailHidden = {
-                if let _ = accessoryView {
-                    return true
-                }
-                if accessoryType == .detail {
-                    r_accessoryDetailIcon = accessoryDetailIcon
-                    return false
-                }
-                return true
-            }()
-        }
         // icon
         do {
             iconFrame = .zero
@@ -272,14 +236,10 @@ open class FSCollectionTitleItem: FSCollectionItem, FSCollectionItemLayoutable {
             if isAccessoryHidden {
                 size = .zero
             } else {
-                if let _ = accessoryView {
-                    size = accessoryViewSize
+                if !isAccessoryDetailHidden {
+                    size = accessoryDetailIcon?.size ?? .zero
                 } else {
-                    if !isAccessoryDetailHidden {
-                        size = r_accessoryDetailIcon?.size ?? .zero
-                    } else {
-                        size = .zero
-                    }
+                    size = .zero
                 }
             }
             accessoryFrame.size = size
@@ -402,13 +362,6 @@ open class FSCollectionTitleItem: FSCollectionItem, FSCollectionItemLayoutable {
             separatorFrame = .init(x: x, y: y, width: w, height: h)
         }
     }
-    
-    // MARK: Open
-    
-    /// 渲染自定义的 accessory view，如果没有自定义，则不会回调该方法。
-    open func renderAccessoryView() {
-        
-    }
 }
 
 
@@ -476,12 +429,21 @@ open class FSCollectionTitleCell: UICollectionViewCell, FSCollectionCellRenderab
     
     /// Invoked after initialization.
     private func p_didInitialize() {
+        defer {
+            didInitialize()
+        }
         contentView.addSubview(iconView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(subTitleLabel)
         contentView.addSubview(detailLabel)
         contentView.addSubview(accessoryDetailView)
         contentView.addSubview(separatorView)
+    }
+    
+    // MARK: Open
+    
+    open func didInitialize() {
+        
     }
     
     // MARK: FSCollectionCellRenderable
@@ -507,14 +469,7 @@ open class FSCollectionTitleCell: UICollectionViewCell, FSCollectionCellRenderab
         titleLabel.attributedText = item.titleText
         subTitleLabel.attributedText = item.subTitleText
         detailLabel.attributedText = item.detailText
-        accessoryDetailView.image = item.r_accessoryDetailIcon
+        accessoryDetailView.image = item.accessoryDetailIcon
         separatorView.color = item.separatorColor
-        
-        if let view = item.accessoryView {
-            view.frame = item.accessoryFrame
-            view.removeFromSuperview()
-            contentView.addSubview(view)
-            item.renderAccessoryView()
-        }
     }
 }
