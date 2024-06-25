@@ -453,8 +453,6 @@ open class FSCollectionTitleCell: UICollectionViewCell, FSCollectionCellRenderab
     
     private let separatorView = _FSSeparatorView()
     
-    private weak var accessoryView: UIView?
-    
     // MARK: Initialization
     
     public override init(frame: CGRect) {
@@ -472,14 +470,6 @@ open class FSCollectionTitleCell: UICollectionViewCell, FSCollectionCellRenderab
     open override func layoutSubviews() {
         super.layoutSubviews()
         contentView.bringSubviewToFront(separatorView)
-    }
-    
-    open override func prepareForReuse() {
-        super.prepareForReuse()
-        iconView.isHidden = true
-        accessoryDetailView.isHidden = true
-        accessoryView?.removeFromSuperview()
-        accessoryView = nil
     }
     
     // MARK: Private
@@ -522,8 +512,8 @@ open class FSCollectionTitleCell: UICollectionViewCell, FSCollectionCellRenderab
         
         if let view = item.accessoryView {
             view.frame = item.accessoryFrame
+            view.removeFromSuperview()
             contentView.addSubview(view)
-            accessoryView = view
             item.renderAccessoryView()
         }
     }
