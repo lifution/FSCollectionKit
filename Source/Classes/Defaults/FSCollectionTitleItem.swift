@@ -254,7 +254,10 @@ open class FSCollectionTitleItem: FSCollectionItem, FSCollectionItemLayoutable {
             if !isDetailHidden, let text = detail {
                 let spacing = isAccessoryHidden ? 0.0 : detailSpacing
                 let maxLayoutWidth = accessoryFrame.minX - spacing - layoutWidth / 2
-                let attr_text = NSAttributedString.inner.attributedString(string: text, font: detailFont, color: detailColor)
+                let attr_text = NSAttributedString.inner.attributedString(string: text,
+                                                                          font: detailFont,
+                                                                          color: detailColor,
+                                                                          textAlignment: .right)
                 detailText = attr_text
                 size = attr_text.inner.size(limitedWidth: maxLayoutWidth)
                 x = accessoryFrame.minX - spacing - size.width
@@ -394,7 +397,6 @@ open class FSCollectionTitleCell: UICollectionViewCell, FSCollectionCellRenderab
         let label = UILabel()
         label.isHidden = true
         label.numberOfLines = 0
-        label.textAlignment = .right
         return label
     }()
     
