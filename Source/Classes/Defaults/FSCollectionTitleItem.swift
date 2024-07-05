@@ -29,7 +29,7 @@ import UIKit
 /// │-<contentInset.left>-[icon]-<iconSpacing>-[title]-<titleSpacing>-[subTitle]          [detail]-<titleSpacing>-[accessory]-<contentInset.right>-│
 /// └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ///
-open class FSCollectionTitleItem: FSCollectionItem, FSCollectionItemLayoutable {
+open class FSCollectionTitleItem: FSCollectionLayoutableItem {
     
     /// 右边附件类型。
     public enum AccessoryType {
@@ -42,30 +42,6 @@ open class FSCollectionTitleItem: FSCollectionItem, FSCollectionItemLayoutable {
     /*
      > 以下属性，凡是有所改动，都需要调用 `updateLayout()` 方法，否则布局不会更新。
      */
-    
-    // MARK: Properties/FSCollectionItemLayoutable
-    
-    /// item 所在 section 的 inset，由外部赋值，默认为 `.zero`。
-    ///
-    /// - Note:
-    ///   * 设置该属性不会自动调用 `updateLayout()` 方法，更新时机由外部控制。
-    ///
-    open var sectionInset: UIEdgeInsets = .zero
-    
-    /// item 内容四边边距，由外部赋值，默认为 `.zero`。
-    ///
-    /// - Note:
-    ///   * 设置该属性不会自动调用 `updateLayout()` 方法，更新时机由外部控制。
-    ///   * 当 `automaticallyAdjustsHeight` 为 false 时，则会忽略该属性的 top 和 bottom 参数。
-    ///
-    open var contentInset: UIEdgeInsets = .init(top: 12.0, left: 16.0, bottom: 12.0, right: 16.0)
-    
-    /// item 所在 UICollectionView 的 size，由外部赋值，默认为 `.zero`。
-    ///
-    /// - Note:
-    ///   * 设置该属性不会自动调用 `updateLayout()` 方法，更新时机由外部控制。
-    ///
-    open var containerSize: CGSize = .zero
     
     // MARK: Properties/Public
     
@@ -137,17 +113,6 @@ open class FSCollectionTitleItem: FSCollectionItem, FSCollectionItemLayoutable {
     /// accessoryType 为 `.detail` 时显示的图标，默认为一个箭头的图标。
     public var accessoryDetailIcon: UIImage? = .inner.image(named: "icon_accessory_detail")
     
-    /// 是否隐藏底部分割线，默认为 true。
-    public var isSeparatorHidden = true
-    
-    /// 底部分割线颜色
-    public var separatorColor = UIColor(red: 0.90, green: 0.90, blue: 0.90, alpha: 1.00)
-    
-    /// 底部分割线缩进
-    public var separatorInset: UIEdgeInsets = .zero
-    
-    public var separatorHeight: CGFloat = 1 / UIScreen.main.scale
-    
     // MARK: Properties/Fileprivate
     
     fileprivate private(set) var iconFrame: CGRect = .zero
@@ -179,13 +144,14 @@ open class FSCollectionTitleItem: FSCollectionItem, FSCollectionItemLayoutable {
         cellType = FSCollectionTitleCell.self
     }
     
-    // MARK: Properties/FSCollectionItemLayoutable
+    // MARK: Override
     
     /// 更新布局。
     ///
     /// - 当修改了与 UI 相关的属性后，必须调用该方法，否则改动不会生效。
     ///
-    open func updateLayout() {
+    open override func updateLayout() {
+        super.updateLayout()
         
         size.width = containerSize.width - sectionInset.inner.horizontalValue()
         let layoutWidth = size.width - contentInset.inner.horizontalValue()
@@ -368,7 +334,7 @@ open class FSCollectionTitleItem: FSCollectionItem, FSCollectionItemLayoutable {
 }
 
 
-open class FSCollectionTitleCell: UICollectionViewCell, FSCollectionCellRenderable {
+open class FSCollectionTitleCell: FSCollectionLayoutableCell {
     
     // MARK: Properties/Private
     
@@ -406,51 +372,19 @@ open class FSCollectionTitleCell: UICollectionViewCell, FSCollectionCellRenderab
         return view
     }()
     
-    private let separatorView = _FSSeparatorView()
-    
-    // MARK: Initialization
-    
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        p_didInitialize()
-    }
-    
-    required public init?(coder: NSCoder) {
-        super.init(coder: coder)
-        p_didInitialize()
-    }
-    
     // MARK: Override
     
-    open override func layoutSubviews() {
-        super.layoutSubviews()
-        contentView.bringSubviewToFront(separatorView)
-    }
-    
-    // MARK: Private
-    
-    /// Invoked after initialization.
-    private func p_didInitialize() {
-        defer {
-            didInitialize()
-        }
+    open override func didInitialize() {
+        super.didInitialize()
         contentView.addSubview(iconView)
         contentView.addSubview(titleLabel)
         contentView.addSubview(subTitleLabel)
         contentView.addSubview(detailLabel)
         contentView.addSubview(accessoryDetailView)
-        contentView.addSubview(separatorView)
     }
     
-    // MARK: Open
-    
-    open func didInitialize() {
-        
-    }
-    
-    // MARK: FSCollectionCellRenderable
-    
-    open func render(with item: any FSCollectionItemConvertable) {
+    open override func render(with item: FSCollectionItemConvertable) {
+        super.render(with: item)
         guard let item = item as? FSCollectionTitleItem else { return }
         
         iconView.frame = item.iconFrame
@@ -458,20 +392,17 @@ open class FSCollectionTitleCell: UICollectionViewCell, FSCollectionCellRenderab
         subTitleLabel.frame = item.subTitleFrame
         detailLabel.frame = item.detailFrame
         accessoryDetailView.frame = item.accessoryFrame
-        separatorView.frame = item.separatorFrame
         
         iconView.isHidden = item.isIconHidden
         titleLabel.isHidden = item.isTitleHidden
         subTitleLabel.isHidden = item.isSubTitleHidden
         detailLabel.isHidden = item.isDetailHidden
         accessoryDetailView.isHidden = item.isAccessoryDetailHidden
-        separatorView.isHidden = item.isSeparatorHidden
         
         iconView.image = item.icon
         titleLabel.attributedText = item.titleText
         subTitleLabel.attributedText = item.subTitleText
         detailLabel.attributedText = item.detailText
         accessoryDetailView.image = item.accessoryDetailIcon
-        separatorView.color = item.separatorColor
     }
 }
