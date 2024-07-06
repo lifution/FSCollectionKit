@@ -1,74 +1,62 @@
 //
-//  FSCollectionLayoutableItem.swift
+//  FSCollectionLayoutableHeaderFooter.swift
 //  FSCollectionKit
 //
-//  Created by VincentLee on 2024/6/15.
+//  Created by VincentLee on 2024/7/6.
 //  Copyright © 2024 VincentLee. All rights reserved.
 //
 
 import UIKit
 
-/// layoutable 通用 item 基类。
-/// 该类用于垂直方向下的 item。
-/// 该类的子类的 cell 必须继承于 FSCollectionLayoutableCell。
-open class FSCollectionLayoutableItem: FSCollectionItem, FSCollectionItemLayoutable {
+/// layoutable 通用 header/footer 基类。
+/// 该类用于垂直方向下的 header/footer。
+/// 该类的子类的 view 必须继承于 FSCollectionLayoutableHeaderFooterView。
+open class FSCollectionLayoutableHeaderFooter: FSCollectionHeaderFooter, FSCollectionContentLayoutable {
     
     // MARK: Properties/Internal
-    
-    /// 是否是作为静态展示（不响应交互）
-    /// 该属性只是方便外部标记，并不是真的禁用了 item 的 selection 响应。
-    /// 默认为 false。
-    open var isStatic = false
     
     open var separatorInset = UIEdgeInsets.zero
     open var separatorHeight = UIScreen.inner.pixelOne
     open var separatorColor = UIColor.inner.color(hexed: "#CFCFCF") ?? .gray
-    open var isSeparatorHidden = false
+    open var isSeparatorHidden = true
     
     // MARK: Initialization
     
     public override init() {
         super.init()
-        cellType = FSCollectionLayoutableCell.self
+        viewType = FSCollectionLayoutableHeaderFooterView.self
     }
     
-    // MARK: FSCollectionItemLayoutable
+    // MARK: FSCollectionContentLayoutable
     
-    /// item 所在 section 的 inset，由外部赋值，默认为 `.zero`。
-    ///
-    /// - Note:
-    ///   * 设置该属性不会自动调用 `updateLayout()` 方法，更新时机由外部控制。
-    ///
-    open var sectionInset: UIEdgeInsets = .zero
-    
-    /// item 内容四边边距，由外部赋值，默认为 `.zero`。
+    /// header/footer 内容四边边距，由外部赋值，默认为 `.zero`。
     ///
     /// - Note:
     ///   * 设置该属性不会自动调用 `updateLayout()` 方法，更新时机由外部控制。
     ///
     open var contentInset: UIEdgeInsets = .zero
     
-    /// item 所在 UICollectionView 的 size，由外部赋值，默认为 `.zero`。
+    /// header/footer 所在 UICollectionView 的 size，由外部赋值，默认为 `.zero`。
     ///
     /// - Note:
     ///   * 设置该属性不会自动调用 `updateLayout()` 方法，更新时机由外部控制。
     ///
     open var containerSize: CGSize = .zero
     
-    /// 更新 item，比如 item 的 size、布局信息等。
+    /// 更新 header/footer 的 size、布局信息等。
     ///
     /// - 基类虽然已经默认计算了 `size.width`，但子类可根据自身情况重新设定 `size.width`。
     /// - 基类默认实现为:
     ///   ```
-    ///   size.width = floor(containerSize.width - sectionInset.fs.horizontalValue())
+    ///   size.width = containerSize.width
     ///   ```
     ///
     open func updateLayout() {
-        size.width = floor(containerSize.width - sectionInset.inner.horizontalValue())
+        size.width = containerSize.width
     }
 }
 
-open class FSCollectionLayoutableCell: UICollectionViewCell, FSCollectionCellRenderable {
+open class FSCollectionLayoutableHeaderFooterView: UICollectionReusableView, FSCollectionHeaderFooterViewRenderable {
     
     // MARK: Properties/Private
     
@@ -95,7 +83,7 @@ open class FSCollectionLayoutableCell: UICollectionViewCell, FSCollectionCellRen
     
     open override func layoutSubviews() {
         super.layoutSubviews()
-        contentView.bringSubviewToFront(separatorView)
+        bringSubviewToFront(separatorView)
     }
     
     // MARK: Open
@@ -109,42 +97,40 @@ open class FSCollectionLayoutableCell: UICollectionViewCell, FSCollectionCellRen
             didInitialize()
         }
         backgroundColor = .white
-        contentView.backgroundColor = .white
-        separatorView.color = .inner.color(hexed: "#CFCFCF")
         separatorView.translatesAutoresizingMaskIntoConstraints = false
-        contentView.addSubview(separatorView)
+        addSubview(separatorView)
         do {
             let constraint = NSLayoutConstraint(item: separatorView,
                                                 attribute: .left,
                                                 relatedBy: .equal,
-                                                toItem: contentView,
+                                                toItem: self,
                                                 attribute: .left,
                                                 multiplier: 1.0,
                                                 constant: 0.0)
             leftConstraint = constraint
-            contentView.addConstraint(constraint)
+            addConstraint(constraint)
         }
         do {
             let constraint = NSLayoutConstraint(item: separatorView,
                                                 attribute: .bottom,
                                                 relatedBy: .equal,
-                                                toItem: contentView,
+                                                toItem: self,
                                                 attribute: .bottom,
                                                 multiplier: 1.0,
                                                 constant: 0.0)
             bottomConstraint = constraint
-            contentView.addConstraint(constraint)
+            addConstraint(constraint)
         }
         do {
             let constraint = NSLayoutConstraint(item: separatorView,
                                                 attribute: .right,
                                                 relatedBy: .equal,
-                                                toItem: contentView,
+                                                toItem: self,
                                                 attribute: .right,
                                                 multiplier: 1.0,
                                                 constant: 0.0)
             rightConstraint = constraint
-            contentView.addConstraint(constraint)
+            addConstraint(constraint)
         }
         do {
             let constraint = NSLayoutConstraint(item: separatorView,
@@ -155,21 +141,21 @@ open class FSCollectionLayoutableCell: UICollectionViewCell, FSCollectionCellRen
                                                 multiplier: 1.0,
                                                 constant: 1.0)
             heightConstraint = constraint
-            contentView.addConstraint(constraint)
+            addConstraint(constraint)
         }
     }
     
-    // MARK: FSCollectionCellRenderable
+    // MARK: FSCollectionHeaderFooterViewRenderable
     
-    open func render(with item: FSCollectionItemConvertable) {
-        guard let item = item as? FSCollectionLayoutableItem else { return }
-        separatorView.color = item.separatorColor
-        separatorView.isHidden = item.isSeparatorHidden
-        if !item.isSeparatorHidden {
-            leftConstraint.constant   = item.separatorInset.left
-            bottomConstraint.constant = -item.separatorInset.bottom
-            rightConstraint.constant  = -item.separatorInset.right
-            heightConstraint.constant = item.separatorHeight
+    open func render(with headerFooter: FSCollectionHeaderFooterConvertable) {
+        guard let headerFooter = headerFooter as? FSCollectionLayoutableHeaderFooter else { return }
+        separatorView.color = headerFooter.separatorColor
+        separatorView.isHidden = headerFooter.isSeparatorHidden
+        if !headerFooter.isSeparatorHidden {
+            leftConstraint.constant   = headerFooter.separatorInset.left
+            bottomConstraint.constant = -headerFooter.separatorInset.bottom
+            rightConstraint.constant  = -headerFooter.separatorInset.right
+            heightConstraint.constant = headerFooter.separatorHeight
         }
     }
 }
