@@ -28,7 +28,7 @@ import UIKit
 /// │-<contentInset.left>-[icon]-<iconSpacing>-[title]-<titleSpacing>-[subTitle]             [accessory]-<contentInset.right>-│
 /// └─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ///
-open class FSCollectionTitleHeaderFooter: FSCollectionHeaderFooter {
+open class FSCollectionTitleHeaderFooter: FSCollectionLayoutableHeaderFooter {
     
     /// 右边附件类型。
     public enum AccessoryType {
@@ -48,21 +48,6 @@ open class FSCollectionTitleHeaderFooter: FSCollectionHeaderFooter {
     /*
      > 以下属性，凡是有所改动，都需要调用 `updateLayout()` 方法，否则不会生效。
      */
-    
-    /// header 所在容器的宽度。
-    ///
-    /// - 该 宽度 即 collection view 的宽度。
-    /// - 该属性有默认的初始值：当前设备的竖屏状态下的屏幕宽度。
-    /// - 如果 header 所在的 collection view 的宽度与初始值不一致，
-    ///   则外部必须调整该属性，否则 UI 会与预期不符。
-    ///
-    public var containerWidth: CGFloat = UIScreen.inner.portraitWidth
-    
-    /// 内容内边距。
-    ///
-    /// - 当 `automaticallyAdjustsHeight` 为 false 时，则会忽略该属性的 top 和 bottom 参数。
-    ///
-    public var contentInset: UIEdgeInsets = .init(top: 12.0, left: 16.0, bottom: 12.0, right: 16.0)
     
     /// 是否自动计算 header 高度，默认为 true。
     ///
@@ -136,17 +121,6 @@ open class FSCollectionTitleHeaderFooter: FSCollectionHeaderFooter {
     ///
     public var accessoryViewSize: CGSize = .zero
     
-    /// 是否隐藏底部分割线，默认为 true。
-    public var isSeparatorHidden = true
-    
-    /// 底部分割线颜色
-    public var separatorColor = UIColor(red: 0.90, green: 0.90, blue: 0.90, alpha: 1.00)
-    
-    /// 底部分割线缩进
-    public var separatorInset: UIEdgeInsets = .zero
-    
-    public var separatorHeight: CGFloat = 1 / UIScreen.main.scale
-    
     // MARK: Properties/Fileprivate
     
     fileprivate private(set) var iconFrame: CGRect = .zero
@@ -156,7 +130,6 @@ open class FSCollectionTitleHeaderFooter: FSCollectionHeaderFooter {
     /// accessoryView 的 frame，自定义和默认的 accessoryView 有且只有
     /// 一个会生效，因此用一个 accessoryFrame 表示即可。
     fileprivate private(set) var accessoryFrame: CGRect = .zero
-    fileprivate private(set) var separatorFrame: CGRect = .zero
     
     fileprivate private(set) var titleText: NSAttributedString?
     fileprivate private(set) var subTitleText: NSAttributedString?
@@ -178,6 +151,8 @@ open class FSCollectionTitleHeaderFooter: FSCollectionHeaderFooter {
         super.init()
         size = .init(width: 0.0, height: 44.0)
         viewType = FSCollectionTitleHeaderFooterView.self
+        contentInset = .init(top: 12.0, left: 16.0, bottom: 12.0, right: 16.0)
+        containerSize = UIScreen.main.bounds.size
     }
     
     // MARK: Open
@@ -186,9 +161,11 @@ open class FSCollectionTitleHeaderFooter: FSCollectionHeaderFooter {
     ///
     /// - 当修改了与 UI 相关的属性后，必须调用该方法，否则改动不会生效。
     ///
-    open func updateLayout() {
+    open override func updateLayout() {
         
-        let layoutWidth = containerWidth - contentInset.inner.horizontalValue()
+        super.updateLayout()
+        
+        let layoutWidth = containerSize.width - contentInset.inner.horizontalValue()
         
         guard
             layoutWidth > 0
@@ -197,7 +174,6 @@ open class FSCollectionTitleHeaderFooter: FSCollectionHeaderFooter {
             titleFrame = .zero
             subTitleFrame = .zero
             accessoryFrame = .zero
-            separatorFrame = .zero
             titleText = nil
             subTitleText = nil
             r_accessoryDetailIcon = nil
@@ -258,7 +234,7 @@ open class FSCollectionTitleHeaderFooter: FSCollectionHeaderFooter {
                 }
             }
             accessoryFrame.size = size
-            accessoryFrame.origin.x = containerWidth - contentInset.right - size.width
+            accessoryFrame.origin.x = containerSize.width - contentInset.right - size.width
         }
         // title
         do {
@@ -346,13 +322,6 @@ open class FSCollectionTitleHeaderFooter: FSCollectionHeaderFooter {
             subTitleFrame.origin.y = _FSFlat((height - subTitleFrame.height) / 2)
             accessoryFrame.origin.y = _FSFlat((height - accessoryFrame.height) / 2)
         }
-        do {
-            let x = separatorInset.left
-            let w = containerWidth - separatorInset.right - x
-            let h = max(0, separatorHeight)
-            let y = size.height - h
-            separatorFrame = .init(x: x, y: y, width: w, height: h)
-        }
     }
     
     // MARK: Public
@@ -365,7 +334,7 @@ open class FSCollectionTitleHeaderFooter: FSCollectionHeaderFooter {
 }
 
 
-private class FSCollectionTitleHeaderFooterView: UICollectionReusableView, FSCollectionHeaderFooterViewRenderable {
+private class FSCollectionTitleHeaderFooterView: FSCollectionLayoutableHeaderFooterView {
     
     // MARK: Properties/Private
     
@@ -395,8 +364,6 @@ private class FSCollectionTitleHeaderFooterView: UICollectionReusableView, FSCol
         view.isHidden = true
         return view
     }()
-    
-    private let separatorView = _FSSeparatorView()
     
     private weak var accessoryView: UIView?
     
@@ -428,16 +395,13 @@ private class FSCollectionTitleHeaderFooterView: UICollectionReusableView, FSCol
     
     /// Invoked after initialization.
     private func p_didInitialize() {
+        addSubview(iconView)
+        addSubview(titleLabel)
+        addSubview(subTitleLabel)
+        addSubview(accessoryDetailView)
         do {
             let tap = UITapGestureRecognizer(target: self, action: #selector(p_didTrigger(tap:)))
             addGestureRecognizer(tap)
-        }
-        do {
-            addSubview(iconView)
-            addSubview(titleLabel)
-            addSubview(subTitleLabel)
-            addSubview(accessoryDetailView)
-            addSubview(separatorView)
         }
     }
     
@@ -451,15 +415,11 @@ private class FSCollectionTitleHeaderFooterView: UICollectionReusableView, FSCol
         titleLabel.frame = header.titleFrame
         subTitleLabel.frame = header.subTitleFrame
         accessoryDetailView.frame = header.accessoryFrame
-        separatorView.frame = header.separatorFrame
         
         iconView.isHidden = header.isIconHidden
         titleLabel.isHidden = header.isTitleHidden
         subTitleLabel.isHidden = header.isSubTitleHidden
         accessoryDetailView.isHidden = header.isAccessoryDetailHidden
-        separatorView.isHidden = header.isSeparatorHidden
-        
-        separatorView.color = header.separatorColor
         
         if !header.isIconHidden {
             iconView.image = header.icon
@@ -494,7 +454,8 @@ private class FSCollectionTitleHeaderFooterView: UICollectionReusableView, FSCol
     
     // MARK: FSCollectionHeaderFooterViewRenderable
     
-    func render(with headerFooter: FSCollectionHeaderFooterConvertable) {
+    override func render(with headerFooter: FSCollectionHeaderFooterConvertable) {
+        super.render(with: headerFooter)
         guard let header = headerFooter as? FSCollectionTitleHeaderFooter else { return }
         self.header = header
         p_reload()
