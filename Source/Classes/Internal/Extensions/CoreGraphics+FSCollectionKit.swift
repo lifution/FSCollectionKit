@@ -40,6 +40,12 @@ extension FSCollectionInternalWrapper where Base == CGRect {
         return .init(origin: base.origin.inner.flattedValue,
                      size: base.size.inner.flattedValue)
     }
+    
+    func mirrorsForRTLLanguage(with containerWidth: CGFloat) -> CGRect {
+        var frame = base
+        frame.origin.x = containerWidth - base.minX - base.width
+        return frame
+    }
 }
 
 extension FSCollectionInternalWrapper where Base == CGSize {

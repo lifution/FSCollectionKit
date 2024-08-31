@@ -121,6 +121,11 @@ open class FSCollectionTitleHeaderFooter: FSCollectionLayoutableHeaderFooter {
     ///
     public var accessoryViewSize: CGSize = .zero
     
+    /// 是否适配 RTL，默认为 false。
+    /// 需在调用 ``updateLayout`` 方法之前设置，否则无效。
+    /// 子类则需要在调用 ``super.updateLayout()`` 之前设置。
+    public var isRTLLanguage = false
+    
     // MARK: Properties/Fileprivate
     
     fileprivate private(set) var iconFrame: CGRect = .zero
@@ -302,25 +307,29 @@ open class FSCollectionTitleHeaderFooter: FSCollectionLayoutableHeaderFooter {
         }
         do {
             // 计算高度
+            let contentHeight = [
+                iconFrame.height,
+                titleFrame.height,
+                subTitleFrame.height,
+                accessoryFrame.height
+            ].max() ?? 0.0
             let height: CGFloat
             if automaticallyAdjustsHeight {
-                height = {
-                    let heights = [
-                        iconFrame.height,
-                        titleFrame.height,
-                        subTitleFrame.height,
-                        accessoryFrame.height
-                    ]
-                    return (heights.max() ?? 0.0) + contentInset.inner.verticalValue()
-                }()
+                height = contentHeight + contentInset.inner.verticalValue()
             } else {
                 height = size.height
             }
             self.size.height = height
-            iconFrame.origin.y = _FSFlat((height - iconFrame.height) / 2)
-            titleFrame.origin.y = _FSFlat((height - titleFrame.height) / 2)
-            subTitleFrame.origin.y = _FSFlat((height - subTitleFrame.height) / 2)
-            accessoryFrame.origin.y = _FSFlat((height - accessoryFrame.height) / 2)
+            iconFrame.origin.y = _FSFlat(contentInset.top + (contentHeight - iconFrame.height) / 2)
+            titleFrame.origin.y = _FSFlat(contentInset.top + (contentHeight - titleFrame.height) / 2)
+            subTitleFrame.origin.y = _FSFlat(contentInset.top + (contentHeight - subTitleFrame.height) / 2)
+            accessoryFrame.origin.y = _FSFlat(contentInset.top + (contentHeight - accessoryFrame.height) / 2)
+        }
+        if isRTLLanguage {
+            iconFrame = iconFrame.inner.mirrorsForRTLLanguage(with: containerSize.width)
+            titleFrame = titleFrame.inner.mirrorsForRTLLanguage(with: containerSize.width)
+            subTitleFrame = subTitleFrame.inner.mirrorsForRTLLanguage(with: containerSize.width)
+            accessoryFrame = accessoryFrame.inner.mirrorsForRTLLanguage(with: containerSize.width)
         }
     }
     
