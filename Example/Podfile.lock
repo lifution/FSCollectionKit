@@ -9,8 +9,8 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  FSCollectionKit: f56b10d30bc45da0009fd31f6febd82deff07f13
+  FSCollectionKit: dafe3ddbd8187456c6f1ef5eca16a49a2e729936
 
 PODFILE CHECKSUM: b6f3f1bbbe94cfa61a27bad5e3558a9a5c167706
 
-COCOAPODS: 1.14.3
+COCOAPODS: 1.15.2

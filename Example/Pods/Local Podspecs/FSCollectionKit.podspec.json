@@ -21,10 +21,10 @@
     "UIKit",
     "Foundation"
   ],
-  "source_files": "Sources/Classes/**/*",
+  "source_files": "Source/Classes/**/*",
   "resource_bundles": {
     "FSCollectionKit": [
-      "Sources/Assets/*.xcassets"
+      "Source/Assets/*.xcassets"
     ]
   },
   "swift_version": "5"

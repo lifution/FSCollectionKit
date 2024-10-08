@@ -126,6 +126,9 @@ open class FSCollectionTitleHeaderFooter: FSCollectionLayoutableHeaderFooter {
     /// 子类则需要在调用 ``super.updateLayout()`` 之前设置。
     public var isRTLLanguage = false
     
+    /// 背景颜色
+    public var backgroundColor: UIColor? = .clear
+    
     // MARK: Properties/Fileprivate
     
     fileprivate private(set) var iconFrame: CGRect = .zero
@@ -419,6 +422,8 @@ private class FSCollectionTitleHeaderFooterView: FSCollectionLayoutableHeaderFoo
         guard let header = header else {
             return
         }
+        
+        backgroundColor = header.backgroundColor
         
         iconView.frame = header.iconFrame
         titleLabel.frame = header.titleFrame

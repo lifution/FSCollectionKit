@@ -13,7 +13,7 @@ import UIKit
 /// 该类的子类的 view 必须继承于 FSCollectionLayoutableHeaderFooterView。
 open class FSCollectionLayoutableHeaderFooter: FSCollectionHeaderFooter, FSCollectionContentLayoutable {
     
-    // MARK: Properties/Internal
+    // MARK: Properties/Open
     
     open var separatorInset = UIEdgeInsets.zero
     open var separatorHeight = UIScreen.inner.pixelOne
