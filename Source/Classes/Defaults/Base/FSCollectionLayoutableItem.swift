@@ -66,6 +66,17 @@ open class FSCollectionLayoutableItem: FSCollectionItem, FSCollectionItemLayouta
     open func updateLayout() {
         size.width = floor(containerSize.width - sectionInset.inner.horizontalValue())
     }
+    
+    // MARK: Open
+    
+    /// 重新绘制内容并刷新 cell
+    /// 高度不变时是 rerender cell，高度变化时是 reload cell
+    open func reload() {
+        let before = size.height
+        updateLayout()
+        let after = size.height
+        reload(abs(after - before) > 0.5 ? .reload : .reRender)
+    }
 }
 
 open class FSCollectionLayoutableCell: UICollectionViewCell, FSCollectionCellRenderable {
