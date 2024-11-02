@@ -16,9 +16,7 @@ import UIKit
 ///   * 设置副标题
 ///   * 设置右边副标题
 ///   * 右边 accessory 有默认的样式：AccessoryType
-///   * 支持外部自定义 accessory 控件。
 /// - ⚠️ 外部在调用 `updateLayout` 方法之前必须要设置一个有效的 `containerSize`，否则将无法计算各控件的布局。
-/// - 当外部自定义了 accessory 控件之后，自带的 accessoryType 自动无效。
 /// - 该类仅适用于**垂直方向**滚动的 UICollectionView。
 /// - 当部分与 UI 相关的属性更新后（比如 containerSize、image、title、subTitle等），需外部手动
 ///   调用 `updateLayout()` 方法，内部不会自动更新。
@@ -26,7 +24,7 @@ import UIKit
 ///
 /// > 该 item 的 UI 样式如下：
 /// ┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-/// │-<contentInset.left>-[icon]-<iconSpacing>-[title]-<titleSpacing>-[subTitle]          [detail]-<titleSpacing>-[accessory]-<contentInset.right>-│
+/// │-<contentInset.left>-[icon]-<iconSpacing>-[title]-<titleSpacing>-[subTitle]          [detail]-<detailSpacing>-[accessory]-<contentInset.right>-│
 /// └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ///
 open class FSCollectionTitleItem: FSCollectionLayoutableItem {
@@ -113,26 +111,26 @@ open class FSCollectionTitleItem: FSCollectionLayoutableItem {
     /// accessoryType 为 `.detail` 时显示的图标，默认为一个箭头的图标。
     public var accessoryDetailIcon: UIImage? = .inner.image(named: "icon_accessory_detail")
     
-    public private(set) var iconFrame: CGRect = .zero
-    public private(set) var titleFrame: CGRect = .zero
-    public private(set) var subTitleFrame: CGRect = .zero
-    public private(set) var detailFrame: CGRect = .zero
+    public var iconFrame: CGRect = .zero
+    public var titleFrame: CGRect = .zero
+    public var subTitleFrame: CGRect = .zero
+    public var detailFrame: CGRect = .zero
     /// 该属性既可以表示自定义 accessoryView 的 frame，也可表示默认的
     /// accessoryView 的 frame，自定义和默认的 accessoryView 有且只有
     /// 一个会生效，因此用一个 accessoryFrame 表示即可。
-    public private(set) var accessoryFrame: CGRect = .zero
-    public private(set) var separatorFrame: CGRect = .zero
+    public var accessoryFrame: CGRect = .zero
+    public var separatorFrame: CGRect = .zero
     
-    public private(set) var titleText: NSAttributedString?
-    public private(set) var subTitleText: NSAttributedString?
-    public private(set) var detailText: NSAttributedString?
+    public var titleText: NSAttributedString?
+    public var subTitleText: NSAttributedString?
+    public var detailText: NSAttributedString?
     
-    public private(set) var isIconHidden = true
-    public private(set) var isTitleHidden = true
-    public private(set) var isSubTitleHidden = true
-    public private(set) var isDetailHidden = true
-    public private(set) var isAccessoryHidden = true
-    public private(set) var isAccessoryDetailHidden = true
+    public var isIconHidden = true
+    public var isTitleHidden = true
+    public var isSubTitleHidden = true
+    public var isDetailHidden = true
+    public var isAccessoryHidden = true
+    public var isAccessoryDetailHidden = true
     
     // MARK: Initialization
     
@@ -209,29 +207,6 @@ open class FSCollectionTitleItem: FSCollectionLayoutableItem {
             accessoryFrame.size = size
             accessoryFrame.origin.x = self.size.width - contentInset.right - size.width
         }
-        // detail
-        do {
-            detailText = nil
-            detailFrame = .zero
-            let x: CGFloat
-            let size: CGSize
-            if !isDetailHidden, let text = detail {
-                let spacing = isAccessoryHidden ? 0.0 : detailSpacing
-                let maxLayoutWidth = accessoryFrame.minX - spacing - layoutWidth / 2
-                let attr_text = NSAttributedString.inner.attributedString(string: text,
-                                                                          font: detailFont,
-                                                                          color: detailColor,
-                                                                          textAlignment: .right)
-                detailText = attr_text
-                size = attr_text.inner.size(limitedWidth: maxLayoutWidth)
-                x = accessoryFrame.minX - spacing - size.width
-            } else {
-                x = accessoryFrame.minX
-                size = .zero
-            }
-            detailFrame.size = size
-            detailFrame.origin.x = x
-        }
         // title
         do {
             titleText = nil
@@ -244,19 +219,28 @@ open class FSCollectionTitleItem: FSCollectionLayoutableItem {
             }()
             let size: CGSize
             if let text = title, !text.isEmpty {
-                let maxLayoutWidth = detailFrame.minX - x - {
+                let maxLayoutWidth = layoutWidth - contentInset.right - x - {
                     var spacing: CGFloat = 0.0
+                    if !isAccessoryHidden {
+                        // accessory
+                        spacing += accessoryFrame.width
+                    }
                     if !isDetailHidden {
-                        spacing += 5.0
-                    } else if !isAccessoryHidden {
-                        // accessory left spacing
-                        spacing += 5.0
+                        if !isAccessoryHidden {
+                            spacing += detailSpacing
+                        }
+                        // 预留给 detail 的空间
+                        let attr_text = NSAttributedString.inner.attributedString(string: detail ?? "", font: detailFont)
+                        let size = attr_text.inner.size(limitedWidth: 1000.0)
+                        spacing += min(size.width, 50.0)
+                        spacing += 8.0 // detail left spacing
                     }
                     if !isSubTitleHidden {
                         // 预留给 subTitle 的空间
                         let attr_text = NSAttributedString.inner.attributedString(string: subTitle ?? "", font: subTitleFont)
                         let size = attr_text.inner.size(limitedWidth: 1000.0)
-                        spacing += min(size.width, 50.0) + titleSpacing
+                        spacing += min(size.width, 50.0)
+                        spacing += titleSpacing
                     }
                     return spacing
                 }()
@@ -284,13 +268,21 @@ open class FSCollectionTitleItem: FSCollectionLayoutableItem {
             }()
             let size: CGSize
             if let text = subTitle, !text.isEmpty {
-                let maxLayoutWidth = detailFrame.minX - x - {
+                let maxLayoutWidth = layoutWidth - contentInset.right - x - {
                     var spacing: CGFloat = 0.0
+                    if !isAccessoryHidden {
+                        // accessory
+                        spacing += accessoryFrame.width
+                    }
                     if !isDetailHidden {
-                        spacing += 5.0
-                    } else if !isAccessoryHidden {
-                        // accessory left spacing
-                        spacing += 5.0
+                        if !isAccessoryHidden {
+                            spacing += detailSpacing
+                        }
+                        // 预留给 detail 的空间
+                        let attr_text = NSAttributedString.inner.attributedString(string: detail ?? "", font: detailFont)
+                        let size = attr_text.inner.size(limitedWidth: 1000.0)
+                        spacing += min(size.width, 50.0)
+                        spacing += 8.0 // detail left spacing
                     }
                     return spacing
                 }()
@@ -302,6 +294,44 @@ open class FSCollectionTitleItem: FSCollectionLayoutableItem {
             }
             subTitleFrame.size = size
             subTitleFrame.origin.x = x
+        }
+        // detail
+        do {
+            detailText = nil
+            detailFrame = .zero
+            let x: CGFloat
+            let size: CGSize
+            if !isDetailHidden, let text = detail {
+                let spacing = isAccessoryHidden ? 0.0 : detailSpacing
+                let maxLayoutWidth = accessoryFrame.minX - spacing - {
+                    var spacing: CGFloat = 0.0
+                    if !isSubTitleHidden {
+                        spacing += subTitleFrame.maxX
+                        spacing += 8.0
+                    } else if !isTitleHidden {
+                        spacing += titleFrame.maxX
+                        spacing += 8.0
+                    } else if !isIconHidden {
+                        spacing += iconFrame.maxX
+                        spacing += 8.0
+                    } else {
+                        spacing += contentInset.left
+                    }
+                    return spacing
+                }()
+                let attr_text = NSAttributedString.inner.attributedString(string: text,
+                                                                          font: detailFont,
+                                                                          color: detailColor,
+                                                                          textAlignment: .right)
+                detailText = attr_text
+                size = attr_text.inner.size(limitedWidth: maxLayoutWidth)
+                x = accessoryFrame.minX - spacing - size.width
+            } else {
+                x = accessoryFrame.minX
+                size = .zero
+            }
+            detailFrame.size = size
+            detailFrame.origin.x = x
         }
         do {
             // 计算高度
