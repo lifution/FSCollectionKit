@@ -113,28 +113,26 @@ open class FSCollectionTitleItem: FSCollectionLayoutableItem {
     /// accessoryType 为 `.detail` 时显示的图标，默认为一个箭头的图标。
     public var accessoryDetailIcon: UIImage? = .inner.image(named: "icon_accessory_detail")
     
-    // MARK: Properties/Fileprivate
-    
-    fileprivate private(set) var iconFrame: CGRect = .zero
-    fileprivate private(set) var titleFrame: CGRect = .zero
-    fileprivate private(set) var subTitleFrame: CGRect = .zero
-    fileprivate private(set) var detailFrame: CGRect = .zero
+    public private(set) var iconFrame: CGRect = .zero
+    public private(set) var titleFrame: CGRect = .zero
+    public private(set) var subTitleFrame: CGRect = .zero
+    public private(set) var detailFrame: CGRect = .zero
     /// 该属性既可以表示自定义 accessoryView 的 frame，也可表示默认的
     /// accessoryView 的 frame，自定义和默认的 accessoryView 有且只有
     /// 一个会生效，因此用一个 accessoryFrame 表示即可。
-    fileprivate private(set) var accessoryFrame: CGRect = .zero
-    fileprivate private(set) var separatorFrame: CGRect = .zero
+    public private(set) var accessoryFrame: CGRect = .zero
+    public private(set) var separatorFrame: CGRect = .zero
     
-    fileprivate private(set) var titleText: NSAttributedString?
-    fileprivate private(set) var subTitleText: NSAttributedString?
-    fileprivate private(set) var detailText: NSAttributedString?
+    public private(set) var titleText: NSAttributedString?
+    public private(set) var subTitleText: NSAttributedString?
+    public private(set) var detailText: NSAttributedString?
     
-    fileprivate private(set) var isIconHidden = true
-    fileprivate private(set) var isTitleHidden = true
-    fileprivate private(set) var isSubTitleHidden = true
-    fileprivate private(set) var isDetailHidden = true
-    fileprivate private(set) var isAccessoryHidden = true
-    fileprivate private(set) var isAccessoryDetailHidden = true
+    public private(set) var isIconHidden = true
+    public private(set) var isTitleHidden = true
+    public private(set) var isSubTitleHidden = true
+    public private(set) var isDetailHidden = true
+    public private(set) var isAccessoryHidden = true
+    public private(set) var isAccessoryDetailHidden = true
     
     // MARK: Initialization
     
@@ -336,37 +334,37 @@ open class FSCollectionTitleItem: FSCollectionLayoutableItem {
 
 open class FSCollectionTitleCell: FSCollectionLayoutableCell {
     
-    // MARK: Properties/Private
+    // MARK: Properties/Public
     
-    private let iconView: UIImageView = {
+    public let iconView: UIImageView = {
         let view = UIImageView()
         view.isHidden = true
         view.contentMode = .scaleAspectFill
         return view
     }()
     
-    private let titleLabel: UILabel = {
+    public let titleLabel: UILabel = {
         let label = UILabel()
         label.isHidden = true
         label.numberOfLines = 0
         return label
     }()
     
-    private let subTitleLabel: UILabel = {
+    public let subTitleLabel: UILabel = {
         let label = UILabel()
         label.isHidden = true
         label.numberOfLines = 0
         return label
     }()
     
-    private let detailLabel: UILabel = {
+    public let detailLabel: UILabel = {
         let label = UILabel()
         label.isHidden = true
         label.numberOfLines = 0
         return label
     }()
     
-    private let accessoryDetailView: UIImageView = {
+    public let accessoryDetailView: UIImageView = {
         let view = UIImageView()
         view.isHidden = true
         return view
