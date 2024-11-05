@@ -10,7 +10,8 @@ import UIKit
 
 /// layoutable 通用 item 基类。
 /// 该类用于垂直方向下的 item。
-/// 该类的子类的 cell 必须继承于 FSCollectionLayoutableCell。
+/// 建议子类的 cellType 优先选择继承于 FSCollectionLayoutableCell，
+/// 否则一些特性可能会不生效，比如底部分割线。
 open class FSCollectionLayoutableItem: FSCollectionItem, FSCollectionItemLayoutable {
     
     // MARK: Properties/Internal
@@ -22,7 +23,7 @@ open class FSCollectionLayoutableItem: FSCollectionItem, FSCollectionItemLayouta
     
     open var separatorInset = UIEdgeInsets.zero
     open var separatorHeight = UIScreen.inner.pixelOne
-    open var separatorColor = UIColor.inner.color(hexed: "#CFCFCF") ?? .gray
+    open var separatorColor = UIColor.inner.color(hexed: "#e5e7e9") ?? .gray
     open var isSeparatorHidden = false
     
     // MARK: Initialization
@@ -121,7 +122,6 @@ open class FSCollectionLayoutableCell: UICollectionViewCell, FSCollectionCellRen
         }
         backgroundColor = .white
         contentView.backgroundColor = .white
-        separatorView.color = .inner.color(hexed: "#CFCFCF")
         separatorView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(separatorView)
         do {
