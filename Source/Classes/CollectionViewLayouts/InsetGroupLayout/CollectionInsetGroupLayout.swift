@@ -8,7 +8,7 @@
 
 import UIKit
 
-open class CollectionInsetGroupLayout: UICollectionViewFlowLayout {
+open class CollectionInsetGroupLayout: FSCollectionViewFlowLayout {
     
     // MARK: Properties/Open
     
