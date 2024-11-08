@@ -14,8 +14,6 @@ import UIKit
 /// 否则一些特性可能会不生效，比如底部分割线。
 open class FSCollectionLayoutableItem: FSCollectionItem, FSCollectionItemLayoutable {
     
-    // MARK: Properties/Internal
-    
     /// 是否是作为静态展示（不响应交互）
     /// 该属性只是方便外部标记，并不是真的禁用了 item 的 selection 响应。
     /// 默认为 false。
@@ -25,6 +23,9 @@ open class FSCollectionLayoutableItem: FSCollectionItem, FSCollectionItemLayouta
     open var separatorHeight = UIScreen.inner.pixelOne
     open var separatorColor = UIColor.inner.color(hexed: "#e5e7e9") ?? .gray
     open var isSeparatorHidden = false
+    
+    /// cell 背景颜色
+    open var backgroundColor: UIColor? = .white
     
     // MARK: Initialization
     
@@ -120,7 +121,6 @@ open class FSCollectionLayoutableCell: UICollectionViewCell, FSCollectionCellRen
         defer {
             didInitialize()
         }
-        backgroundColor = .white
         contentView.backgroundColor = .white
         separatorView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(separatorView)
@@ -176,6 +176,7 @@ open class FSCollectionLayoutableCell: UICollectionViewCell, FSCollectionCellRen
         guard let item = item as? FSCollectionLayoutableItem else { return }
         separatorView.color = item.separatorColor
         separatorView.isHidden = item.isSeparatorHidden
+        contentView.backgroundColor = item.backgroundColor
         if !item.isSeparatorHidden {
             leftConstraint.constant   = item.separatorInset.left
             bottomConstraint.constant = -item.separatorInset.bottom

@@ -24,7 +24,7 @@ import UIKit
 ///
 /// > 该 item 的 UI 样式如下：
 /// ┌──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-/// │-<contentInset.left>-[icon]-<iconSpacing>-[title]-<titleSpacing>-[subTitle]          [detail]-<detailSpacing>-[accessory]-<contentInset.right>-│
+/// │-<contentInset.left>-[icon]-<iconSpacing>-[title]-<titleSpacing>-[subTitle]         [detail]-<detailSpacing>-[accessory]-<contentInset.right>-│
 /// └──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ///
 open class FSCollectionTitleItem: FSCollectionLayoutableItem {
