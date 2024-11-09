@@ -3,6 +3,7 @@
 //  FSCollectionKit
 //
 //  Created by VincentLee on 2024/11/8.
+//  Copyright © 2024 Vincent. All rights reserved.
 //
 
 import UIKit
