@@ -111,6 +111,11 @@ open class FSCollectionLayoutableCell: UICollectionViewCell, FSCollectionCellRen
         contentView.bringSubviewToFront(separatorView)
     }
     
+    open override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+        super.apply(layoutAttributes)
+        layer.zPosition = CGFloat(layoutAttributes.zIndex)
+    }
+    
     // MARK: Open
     
     open func didInitialize() {}
