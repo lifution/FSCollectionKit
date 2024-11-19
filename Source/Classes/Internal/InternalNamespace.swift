@@ -49,3 +49,4 @@ extension CGSize: FSCollectionInternalCompatibleValue {}
 extension CGPoint: FSCollectionInternalCompatibleValue {}
 extension CGFloat: FSCollectionInternalCompatibleValue {}
 extension UIEdgeInsets: FSCollectionInternalCompatibleValue {}
+extension CACornerMask: FSCollectionInternalCompatibleValue {}

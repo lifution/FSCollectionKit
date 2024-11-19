@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 
 open class CollectionInsetGroupLayout: FSCollectionViewFlowLayout {
     
@@ -42,7 +43,11 @@ open class CollectionInsetGroupLayout: FSCollectionViewFlowLayout {
 
 extension CollectionInsetGroupLayout {
     
-    override open func prepare() {
+    open override class var layoutAttributesClass: AnyClass {
+        return CollectionInsetGroupLayoutAttributes.self
+    }
+    
+    open override func prepare() {
         super.prepare()
         var attributeses = [Int: InsetGroupDecorationAttributes]()
         defer {
@@ -57,9 +62,6 @@ extension CollectionInsetGroupLayout {
         let numberOfSections = collectionView.numberOfSections
         for section in 0..<numberOfSections {
             if !delegate.collectionView(collectionView, shouldShowGroupAt: section) {
-                continue
-            }
-            if delegate.collectionView(collectionView, groupBackgroundColorAt: section) == nil {
                 continue
             }
             let numberOfItems = collectionView.numberOfItems(inSection: section)
@@ -101,17 +103,43 @@ extension CollectionInsetGroupLayout {
             attributes.borderWidth = delegate.collectionView(collectionView, groupBorderWidthAt: section)
             attributes.borderColor = delegate.collectionView(collectionView, groupBorderColorAt: section)
             attributeses[section] = attributes
+            do {
+                let cornerRadius = delegate.collectionView(collectionView, groupCornerRadiusAt: section)
+                if numberOfItems == 1 {
+                    if let attributes = layoutAttributesForItem(at: .init(item: 0, section: section)) as? CollectionInsetGroupLayoutAttributes {
+                        attributes.cornerRadius = cornerRadius
+                        attributes.maskedCorners = .inner.all
+                    }
+                } else {
+                    if let attributes = layoutAttributesForItem(at: .init(item: 0, section: section)) as? CollectionInsetGroupLayoutAttributes {
+                        attributes.cornerRadius = cornerRadius
+                        if scrollDirection == .vertical {
+                            attributes.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
+                        } else {
+                            attributes.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
+                        }
+                    }
+                    if let attributes = layoutAttributesForItem(at: .init(item: numberOfItems - 1, section: section)) as? CollectionInsetGroupLayoutAttributes {
+                        attributes.cornerRadius = cornerRadius
+                        if scrollDirection == .vertical {
+                            attributes.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
+                        } else {
+                            attributes.maskedCorners = [.layerMaxXMinYCorner, .layerMaxXMaxYCorner]
+                        }
+                    }
+                }
+            }
         }
     }
     
-    override open func layoutAttributesForDecorationView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
+    open override func layoutAttributesForDecorationView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
         if elementKind == cornerDecorationViewKind {
             return decorations[indexPath.section]
         }
         return super.layoutAttributesForDecorationView(ofKind: elementKind, at: indexPath)
     }
     
-    override open func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
+    open override func layoutAttributesForElements(in rect: CGRect) -> [UICollectionViewLayoutAttributes]? {
         var attributes = super.layoutAttributesForElements(in: rect) ?? []
         attributes += decorations.values.filter { $0.frame.intersects(rect) }
         return attributes

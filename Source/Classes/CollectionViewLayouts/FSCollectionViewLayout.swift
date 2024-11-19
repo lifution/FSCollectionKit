@@ -40,6 +40,12 @@ open class FSCollectionViewFlowLayout: UICollectionViewFlowLayout {
         if let view = collectionView, view !== tap.view {
             view.addGestureRecognizer(tap)
         }
+        do {
+            /// Fix:
+            /// UICollectionView 调用 `insertItems` 刷新 UI 时，
+            /// collectionView.contentSize 和 layout.collectionViewContentSize 会不同步。
+            collectionView?.contentSize = collectionViewContentSize
+        }
     }
     
     // MARK: Private

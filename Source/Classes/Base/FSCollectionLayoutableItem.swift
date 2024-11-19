@@ -77,11 +77,11 @@ open class FSCollectionLayoutableItem: FSCollectionItem, FSCollectionItemLayouta
         let before = size.height
         updateLayout()
         let after = size.height
-        reload(abs(after - before) > 0.5 ? .reload : .reRender)
+        reload(abs(after - before) >= 0.5 ? .reload : .reRender)
     }
 }
 
-open class FSCollectionLayoutableCell: UICollectionViewCell, FSCollectionCellRenderable {
+open class FSCollectionLayoutableCell: CollectionReusableCell, FSCollectionCellRenderable {
     
     // MARK: Properties/Private
     
@@ -92,18 +92,6 @@ open class FSCollectionLayoutableCell: UICollectionViewCell, FSCollectionCellRen
     private var rightConstraint: NSLayoutConstraint!
     private var heightConstraint: NSLayoutConstraint!
     
-    // MARK: Initialization
-    
-    public override init(frame: CGRect) {
-        super.init(frame: frame)
-        p_didInitialize()
-    }
-    
-    public required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        p_didInitialize()
-    }
-    
     // MARK: Override
     
     open override func layoutSubviews() {
@@ -111,22 +99,8 @@ open class FSCollectionLayoutableCell: UICollectionViewCell, FSCollectionCellRen
         contentView.bringSubviewToFront(separatorView)
     }
     
-    open override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
-        super.apply(layoutAttributes)
-        layer.zPosition = CGFloat(layoutAttributes.zIndex)
-    }
-    
-    // MARK: Open
-    
-    open func didInitialize() {}
-    
-    // MARK: Private
-    
-    private func p_didInitialize() {
-        defer {
-            didInitialize()
-        }
-        contentView.backgroundColor = .white
+    open override func didInitialize() {
+        super.didInitialize()
         separatorView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(separatorView)
         do {

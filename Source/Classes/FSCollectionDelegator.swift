@@ -56,34 +56,6 @@ extension FSCollectionDelegator: UICollectionViewDataSource {
         }
         let item = section.items[indexPath.item]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: item.reuseIdentifier, for: indexPath)
-        do {
-            // inset group
-            let isFirst = indexPath.item == 0
-            let isLast = indexPath.item == (section.items.count - 1)
-            if isFirst || isLast {
-                if let layout = collectionView.collectionViewLayout as? CollectionInsetGroupLayout,
-                   layout.delegate?.collectionView(collectionView, shouldShowGroupAt: indexPath.section) ?? false {
-                    let radius = layout.delegate?.collectionView(collectionView, groupCornerRadiusAt: indexPath.section) ?? 0.0
-                    cell.layer.masksToBounds = true
-                    cell.layer.cornerRadius = radius
-                    if isFirst, isLast {
-                        cell.layer.maskedCorners = [
-                            .layerMinXMinYCorner,
-                            .layerMaxXMinYCorner,
-                            .layerMinXMaxYCorner,
-                            .layerMaxXMaxYCorner
-                        ]
-                    } else if isFirst {
-                        cell.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
-                    } else {
-                        cell.layer.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
-                    }
-                }
-            } else {
-                cell.layer.cornerRadius = 0.0
-                cell.layer.maskedCorners = []
-            }
-        }
         /// cellForItemAt 和 willDisplay 两个方法并不是同步调用的，有时候调用了 cellForItemAt 但却不会立即调用 willDisplay 的，
         /// 因此更新 cell 的操作必须放在 `cellForItemAt` 方法中。
         if let renderable = cell as? FSCollectionCellRenderable {
