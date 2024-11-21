@@ -1,5 +1,5 @@
 //
-//  FSCollectionViewLayout.swift
+//  FSCollectionViewFlowLayout.swift
 //  FSCollectionKit
 //
 //  Created by VincentLee on 2024/11/8.
@@ -9,7 +9,18 @@
 import UIKit
 import Foundation
 
+/// 特性
+/// 1. 支持开启单击手势，该手势会自动避开 cell 的范围，因此不会影响 cell 的选中回调，一般用于隐藏键盘。
+/// 2. 默认 layout attributes 为 ``CollectionViewLayoutAttributes``，且默认每个 section 的最后
+///    一个 item 的 ``layoutAttriubtes.isSeparatorHidden`` 为 true，其它 item 的则为 false。
+///    可参考 ``FSCollectionLayoutableItem`` 中 ``ignoresSeparatorHidden`` 属性的说明。
 open class FSCollectionViewFlowLayout: UICollectionViewFlowLayout {
+    
+    // MARK: Properties/Override
+    
+    open override class var layoutAttributesClass: AnyClass {
+        return CollectionViewLayoutAttributes.self
+    }
     
     // MARK: Properties/Open
     
@@ -45,6 +56,19 @@ open class FSCollectionViewFlowLayout: UICollectionViewFlowLayout {
             /// UICollectionView 调用 `insertItems` 刷新 UI 时，
             /// collectionView.contentSize 和 layout.collectionViewContentSize 会不同步。
             collectionView?.contentSize = collectionViewContentSize
+        }
+        if let collectionView = collectionView {
+            let numberOfSections = collectionView.numberOfSections
+            for section in 0..<numberOfSections {
+                let numberOfItems = collectionView.numberOfItems(inSection: section)
+                if numberOfItems <= 0 {
+                    continue
+                }
+                let lastIndexPath = IndexPath(item: numberOfItems - 1, section: section)
+                if let attributes = layoutAttributesForItem(at: lastIndexPath) as? CollectionViewLayoutAttributes {
+                    attributes.isSeparatorHidden = true
+                }
+            }
         }
     }
     

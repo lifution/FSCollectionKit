@@ -41,7 +41,7 @@ open class FSCollectionItem: FSCollectionItemConvertable {
     
     public init() {
         size = .zero
-        cellType = UICollectionViewCell.self
+        cellType = CollectionReusableCell.self
         needsUpdate = true
         shouldSelect = true
         shouldDeselect = true

@@ -45,6 +45,5 @@ open class CollectionReusableCell: UICollectionViewCell {
             didInitialize()
         }
         layer.masksToBounds = true
-        contentView.backgroundColor = .white
     }
 }

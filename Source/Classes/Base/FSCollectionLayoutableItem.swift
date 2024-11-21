@@ -9,7 +9,7 @@
 import UIKit
 
 /// layoutable 通用 item 基类。
-/// 该类用于垂直方向下的 item。
+/// 该类目前仅用于**垂直方向**的 item。
 /// 建议子类的 cellType 优先选择继承于 FSCollectionLayoutableCell，
 /// 否则一些特性可能会不生效，比如底部分割线。
 open class FSCollectionLayoutableItem: FSCollectionItem, FSCollectionItemLayoutable {
@@ -22,7 +22,16 @@ open class FSCollectionLayoutableItem: FSCollectionItem, FSCollectionItemLayouta
     open var separatorInset = UIEdgeInsets.zero
     open var separatorHeight = UIScreen.inner.pixelOne
     open var separatorColor = UIColor.inner.color(hexed: "#e5e7e9") ?? .gray
-    open var isSeparatorHidden = false
+    open var isSeparatorHidden = true
+    
+    /// 是否忽略 ``isSeparatorHidden`` 属性，默认为 false。
+    /// 如果该属性为 true，则 ``isSeparatorHidden`` 属性不会再生效。
+    ///
+    /// 比如忽略 ``isSeparatorHidden`` 属性，转而使用 ``attributes.isSeparatorHidden`` 来控制
+    /// separator 的隐藏状态，这样就不用外部手动控制每个 section 最后一个 cell 的 separator 的隐
+    /// 藏状态了，而是交由 ``collection view layout`` 去配置 ``attributes.isSeparatorHidden``，
+    /// 这样就更方便、更高效、更低出错率地管理 separator 的状态。
+    open var ignoresSeparatorHidden = false
     
     /// cell 背景颜色
     open var backgroundColor: UIColor? = .white
@@ -85,6 +94,8 @@ open class FSCollectionLayoutableCell: CollectionReusableCell, FSCollectionCellR
     
     // MARK: Properties/Private
     
+    private weak var item: FSCollectionLayoutableItem?
+    
     private let separatorView = _FSSeparatorView()
     
     private var leftConstraint: NSLayoutConstraint!
@@ -94,6 +105,28 @@ open class FSCollectionLayoutableCell: CollectionReusableCell, FSCollectionCellR
     
     // MARK: Override
     
+    open override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
+        super.apply(layoutAttributes)
+        if let item = item, !item.ignoresSeparatorHidden {
+            /// 如果是在 cell 未复用的情况下调用该方法，那么就不会走 `render` 方法，因此
+            /// 需要在这里判断，如果存在 item 且 ``item.ignoresSeparatorHidden`` 为 false，
+            /// 则使用 item 的 ``isSeparatorHidden`` 配置，忽略 ``layoutAttributes.isSeparatorHidden`` 的配置。
+            separatorView.isHidden = item.isSeparatorHidden
+            return
+        }
+        if let attributes = layoutAttributes as? CollectionViewLayoutAttributes {
+            /// 该方法会比 `render` 方法更早调用，所以此处直接先设置 attributes 中的值，
+            /// 如果 ``item.ignoresSeparatorHidden`` 为 false，则 `render` 方法中会覆
+            /// 盖设定 separator 的隐藏状态。
+            separatorView.isHidden = attributes.isSeparatorHidden
+        }
+    }
+    
+    open override func prepareForReuse() {
+        super.prepareForReuse()
+        item = nil
+    }
+    
     open override func layoutSubviews() {
         super.layoutSubviews()
         contentView.bringSubviewToFront(separatorView)
@@ -101,6 +134,8 @@ open class FSCollectionLayoutableCell: CollectionReusableCell, FSCollectionCellR
     
     open override func didInitialize() {
         super.didInitialize()
+        contentView.backgroundColor = .white
+        separatorView.isHidden = true
         separatorView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(separatorView)
         do {
@@ -152,15 +187,17 @@ open class FSCollectionLayoutableCell: CollectionReusableCell, FSCollectionCellR
     // MARK: FSCollectionCellRenderable
     
     open func render(with item: FSCollectionItemConvertable) {
+        self.item = nil
         guard let item = item as? FSCollectionLayoutableItem else { return }
-        separatorView.color = item.separatorColor
-        separatorView.isHidden = item.isSeparatorHidden
+        self.item = item
         contentView.backgroundColor = item.backgroundColor
-        if !item.isSeparatorHidden {
-            leftConstraint.constant   = item.separatorInset.left
-            bottomConstraint.constant = -item.separatorInset.bottom
-            rightConstraint.constant  = -item.separatorInset.right
-            heightConstraint.constant = item.separatorHeight
+        separatorView.color = item.separatorColor
+        leftConstraint.constant = item.separatorInset.left
+        bottomConstraint.constant = -item.separatorInset.bottom
+        rightConstraint.constant  = -item.separatorInset.right
+        heightConstraint.constant = item.separatorHeight
+        if !item.ignoresSeparatorHidden {
+            separatorView.isHidden = item.isSeparatorHidden
         }
     }
 }
