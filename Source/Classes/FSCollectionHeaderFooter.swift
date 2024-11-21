@@ -17,8 +17,8 @@ open class FSCollectionHeaderFooter: FSCollectionHeaderFooterConvertable {
     open var viewType: UICollectionReusableView.Type
     open var needsUpdate: Bool
     open var reuseIdentifier: String
-    open var onWillDisplay: ((_ collectionView: UICollectionView, _ view: UICollectionReusableView, _ indexPath: IndexPath) -> Void)?
-    open var onDidEndDisplaying: ((_ collectionView: UICollectionView, _ view: UICollectionReusableView, _ indexPath: IndexPath) -> Void)?
+    open var onWillDisplay: ((_ collectionView: UICollectionView, _ view: UICollectionReusableView, _ indexPath: IndexPath, _ headerFooter: FSCollectionHeaderFooterConvertable) -> Void)?
+    open var onDidEndDisplaying: ((_ collectionView: UICollectionView, _ view: UICollectionReusableView, _ indexPath: IndexPath, _ headerFooter: FSCollectionHeaderFooterConvertable) -> Void)?
     
     public init() {
         size = .zero

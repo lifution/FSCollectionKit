@@ -34,10 +34,10 @@ open class FSCollectionItem: FSCollectionItemConvertable {
     open var shouldDeselect: Bool
     open var shouldHighlight: Bool
     open var reuseIdentifier: String
-    open var onDidSelect: ((_ collectionView: UICollectionView, _ indexPath: IndexPath) -> Void)?
-    open var onDidDeselect: ((_ collectionView: UICollectionView, _ indexPath: IndexPath) -> Void)?
-    open var onWillDisplay: ((_ collectionView: UICollectionView, _ cell: UICollectionViewCell, _ indexPath: IndexPath) -> Void)?
-    open var onDidEndDisplaying: ((_ collectionView: UICollectionView, _ cell: UICollectionViewCell, _ indexPath: IndexPath) -> Void)?
+    open var onDidSelect: ((_ collectionView: UICollectionView, _ indexPath: IndexPath, _ item: FSCollectionItemConvertable) -> Void)?
+    open var onDidDeselect: ((_ collectionView: UICollectionView, _ indexPath: IndexPath, _ item: FSCollectionItemConvertable) -> Void)?
+    open var onWillDisplay: ((_ collectionView: UICollectionView, _ cell: UICollectionViewCell, _ indexPath: IndexPath, _ item: FSCollectionItemConvertable) -> Void)?
+    open var onDidEndDisplaying: ((_ collectionView: UICollectionView, _ cell: UICollectionViewCell, _ indexPath: IndexPath, _ item: FSCollectionItemConvertable) -> Void)?
     
     public init() {
         size = .zero

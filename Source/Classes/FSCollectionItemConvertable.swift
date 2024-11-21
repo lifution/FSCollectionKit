@@ -51,10 +51,10 @@ public protocol FSCollectionItemConvertable: AnyObject {
     var reuseIdentifier: String { get set }
     
     /// 被选中后的回调。
-    var onDidSelect: ((_ collectionView: UICollectionView, _ indexPath: IndexPath) -> Void)? { get set }
+    var onDidSelect: ((_ collectionView: UICollectionView, _ indexPath: IndexPath, _ item: FSCollectionItemConvertable) -> Void)? { get set }
     
     /// 被取消选中后的回调。
-    var onDidDeselect: ((_ collectionView: UICollectionView, _ indexPath: IndexPath) -> Void)? { get set }
+    var onDidDeselect: ((_ collectionView: UICollectionView, _ indexPath: IndexPath, _ item: FSCollectionItemConvertable) -> Void)? { get set }
     
     /// 该 closure 的功能对应 UICollectionViewDelegate 中的 `collectionView(_ collectionView:, willDisplay cell:, forItemAt indexPath:)` 方法。
     ///
@@ -62,10 +62,10 @@ public protocol FSCollectionItemConvertable: AnyObject {
     /// 最好不要使用该 closure 来更新 cell，因为 UICollectionView 调用了 cellForItemAt 之后可能不会立即调用 willDisplayCell 方法，
     /// 因此如果在该 closure 中更新 cell 的话，可能会出现更新不及时的情况。
     ///
-    var onWillDisplay: ((_ collectionView: UICollectionView, _ cell: UICollectionViewCell, _ indexPath: IndexPath) -> Void)? { get set }
+    var onWillDisplay: ((_ collectionView: UICollectionView, _ cell: UICollectionViewCell, _ indexPath: IndexPath, _ item: FSCollectionItemConvertable) -> Void)? { get set }
     
     /// 该 closure 的功能对应 UICollectionViewDelegate 中的 `collectionView(_:didEndDisplaying:forItemAt:)` 方法。
-    var onDidEndDisplaying: ((_ collectionView: UICollectionView, _ cell: UICollectionViewCell, _ indexPath: IndexPath) -> Void)? { get set }
+    var onDidEndDisplaying: ((_ collectionView: UICollectionView, _ cell: UICollectionViewCell, _ indexPath: IndexPath, _ item: FSCollectionItemConvertable) -> Void)? { get set }
 }
 
 /// optional
@@ -111,22 +111,22 @@ public extension FSCollectionItemConvertable {
         set {}
     }
     
-    var onDidSelect: ((_ collectionView: UICollectionView, _ indexPath: IndexPath) -> Void)? {
+    var onDidSelect: ((_ collectionView: UICollectionView, _ indexPath: IndexPath, _ item: FSCollectionItemConvertable) -> Void)? {
         get { return nil }
         set {}
     }
     
-    var onDidDeselect: ((_ collectionView: UICollectionView, _ indexPath: IndexPath) -> Void)? {
+    var onDidDeselect: ((_ collectionView: UICollectionView, _ indexPath: IndexPath, _ item: FSCollectionItemConvertable) -> Void)? {
         get { return nil }
         set {}
     }
     
-    var onWillDisplay: ((_ collectionView: UICollectionView, _ cell: UICollectionViewCell, _ indexPath: IndexPath) -> Void)? {
+    var onWillDisplay: ((_ collectionView: UICollectionView, _ cell: UICollectionViewCell, _ indexPath: IndexPath, _ item: FSCollectionItemConvertable) -> Void)? {
         get { return nil }
         set {}
     }
     
-    var onDidEndDisplaying: ((_ collectionView: UICollectionView, _ cell: UICollectionViewCell, _ indexPath: IndexPath) -> Void)? {
+    var onDidEndDisplaying: ((_ collectionView: UICollectionView, _ cell: UICollectionViewCell, _ indexPath: IndexPath, _ item: FSCollectionItemConvertable) -> Void)? {
         get { return nil }
         set {}
     }

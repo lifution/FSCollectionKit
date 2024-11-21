@@ -110,20 +110,20 @@ extension FSCollectionDelegator: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if let item = p_item(at: indexPath) {
-            item.onDidSelect?(collectionView, indexPath)
+            item.onDidSelect?(collectionView, indexPath, item)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         if let item = p_item(at: indexPath) {
-            item.onDidDeselect?(collectionView, indexPath)
+            item.onDidDeselect?(collectionView, indexPath, item)
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let section = p_section(at: indexPath.section), indexPath.item < section.items.count {
             let item = section.items[indexPath.item]
-            item.onWillDisplay?(collectionView, cell, indexPath)
+            item.onWillDisplay?(collectionView, cell, indexPath, item)
         }
         if let renderable = cell as? FSCollectionCellRenderable {
             renderable.willDisplay()
@@ -133,7 +133,7 @@ extension FSCollectionDelegator: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let section = p_section(at: indexPath.section), indexPath.item < section.items.count {
             let item = section.items[indexPath.item]
-            item.onDidEndDisplaying?(collectionView, cell, indexPath)
+            item.onDidEndDisplaying?(collectionView, cell, indexPath, item)
         }
         if let renderable = cell as? FSCollectionCellRenderable {
             renderable.didEndDisplaying()
@@ -152,7 +152,7 @@ extension FSCollectionDelegator: UICollectionViewDelegate {
             if let renderable = view as? FSCollectionHeaderFooterViewRenderable {
                 renderable.render(with: header)
             }
-            header.onWillDisplay?(collectionView, view, indexPath)
+            header.onWillDisplay?(collectionView, view, indexPath, header)
         case UICollectionView.elementKindSectionFooter:
             guard let footer = section.footer else {
                 return
@@ -160,7 +160,7 @@ extension FSCollectionDelegator: UICollectionViewDelegate {
             if let renderable = view as? FSCollectionHeaderFooterViewRenderable {
                 renderable.render(with: footer)
             }
-            footer.onWillDisplay?(collectionView, view, indexPath)
+            footer.onWillDisplay?(collectionView, view, indexPath, footer)
         default:
             break
         }
@@ -175,12 +175,12 @@ extension FSCollectionDelegator: UICollectionViewDelegate {
             guard let header = section.header else {
                 return
             }
-            header.onDidEndDisplaying?(collectionView, view, indexPath)
+            header.onDidEndDisplaying?(collectionView, view, indexPath, header)
         case UICollectionView.elementKindSectionFooter:
             guard let footer = section.footer else {
                 return
             }
-            footer.onDidEndDisplaying?(collectionView, view, indexPath)
+            footer.onDidEndDisplaying?(collectionView, view, indexPath, footer)
         default:
             break
         }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol FSCollectionHeaderFooterConvertable {
+public protocol FSCollectionHeaderFooterConvertable: AnyObject {
     
     /// header/footer 的类型。
     var viewType: (UICollectionReusableView.Type) { get set }
@@ -38,11 +38,11 @@ public protocol FSCollectionHeaderFooterConvertable {
     ///              让 header/footer 操作 header/footerView 的更新，如果 header/footerView 实现了 FSCollectionHeaderFooterViewRenderable 协议，
     ///              那么在 UICollectionViewDelegate 的 willDisplay 方法中会先进行 FSCollectionHeaderFooterViewRenderable 协议方法的调用，然后才是回调该 closure，
     ///              **使用者需注意不要在两个地方都更新一次 header/footerView**。
-    var onWillDisplay: ((_ collectionView: UICollectionView, _ view: UICollectionReusableView, _ indexPath: IndexPath) -> Void)? { get set }
+    var onWillDisplay: ((_ collectionView: UICollectionView, _ view: UICollectionReusableView, _ indexPath: IndexPath, _ headerFooter: FSCollectionHeaderFooterConvertable) -> Void)? { get set }
     
     /// 当一个 header/footer 消失在显示范围内后会回调该 closure。
     /// 该 closure 的功能对应 UICollectionViewDelegate 中的 `collectionView(_:didEndDisplayingSupplementaryView:forElementOfKind:at:)` 方法。
-    var onDidEndDisplaying: ((_ collectionView: UICollectionView, _ view: UICollectionReusableView, _ indexPath: IndexPath) -> Void)? { get set }
+    var onDidEndDisplaying: ((_ collectionView: UICollectionView, _ view: UICollectionReusableView, _ indexPath: IndexPath, _ headerFooter: FSCollectionHeaderFooterConvertable) -> Void)? { get set }
 }
 
 /// Optional
@@ -73,12 +73,12 @@ public extension FSCollectionHeaderFooterConvertable {
         set {}
     }
     
-    var onWillDisplay: ((_ collectionView: UICollectionView, _ view: UICollectionReusableView, _ indexPath: IndexPath) -> Void)? {
+    var onWillDisplay: ((_ collectionView: UICollectionView, _ view: UICollectionReusableView, _ indexPath: IndexPath, _ headerFooter: FSCollectionHeaderFooterConvertable) -> Void)? {
         get { return nil }
         set {}
     }
     
-    var onDidEndDisplaying: ((_ collectionView: UICollectionView, _ view: UICollectionReusableView, _ indexPath: IndexPath) -> Void)? {
+    var onDidEndDisplaying: ((_ collectionView: UICollectionView, _ view: UICollectionReusableView, _ indexPath: IndexPath, _ headerFooter: FSCollectionHeaderFooterConvertable) -> Void)? {
         get { return nil }
         set {}
     }
