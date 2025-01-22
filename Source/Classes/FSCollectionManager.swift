@@ -298,4 +298,30 @@ public extension FSCollectionManager {
         emptyView = view
         p_updateEmptyView()
     }
+    
+    /// 更新布局
+    /// 该方法只适用于遵守 ``FSCollectionContentLayoutable/FSCollectionItemLayoutable`` 协议的
+    /// header/footer/item。
+    /// 在调用该方法前，外部需要确定 collection view 的 frame.size 不为 (0, 0)。
+    func updateCollectionLayout(needsReload: Bool = true) {
+        let containerSize = collectionView?.frame.size ?? .zero
+        sections.forEach { section in
+            if let header = section.header as? FSCollectionContentLayoutable {
+                header.containerSize = containerSize
+                header.updateLayout()
+            }
+            if let footer = section.footer as? FSCollectionContentLayoutable {
+                footer.containerSize = containerSize
+                footer.updateLayout()
+            }
+            section.items.compactMap { $0 as? FSCollectionItemLayoutable }.forEach {
+                $0.sectionInset = section.inset
+                $0.containerSize = containerSize
+                $0.updateLayout()
+            }
+        }
+        if needsReload {
+            collectionView?.reloadData()
+        }
+    }
 }
