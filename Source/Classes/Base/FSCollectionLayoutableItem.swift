@@ -33,9 +33,6 @@ open class FSCollectionLayoutableItem: FSCollectionItem, FSCollectionItemLayouta
     /// 这样就更方便、更高效、更低出错率地管理 separator 的状态。
     open var ignoresSeparatorHidden = false
     
-    /// cell 背景颜色
-    open var backgroundColor: UIColor? = .white
-    
     // MARK: Initialization
     
     public override init() {
@@ -98,12 +95,29 @@ open class FSCollectionLayoutableCell: CollectionReusableCell, FSCollectionCellR
     
     private let separatorView = _FSSeparatorView()
     
-    private var leftConstraint: NSLayoutConstraint!
-    private var bottomConstraint: NSLayoutConstraint!
-    private var rightConstraint: NSLayoutConstraint!
-    private var heightConstraint: NSLayoutConstraint!
+    private var leftConstraint: NSLayoutConstraint?
+    private var bottomConstraint: NSLayoutConstraint?
+    private var rightConstraint: NSLayoutConstraint?
+    private var heightConstraint: NSLayoutConstraint?
+    
+    // MARK: Initialization
+    
+    public override init(frame: CGRect) {
+        super.init(frame: frame)
+        p_didInitialize()
+    }
+    
+    public required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        p_didInitialize()
+    }
     
     // MARK: Override
+    
+    open override func didInitialize() {
+        super.didInitialize()
+        contentView.backgroundColor = .white
+    }
     
     open override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
@@ -132,9 +146,25 @@ open class FSCollectionLayoutableCell: CollectionReusableCell, FSCollectionCellR
         contentView.bringSubviewToFront(separatorView)
     }
     
-    open override func didInitialize() {
-        super.didInitialize()
-        contentView.backgroundColor = .white
+    // MARK: FSCollectionCellRenderable
+    
+    open func render(with item: FSCollectionItemConvertable) {
+        self.item = nil
+        guard let item = item as? FSCollectionLayoutableItem else { return }
+        self.item = item
+        separatorView.color = item.separatorColor
+        leftConstraint?.constant = item.separatorInset.left
+        bottomConstraint?.constant = -item.separatorInset.bottom
+        rightConstraint?.constant  = -item.separatorInset.right
+        heightConstraint?.constant = item.separatorHeight
+        if !item.ignoresSeparatorHidden {
+            separatorView.isHidden = item.isSeparatorHidden
+        }
+    }
+    
+    // MARK: Private
+    
+    private func p_didInitialize() {
         separatorView.isHidden = true
         separatorView.translatesAutoresizingMaskIntoConstraints = false
         contentView.addSubview(separatorView)
@@ -181,23 +211,6 @@ open class FSCollectionLayoutableCell: CollectionReusableCell, FSCollectionCellR
                                                 constant: 1.0)
             heightConstraint = constraint
             contentView.addConstraint(constraint)
-        }
-    }
-    
-    // MARK: FSCollectionCellRenderable
-    
-    open func render(with item: FSCollectionItemConvertable) {
-        self.item = nil
-        guard let item = item as? FSCollectionLayoutableItem else { return }
-        self.item = item
-        contentView.backgroundColor = item.backgroundColor
-        separatorView.color = item.separatorColor
-        leftConstraint.constant = item.separatorInset.left
-        bottomConstraint.constant = -item.separatorInset.bottom
-        rightConstraint.constant  = -item.separatorInset.right
-        heightConstraint.constant = item.separatorHeight
-        if !item.ignoresSeparatorHidden {
-            separatorView.isHidden = item.isSeparatorHidden
         }
     }
 }

@@ -7,140 +7,156 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		02E38518D116E1EB61A8A36F572617FF /* FSCollectionKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 14F8C5AA52FD598CA05CF099A65727B3 /* FSCollectionKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0BD6F3B312E31DDDC04D31751CE8ECB5 /* FSCollectionSectionConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB1FF48D7A4EB840B5FA04254C454B0E /* FSCollectionSectionConvertable.swift */; };
-		1F0BA9284849124F65B6B0FC7326AE86 /* FSCollectionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82CBD79E5B52A0ECC8EA65DE67F74ADD /* FSCollectionSection.swift */; };
-		1FCF87D1F392DD2EAF096CA8872F9D14 /* FSCollectionHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD3404CDFD6DFD9DCC534ED4891C7F6B /* FSCollectionHeaderFooter.swift */; };
-		2396E061A61350E324BF62B450F0E179 /* NSAttributedString+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFE771EAEBAC61BD5F69DE0ACE54F261 /* NSAttributedString+FSCollectionKit.swift */; };
-		243A48C3592C22FA7B97D0E9F8E51826 /* FSCollectionHeaderFooterConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = C38B3CC836989DF5D78FC6659AE3ADE9 /* FSCollectionHeaderFooterConvertable.swift */; };
-		333655033B8303E16AC38729289FE9A6 /* UIColor+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9BB4A8B11114F31AB3E93E6144CDD93 /* UIColor+FSCollectionKit.swift */; };
-		33404EAA8B8E72E5726A7A9BE38BD861 /* FSCollectionLayoutableHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7C909811CFFBCA9263A2E1CF84FED78 /* FSCollectionLayoutableHeaderFooter.swift */; };
-		381E4B52569574001C7652AD5F1C9094 /* FSCollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B03F220384739DE31C455CFC1821563 /* FSCollectionItem.swift */; };
-		38EC5AB6224E0942348A3AE8B5142F98 /* UICollectionView+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = A544056B869AC8F3CAA10EF423CF695D /* UICollectionView+FSCollectionKit.swift */; };
-		42D3B870D5F4E1C01A6071D4D75056D3 /* FSCollectionCellRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA582E62A8908CEE66CF73C61B697E22 /* FSCollectionCellRenderable.swift */; };
-		65658A42A001AF9BB7676B75D848F85C /* CoreGraphics+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD05E28A8EF879AEB53111BD9970C4C8 /* CoreGraphics+FSCollectionKit.swift */; };
-		6A7D6022AF22EEBC346954EA310C96AC /* PublicNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28BE3E74BCB173DC95394344A2AC1EF5 /* PublicNamespace.swift */; };
-		7130166828B2CA404B2D26E09AF0DF81 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F8E84ECE95BFE9A80A381150A7880A5 /* Images.xcassets */; };
-		74474B66029A5B329AB8519DFE3F618D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
-		79F1A78479AF952AAA2134DB0971AC74 /* FSCollectionLayoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E020D1B46ABD379C460C6E9584B3845 /* FSCollectionLayoutable.swift */; };
-		7DAA7662E6C073E39CA5B9B3F5C69341 /* FSCollectionHeaderFooterViewRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EC3124C95D726444C1008A6F8C7BCC1 /* FSCollectionHeaderFooterViewRenderable.swift */; };
-		892CB51BA200484A9BEF44AA4DEB83A4 /* FSCollectionLayoutableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0CCEC364EFC09354570D307D29A9980 /* FSCollectionLayoutableItem.swift */; };
-		893FE591F0BB26F9DDAB2E8573B450BF /* FSCollectionKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = BD7C86A93C26C3F0F052997923784918 /* FSCollectionKit-dummy.m */; };
-		8F0376EC443D86AA412F70A4E7FD52A6 /* UIImage+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2088C2460671C1A985F3D59C9FC7CD75 /* UIImage+FSCollectionKit.swift */; };
-		910C04B9A0146C68B728BDE0A607C9AB /* InternalNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C3612D5F81DFCF5C6683BC6555AE1E0 /* InternalNamespace.swift */; };
-		91A46B98995BBB855F9FADEBE4A25878 /* FSCollectionSeparatorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A01959896B3E562458267F55E4863C7 /* FSCollectionSeparatorItem.swift */; };
-		936A879217FC754EF4D641BC05EC094E /* FSCollectionTitleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EBA6380AB346F699DB4DF02437E753D /* FSCollectionTitleItem.swift */; };
-		9912E3ADC36235DBD309FFEF51D2FF08 /* FSCollectionSeparatorHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C6947EE187F0F16D02C87D831FBD902 /* FSCollectionSeparatorHeaderFooter.swift */; };
-		9B0F88608B38B4F0FEE2B6621CFE9059 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */; };
-		9B1BB99374DF8B0399752D9BDE9A2E32 /* Pods-FSCollectionKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F2C7B9388A5C09164A25B284DB8BAD48 /* Pods-FSCollectionKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		AD760AE2080C2C4DD9EAC7CA1C04434B /* FSCollectionItemConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D89FA29066C102A1DCCFD454B757D23 /* FSCollectionItemConvertable.swift */; };
-		B00460AA2202A053A6BFDA88085A39A0 /* FSCollectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 883901D0CD4F67E90D7043BA9405C6EC /* FSCollectionManager.swift */; };
-		B7124AFF584FCC29EE43DAFB486B38D3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */; };
-		C163063AB3F76D3B82A8231841CAD7A0 /* Pods-FSCollectionKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B602FAC2A3471BE0E069ABAE84D008B6 /* Pods-FSCollectionKit_Example-dummy.m */; };
-		CE702392FFCA64FCD104A9AF2B82DABC /* FSCollectionDelegator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 101A7633FEF04DAAEEE402E140D5359A /* FSCollectionDelegator.swift */; };
-		D443378E72DC0AF31CAB8BC43F4A266B /* FSCollectionBlankItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7F987F9B198DAC0A2FDA854A8811412 /* FSCollectionBlankItem.swift */; };
-		D8D39EAAE1850CA65F7B35884DD5FAF6 /* UIScreen+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D27E28300F64C8B878646DF0C1A7822 /* UIScreen+FSCollectionKit.swift */; };
-		E4FFD0B4C90C4A73C929A109C528F07B /* _FSSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065D636A169F8C35AA860817EC1C7E8C /* _FSSeparatorView.swift */; };
-		E575EF3D5487215AE490AD6C1B3C9D14 /* FSCollectionKit-FSCollectionKit in Resources */ = {isa = PBXBuildFile; fileRef = 7624F5175E25D8E4F3E5FFD1BE4D9D8E /* FSCollectionKit-FSCollectionKit */; };
-		F68BC32C5B12C0106C4E6B4947B30A5D /* FSCollectionTitleHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5BEF2B4CA8AB45D8A18669386E65DD3 /* FSCollectionTitleHeaderFooter.swift */; };
+		0108E32FADD1CF821A86BA88016A3B77 /* FSCollectionLayoutableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43AFE618B30BDBF17E26C8401C05B6D /* FSCollectionLayoutableItem.swift */; };
+		022CDA797732CC276E079EE85FFC91DA /* _FSSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E342D7E4DD70109E73A6765BD2E311 /* _FSSeparatorView.swift */; };
+		08FF2E18F5EB199EC2CCF21147E4FF2A /* Pods-FSCollectionKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F2C7B9388A5C09164A25B284DB8BAD48 /* Pods-FSCollectionKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		0B67FCE0CCD6AB72E668AE43835585DD /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
+		0BA230BCD9AAF7D9AA6D24F224BDB404 /* FSCollectionTitleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16E4C56B010A6A13895303D224A986D3 /* FSCollectionTitleItem.swift */; };
+		153FDA706EDF3BCE948B0AB432FFE292 /* FSCollectionHeaderFooterConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16744D29E7799BF6A84F329F6056CF7F /* FSCollectionHeaderFooterConvertable.swift */; };
+		192FB0D86720D0EDD9A3FB6AB6F5D1E6 /* UICollectionView+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D739E7FCC0EF1BD469ECB6E6188FDE03 /* UICollectionView+FSCollectionKit.swift */; };
+		1C0818AF1B4484DD2120D9DAB159FA21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
+		1EF7F5748FFBED8063D15D6706C91927 /* CollectionInsetGroupLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = DD5CBCF327FB585EF20D935955F4DF84 /* CollectionInsetGroupLayout.swift */; };
+		243BAB022E1509A2391456CF73C34C1E /* CollectionInsetGroupLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 564C872F52526251715F01E7761C6FCE /* CollectionInsetGroupLayoutAttributes.swift */; };
+		2BA2345A3FF271F2033FF83596461417 /* InternalNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = D632AAEBC139D3C4BFF4E4E50F4E17B4 /* InternalNamespace.swift */; };
+		2FFE111DDE73777A5E94A49A67E4CC37 /* CACornerMask+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 221A6C296F03877E17A3C51DBC5FDFBB /* CACornerMask+FSCollectionKit.swift */; };
+		34E688DE1332E1D48FF5A715A5475D6F /* UIColor+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A09FD4DFD4E74F5A3DC7C5A95D1A282 /* UIColor+FSCollectionKit.swift */; };
+		35E0E98C1178D89EDABB2C7194794BA3 /* FSCollectionDelegator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 23F1E130BBC73CDC319B259579D6559B /* FSCollectionDelegator.swift */; };
+		3CB0FE6B41E3AD3AF5D0FB6D80DB3EC0 /* UIImage+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B495AF951E9C4FF27EFEDD635FF39FC5 /* UIImage+FSCollectionKit.swift */; };
+		62A0177C3E8D6D9CC660EE6842251460 /* NSAttributedString+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE6A1695E43149A83724410159545A5 /* NSAttributedString+FSCollectionKit.swift */; };
+		68390FB1D29B2BBCCBFB89E4490047FF /* FSCollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 864A45828D9C3B0D0958B74FF259BCD1 /* FSCollectionItem.swift */; };
+		775E4CE5A7FDE06D815E836E7DBCA2A9 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
+		7F932534B8D16E31B6E762E8D98DD951 /* FSCollectionHeaderFooterViewRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1067DA787B967EA5EC6BDC0A66D28BAE /* FSCollectionHeaderFooterViewRenderable.swift */; };
+		8B932461D7A4C2FAF502DDAE1E590EEA /* CollectionViewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 798D173D9C54F6C3C3FD281F3A6260D8 /* CollectionViewLayoutAttributes.swift */; };
+		8C09D188CA693F9DC11D726421EB6F27 /* FSCollectionBlankItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56AECD08830FADB5F5F7396C93779877 /* FSCollectionBlankItem.swift */; };
+		95397F22A849A82A3403AA086C7A2237 /* FSCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93CC3221859898DAB003EA8D72863214 /* FSCollectionViewFlowLayout.swift */; };
+		9A3EA56ED18F8FC9DF1955781D2D352E /* FSCollectionHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA8924F9C9A981A87E584BD39E6A70A9 /* FSCollectionHeaderFooter.swift */; };
+		A603DF28110D7F32E9647607A1BD7B5F /* CollectionReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2E79E715FC9329D6F764FB427FC2BA84 /* CollectionReusableCell.swift */; };
+		A853B59C4E96F65A83E0BAE0757E5F30 /* FSCollectionLayoutableHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 980F16A110CC7C671A6E4E5F74C7E6D7 /* FSCollectionLayoutableHeaderFooter.swift */; };
+		A931BF877F2CA661F2B100DD96102611 /* FSCollectionTitleHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7D00FAF4981089906746BDA9215E3DB /* FSCollectionTitleHeaderFooter.swift */; };
+		AC9801F01DEFE2438DDCEFF6D00D30F3 /* FSCollectionCellRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 239CA8CF2BA305954D88235B91ED1E86 /* FSCollectionCellRenderable.swift */; };
+		ADA4D107F3EC29C62E64FC710F50619A /* FSCollectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 801AB24A87E34157EE59ED52440D87EE /* FSCollectionManager.swift */; };
+		B3460CB3DD3418630039F0E63A4E17AA /* FSCollectionLayoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B53607871C8C1A7663701998068181 /* FSCollectionLayoutable.swift */; };
+		B3C4B9FE39336050275FC6D6BCBFB98F /* FSCollectionKit-FSCollectionKit in Resources */ = {isa = PBXBuildFile; fileRef = 7624F5175E25D8E4F3E5FFD1BE4D9D8E /* FSCollectionKit-FSCollectionKit */; };
+		B47D9E86B8ED3F29E701857AB9CF3C64 /* CoreGraphics+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9018681972A77D1205DA5752944B994 /* CoreGraphics+FSCollectionKit.swift */; };
+		B872B99DF00B4FB2177578E6B8127048 /* FSCollectionKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B0E9E29C7CC4A8D9570853C443996984 /* FSCollectionKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B9BE128AE5E3A6EB0834D5E05FEAD760 /* Pods-FSCollectionKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B602FAC2A3471BE0E069ABAE84D008B6 /* Pods-FSCollectionKit_Example-dummy.m */; };
+		C51162E2BC219CBFECC90B7AE49E6B10 /* PublicNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3F4A5D584FCF3BA6F3F8DD25FF38654E /* PublicNamespace.swift */; };
+		C95D96C777470A3B6F51A73B3C3C7968 /* FSCollectionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = EEC749F7274BAFF12F042EC2AA1338EB /* FSCollectionSection.swift */; };
+		C9A452CF4AC36883F36813C16540E480 /* FSCollectionSeparatorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 722DF11BA03ED2A6A72B07177F2BC7D2 /* FSCollectionSeparatorItem.swift */; };
+		D282FA61D577D17CC5F99FFD107E47AD /* FSCollectionItemConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F80DFF19BB37896EB4B883EA8F16863F /* FSCollectionItemConvertable.swift */; };
+		D3FB39152FF3993082E3C07232C05F51 /* UIScreen+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FA3C41E6D1D27938105A91A22AA3B9D /* UIScreen+FSCollectionKit.swift */; };
+		D5952A7A6C8F5B8AB4AC55CA41671ACF /* CollectionInsetGroupLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9DC281B02D3DCE296774B76F60AF67A /* CollectionInsetGroupLayoutDelegate.swift */; };
+		DBD43C2C705A56E64DE19916737CCA7C /* CollectionViewAnimatedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B5630E222611DAC9D9FD632FCBA09A2 /* CollectionViewAnimatedFlowLayout.swift */; };
+		DD240EF28F6F09B1AB063168A2CBBCD2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FAC02643DC50B864347959AD6EAA99CA /* Images.xcassets */; };
+		DF2BC48F485514344FADCC92498A08B3 /* FSCollectionSeparatorHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054548C98594204D97A76597EA3F214B /* FSCollectionSeparatorHeaderFooter.swift */; };
+		E592CC5083A79141C8A3F085EB8F5EA3 /* FSCollectionKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CC94E1ED20ED1AEF9B352FE10FD3371 /* FSCollectionKit-dummy.m */; };
+		FED1C6BB92ACB440183B67C559F80976 /* FSCollectionSectionConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = B438BF3520560A1AFC2A175133F0F90D /* FSCollectionSectionConvertable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		50A6C1BEB95484F044B903DA026BD99C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = FCF6339D93FDB4EF3981E9EABA67C0E7;
-			remoteInfo = "FSCollectionKit-FSCollectionKit";
-		};
-		76ED2A14EC7A0544C0D2ABF94CE43CF6 /* PBXContainerItemProxy */ = {
+		534D56A25813A854233B23285B1772B0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4ECEF69AF322D727488C71CB58CE4537;
 			remoteInfo = FSCollectionKit;
 		};
+		737C4CF504B4374417B39D25E8625888 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FCF6339D93FDB4EF3981E9EABA67C0E7;
+			remoteInfo = "FSCollectionKit-FSCollectionKit";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		065D636A169F8C35AA860817EC1C7E8C /* _FSSeparatorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = _FSSeparatorView.swift; sourceTree = "<group>"; };
-		0B03F220384739DE31C455CFC1821563 /* FSCollectionItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionItem.swift; path = Source/Classes/FSCollectionItem.swift; sourceTree = "<group>"; };
-		0C3612D5F81DFCF5C6683BC6555AE1E0 /* InternalNamespace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InternalNamespace.swift; sourceTree = "<group>"; };
-		0DE3A36D3BBAD44C6F323676DC2D65EC /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		054548C98594204D97A76597EA3F214B /* FSCollectionSeparatorHeaderFooter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionSeparatorHeaderFooter.swift; sourceTree = "<group>"; };
+		05CC373C0EF8BB07FB276B2BE6F8B8A4 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		0E1E3A04632D8CBBE0761A5D5533FC60 /* Pods-FSCollectionKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FSCollectionKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		0ED3DF1F844892148B492F8973A5D637 /* Pods-FSCollectionKit_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-FSCollectionKit_Example"; path = Pods_FSCollectionKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		101A7633FEF04DAAEEE402E140D5359A /* FSCollectionDelegator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionDelegator.swift; path = Source/Classes/FSCollectionDelegator.swift; sourceTree = "<group>"; };
-		14F8C5AA52FD598CA05CF099A65727B3 /* FSCollectionKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FSCollectionKit-umbrella.h"; sourceTree = "<group>"; };
-		1C7686508FA94B7B3DAA4966CF16942A /* FSCollectionKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FSCollectionKit-prefix.pch"; sourceTree = "<group>"; };
-		1ED1405F7B56446D347466B47D6BB1A5 /* FSCollectionKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FSCollectionKit.release.xcconfig; sourceTree = "<group>"; };
-		2088C2460671C1A985F3D59C9FC7CD75 /* UIImage+FSCollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+FSCollectionKit.swift"; sourceTree = "<group>"; };
+		1067DA787B967EA5EC6BDC0A66D28BAE /* FSCollectionHeaderFooterViewRenderable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionHeaderFooterViewRenderable.swift; path = Source/Classes/FSCollectionHeaderFooterViewRenderable.swift; sourceTree = "<group>"; };
+		16744D29E7799BF6A84F329F6056CF7F /* FSCollectionHeaderFooterConvertable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionHeaderFooterConvertable.swift; path = Source/Classes/FSCollectionHeaderFooterConvertable.swift; sourceTree = "<group>"; };
+		16E4C56B010A6A13895303D224A986D3 /* FSCollectionTitleItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionTitleItem.swift; sourceTree = "<group>"; };
+		18351F40FA3ADEB85DA0E3A7A71D38E1 /* FSCollectionKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FSCollectionKit-prefix.pch"; sourceTree = "<group>"; };
 		20E964ED6F2A9E6C9D98E42AB5ECF8E4 /* Pods-FSCollectionKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FSCollectionKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		22D281781C3BBFADDBEDFCC5A29B7E4D /* ResourceBundle-FSCollectionKit-FSCollectionKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-FSCollectionKit-FSCollectionKit-Info.plist"; sourceTree = "<group>"; };
-		28BE3E74BCB173DC95394344A2AC1EF5 /* PublicNamespace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PublicNamespace.swift; sourceTree = "<group>"; };
-		2D89FA29066C102A1DCCFD454B757D23 /* FSCollectionItemConvertable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionItemConvertable.swift; path = Source/Classes/FSCollectionItemConvertable.swift; sourceTree = "<group>"; };
-		320F74EC3EDBCED8A64AE548F0C74CF3 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		221A6C296F03877E17A3C51DBC5FDFBB /* CACornerMask+FSCollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CACornerMask+FSCollectionKit.swift"; sourceTree = "<group>"; };
+		239CA8CF2BA305954D88235B91ED1E86 /* FSCollectionCellRenderable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionCellRenderable.swift; path = Source/Classes/FSCollectionCellRenderable.swift; sourceTree = "<group>"; };
+		23F1E130BBC73CDC319B259579D6559B /* FSCollectionDelegator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionDelegator.swift; path = Source/Classes/FSCollectionDelegator.swift; sourceTree = "<group>"; };
+		25B53607871C8C1A7663701998068181 /* FSCollectionLayoutable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionLayoutable.swift; sourceTree = "<group>"; };
+		2E79E715FC9329D6F764FB427FC2BA84 /* CollectionReusableCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionReusableCell.swift; sourceTree = "<group>"; };
+		3F4A5D584FCF3BA6F3F8DD25FF38654E /* PublicNamespace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PublicNamespace.swift; sourceTree = "<group>"; };
 		43A5DE3B3482C31AD7006B20CF92FB19 /* Pods-FSCollectionKit_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FSCollectionKit_Example-Info.plist"; sourceTree = "<group>"; };
-		4C6947EE187F0F16D02C87D831FBD902 /* FSCollectionSeparatorHeaderFooter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionSeparatorHeaderFooter.swift; sourceTree = "<group>"; };
-		4F8E84ECE95BFE9A80A381150A7880A5 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Source/Assets/Images.xcassets; sourceTree = "<group>"; };
-		6A01959896B3E562458267F55E4863C7 /* FSCollectionSeparatorItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionSeparatorItem.swift; sourceTree = "<group>"; };
-		6D27E28300F64C8B878646DF0C1A7822 /* UIScreen+FSCollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIScreen+FSCollectionKit.swift"; sourceTree = "<group>"; };
+		4A09FD4DFD4E74F5A3DC7C5A95D1A282 /* UIColor+FSCollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIColor+FSCollectionKit.swift"; sourceTree = "<group>"; };
+		4CC94E1ED20ED1AEF9B352FE10FD3371 /* FSCollectionKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FSCollectionKit-dummy.m"; sourceTree = "<group>"; };
+		4F0342F5DD1E4AF18508202CC184E938 /* FSCollectionKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = FSCollectionKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		564C872F52526251715F01E7761C6FCE /* CollectionInsetGroupLayoutAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionInsetGroupLayoutAttributes.swift; sourceTree = "<group>"; };
+		56AECD08830FADB5F5F7396C93779877 /* FSCollectionBlankItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionBlankItem.swift; sourceTree = "<group>"; };
+		5A957DFCA26D180708CAE6F51EF09F2A /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		5B5630E222611DAC9D9FD632FCBA09A2 /* CollectionViewAnimatedFlowLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionViewAnimatedFlowLayout.swift; sourceTree = "<group>"; };
+		5DE6A1695E43149A83724410159545A5 /* NSAttributedString+FSCollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+FSCollectionKit.swift"; sourceTree = "<group>"; };
+		5FA3C41E6D1D27938105A91A22AA3B9D /* UIScreen+FSCollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIScreen+FSCollectionKit.swift"; sourceTree = "<group>"; };
+		68D8FEF8065C796068AC08BB765E1CED /* FSCollectionKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FSCollectionKit.release.xcconfig; sourceTree = "<group>"; };
+		6A857EC04C6E7C54D42609DCB737A52D /* FSCollectionKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FSCollectionKit.debug.xcconfig; sourceTree = "<group>"; };
+		722DF11BA03ED2A6A72B07177F2BC7D2 /* FSCollectionSeparatorItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionSeparatorItem.swift; sourceTree = "<group>"; };
 		7624F5175E25D8E4F3E5FFD1BE4D9D8E /* FSCollectionKit-FSCollectionKit */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "FSCollectionKit-FSCollectionKit"; path = FSCollectionKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		78AF40AF99250EDFE15D5BD421B2B1F1 /* Pods-FSCollectionKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FSCollectionKit_Example-frameworks.sh"; sourceTree = "<group>"; };
-		7E020D1B46ABD379C460C6E9584B3845 /* FSCollectionLayoutable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionLayoutable.swift; sourceTree = "<group>"; };
-		7EBA6380AB346F699DB4DF02437E753D /* FSCollectionTitleItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionTitleItem.swift; sourceTree = "<group>"; };
-		82CBD79E5B52A0ECC8EA65DE67F74ADD /* FSCollectionSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionSection.swift; path = Source/Classes/FSCollectionSection.swift; sourceTree = "<group>"; };
-		883901D0CD4F67E90D7043BA9405C6EC /* FSCollectionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionManager.swift; path = Source/Classes/FSCollectionManager.swift; sourceTree = "<group>"; };
+		798D173D9C54F6C3C3FD281F3A6260D8 /* CollectionViewLayoutAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutAttributes.swift; sourceTree = "<group>"; };
+		801AB24A87E34157EE59ED52440D87EE /* FSCollectionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionManager.swift; path = Source/Classes/FSCollectionManager.swift; sourceTree = "<group>"; };
+		8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		864A45828D9C3B0D0958B74FF259BCD1 /* FSCollectionItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionItem.swift; path = Source/Classes/FSCollectionItem.swift; sourceTree = "<group>"; };
+		87E0E6E4C9390D227D0534366324965A /* ResourceBundle-FSCollectionKit-FSCollectionKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-FSCollectionKit-FSCollectionKit-Info.plist"; sourceTree = "<group>"; };
+		91E342D7E4DD70109E73A6765BD2E311 /* _FSSeparatorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = _FSSeparatorView.swift; sourceTree = "<group>"; };
+		93CC3221859898DAB003EA8D72863214 /* FSCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		980F16A110CC7C671A6E4E5F74C7E6D7 /* FSCollectionLayoutableHeaderFooter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionLayoutableHeaderFooter.swift; sourceTree = "<group>"; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		9EC3124C95D726444C1008A6F8C7BCC1 /* FSCollectionHeaderFooterViewRenderable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionHeaderFooterViewRenderable.swift; path = Source/Classes/FSCollectionHeaderFooterViewRenderable.swift; sourceTree = "<group>"; };
-		A12114F2123AC602D798D8EF266E9E00 /* FSCollectionKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FSCollectionKit-Info.plist"; sourceTree = "<group>"; };
-		A544056B869AC8F3CAA10EF423CF695D /* UICollectionView+FSCollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UICollectionView+FSCollectionKit.swift"; sourceTree = "<group>"; };
-		AC6A8169692A730E47F622D4EF7EB5A7 /* FSCollectionKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FSCollectionKit.debug.xcconfig; sourceTree = "<group>"; };
+		B0E9E29C7CC4A8D9570853C443996984 /* FSCollectionKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FSCollectionKit-umbrella.h"; sourceTree = "<group>"; };
+		B438BF3520560A1AFC2A175133F0F90D /* FSCollectionSectionConvertable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionSectionConvertable.swift; path = Source/Classes/FSCollectionSectionConvertable.swift; sourceTree = "<group>"; };
+		B495AF951E9C4FF27EFEDD635FF39FC5 /* UIImage+FSCollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+FSCollectionKit.swift"; sourceTree = "<group>"; };
 		B602FAC2A3471BE0E069ABAE84D008B6 /* Pods-FSCollectionKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FSCollectionKit_Example-dummy.m"; sourceTree = "<group>"; };
 		B9A726D484D35833FE9EE9C7AF500C84 /* FSCollectionKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FSCollectionKit; path = FSCollectionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		BD3404CDFD6DFD9DCC534ED4891C7F6B /* FSCollectionHeaderFooter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionHeaderFooter.swift; path = Source/Classes/FSCollectionHeaderFooter.swift; sourceTree = "<group>"; };
-		BD7C86A93C26C3F0F052997923784918 /* FSCollectionKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FSCollectionKit-dummy.m"; sourceTree = "<group>"; };
-		BFE771EAEBAC61BD5F69DE0ACE54F261 /* NSAttributedString+FSCollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+FSCollectionKit.swift"; sourceTree = "<group>"; };
-		C38B3CC836989DF5D78FC6659AE3ADE9 /* FSCollectionHeaderFooterConvertable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionHeaderFooterConvertable.swift; path = Source/Classes/FSCollectionHeaderFooterConvertable.swift; sourceTree = "<group>"; };
-		C7C909811CFFBCA9263A2E1CF84FED78 /* FSCollectionLayoutableHeaderFooter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionLayoutableHeaderFooter.swift; sourceTree = "<group>"; };
-		C9BB4A8B11114F31AB3E93E6144CDD93 /* UIColor+FSCollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIColor+FSCollectionKit.swift"; sourceTree = "<group>"; };
-		CA582E62A8908CEE66CF73C61B697E22 /* FSCollectionCellRenderable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionCellRenderable.swift; path = Source/Classes/FSCollectionCellRenderable.swift; sourceTree = "<group>"; };
-		CB1FF48D7A4EB840B5FA04254C454B0E /* FSCollectionSectionConvertable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionSectionConvertable.swift; path = Source/Classes/FSCollectionSectionConvertable.swift; sourceTree = "<group>"; };
-		CD05E28A8EF879AEB53111BD9970C4C8 /* CoreGraphics+FSCollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+FSCollectionKit.swift"; sourceTree = "<group>"; };
-		D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		D5BEF2B4CA8AB45D8A18669386E65DD3 /* FSCollectionTitleHeaderFooter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionTitleHeaderFooter.swift; sourceTree = "<group>"; };
-		D7F987F9B198DAC0A2FDA854A8811412 /* FSCollectionBlankItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionBlankItem.swift; sourceTree = "<group>"; };
+		C43AFE618B30BDBF17E26C8401C05B6D /* FSCollectionLayoutableItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionLayoutableItem.swift; sourceTree = "<group>"; };
+		C9018681972A77D1205DA5752944B994 /* CoreGraphics+FSCollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+FSCollectionKit.swift"; sourceTree = "<group>"; };
+		D632AAEBC139D3C4BFF4E4E50F4E17B4 /* InternalNamespace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InternalNamespace.swift; sourceTree = "<group>"; };
+		D739E7FCC0EF1BD469ECB6E6188FDE03 /* UICollectionView+FSCollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UICollectionView+FSCollectionKit.swift"; sourceTree = "<group>"; };
+		D9DC281B02D3DCE296774B76F60AF67A /* CollectionInsetGroupLayoutDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionInsetGroupLayoutDelegate.swift; sourceTree = "<group>"; };
 		DAE66C6A15F9897AAD577A03890DD425 /* Pods-FSCollectionKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FSCollectionKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		E0CCEC364EFC09354570D307D29A9980 /* FSCollectionLayoutableItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionLayoutableItem.swift; sourceTree = "<group>"; };
-		E31C3903C7DD0DEAD73102B353EA0069 /* FSCollectionKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FSCollectionKit.modulemap; sourceTree = "<group>"; };
-		EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		DD5CBCF327FB585EF20D935955F4DF84 /* CollectionInsetGroupLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionInsetGroupLayout.swift; sourceTree = "<group>"; };
 		ECAE774CDA5273AC716B849DA542F521 /* Pods-FSCollectionKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FSCollectionKit_Example.release.xcconfig"; sourceTree = "<group>"; };
-		EF9ED2434071322C11612CFF40A8F780 /* FSCollectionKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = FSCollectionKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		EEC749F7274BAFF12F042EC2AA1338EB /* FSCollectionSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionSection.swift; path = Source/Classes/FSCollectionSection.swift; sourceTree = "<group>"; };
 		F2C7B9388A5C09164A25B284DB8BAD48 /* Pods-FSCollectionKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FSCollectionKit_Example-umbrella.h"; sourceTree = "<group>"; };
 		F315729C68E86262E705A690C31EDB6F /* Pods-FSCollectionKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FSCollectionKit_Example.modulemap"; sourceTree = "<group>"; };
+		F7D00FAF4981089906746BDA9215E3DB /* FSCollectionTitleHeaderFooter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionTitleHeaderFooter.swift; sourceTree = "<group>"; };
+		F80DFF19BB37896EB4B883EA8F16863F /* FSCollectionItemConvertable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionItemConvertable.swift; path = Source/Classes/FSCollectionItemConvertable.swift; sourceTree = "<group>"; };
+		F965312892D5C2D893E61C910AA53EE9 /* FSCollectionKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FSCollectionKit.modulemap; sourceTree = "<group>"; };
+		FA8924F9C9A981A87E584BD39E6A70A9 /* FSCollectionHeaderFooter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionHeaderFooter.swift; path = Source/Classes/FSCollectionHeaderFooter.swift; sourceTree = "<group>"; };
+		FAC02643DC50B864347959AD6EAA99CA /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Source/Assets/Images.xcassets; sourceTree = "<group>"; };
+		FFDA2F94D5892C4CACD50D4A6565B9DF /* FSCollectionKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FSCollectionKit-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		070B4F9DA0160F60169E50BE863AAC98 /* Frameworks */ = {
+		32BDE5CE5C0B3A17312EA7396F8614A8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				74474B66029A5B329AB8519DFE3F618D /* Foundation.framework in Frameworks */,
-				9B0F88608B38B4F0FEE2B6621CFE9059 /* UIKit.framework in Frameworks */,
+				775E4CE5A7FDE06D815E836E7DBCA2A9 /* Foundation.framework in Frameworks */,
+				0B67FCE0CCD6AB72E668AE43835585DD /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		295C73885F6492A487B3256BA52A6FB0 /* Frameworks */ = {
+		AB93E366145FDF71CB05BFF03C6AA84A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E2C812760FA17156B679E365D94F1F31 /* Frameworks */ = {
+		F111F686074021E0A5FEC8B97163B5B6 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B7124AFF584FCC29EE43DAFB486B38D3 /* Foundation.framework in Frameworks */,
+				1C0818AF1B4484DD2120D9DAB159FA21 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,9 +176,27 @@
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */,
+				1DE6440B6853131A80C53DDA34375AAB /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		16E0EF38FC13539DEDEE5B668104E15C /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				91E342D7E4DD70109E73A6765BD2E311 /* _FSSeparatorView.swift */,
+			);
+			name = Views;
+			path = Views;
+			sourceTree = "<group>";
+		};
+		1DE6440B6853131A80C53DDA34375AAB /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */,
+				ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		37DAE86F9E5FA65BE29C63450622E019 /* Pods-FSCollectionKit_Example */ = {
@@ -182,168 +216,157 @@
 			path = "Target Support Files/Pods-FSCollectionKit_Example";
 			sourceTree = "<group>";
 		};
-		389825695570BC440E57E53F9BA4D415 /* Internal */ = {
+		3840D925DDF0CF3322532AB778C34506 /* FSCollectionKit */ = {
 			isa = PBXGroup;
 			children = (
-				0C3612D5F81DFCF5C6683BC6555AE1E0 /* InternalNamespace.swift */,
-				9652C060429BF6570841D99C471DA788 /* Extensions */,
-				EDACF32BD0F7724DE92B19977EDD5BB4 /* Views */,
-			);
-			name = Internal;
-			path = Source/Classes/Internal;
-			sourceTree = "<group>";
-		};
-		44036FF1C295D74D73639429DAFDB434 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				7E020D1B46ABD379C460C6E9584B3845 /* FSCollectionLayoutable.swift */,
-			);
-			name = Protocols;
-			path = Source/Classes/Protocols;
-			sourceTree = "<group>";
-		};
-		473802E5F1EADE08B71A7A2251A5458A /* PublicNamespace */ = {
-			isa = PBXGroup;
-			children = (
-				28BE3E74BCB173DC95394344A2AC1EF5 /* PublicNamespace.swift */,
-			);
-			name = PublicNamespace;
-			path = Source/Classes/PublicNamespace;
-			sourceTree = "<group>";
-		};
-		59DA5C1F72E1D5BABC43EACBA672C3BA /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				EAB6F611E86A4758835A715E4B4184F6 /* Foundation.framework */,
-				D245E0514AAC1A2B9A6D5EA2F383E90F /* UIKit.framework */,
-			);
-			name = iOS;
-			sourceTree = "<group>";
-		};
-		6781BF3F394D274320EA1E14397887B8 /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				C7C909811CFFBCA9263A2E1CF84FED78 /* FSCollectionLayoutableHeaderFooter.swift */,
-				E0CCEC364EFC09354570D307D29A9980 /* FSCollectionLayoutableItem.swift */,
-			);
-			name = Base;
-			path = Base;
-			sourceTree = "<group>";
-		};
-		7000D9DA732B6891370F719EBED4A446 /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				E31C3903C7DD0DEAD73102B353EA0069 /* FSCollectionKit.modulemap */,
-				BD7C86A93C26C3F0F052997923784918 /* FSCollectionKit-dummy.m */,
-				A12114F2123AC602D798D8EF266E9E00 /* FSCollectionKit-Info.plist */,
-				1C7686508FA94B7B3DAA4966CF16942A /* FSCollectionKit-prefix.pch */,
-				14F8C5AA52FD598CA05CF099A65727B3 /* FSCollectionKit-umbrella.h */,
-				AC6A8169692A730E47F622D4EF7EB5A7 /* FSCollectionKit.debug.xcconfig */,
-				1ED1405F7B56446D347466B47D6BB1A5 /* FSCollectionKit.release.xcconfig */,
-				22D281781C3BBFADDBEDFCC5A29B7E4D /* ResourceBundle-FSCollectionKit-FSCollectionKit-Info.plist */,
-			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/FSCollectionKit";
-			sourceTree = "<group>";
-		};
-		7AE3CD84D3E9D0EA389FF06CAB5A5B1B /* Pod */ = {
-			isa = PBXGroup;
-			children = (
-				EF9ED2434071322C11612CFF40A8F780 /* FSCollectionKit.podspec */,
-				320F74EC3EDBCED8A64AE548F0C74CF3 /* LICENSE */,
-				0DE3A36D3BBAD44C6F323676DC2D65EC /* README.md */,
-			);
-			name = Pod;
-			sourceTree = "<group>";
-		};
-		9652C060429BF6570841D99C471DA788 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				CD05E28A8EF879AEB53111BD9970C4C8 /* CoreGraphics+FSCollectionKit.swift */,
-				BFE771EAEBAC61BD5F69DE0ACE54F261 /* NSAttributedString+FSCollectionKit.swift */,
-				C9BB4A8B11114F31AB3E93E6144CDD93 /* UIColor+FSCollectionKit.swift */,
-				2088C2460671C1A985F3D59C9FC7CD75 /* UIImage+FSCollectionKit.swift */,
-				6D27E28300F64C8B878646DF0C1A7822 /* UIScreen+FSCollectionKit.swift */,
-			);
-			name = Extensions;
-			path = Extensions;
-			sourceTree = "<group>";
-		};
-		9660D7EFBE2B7DB0F5E9C753AC569CE4 /* FSCollectionKit */ = {
-			isa = PBXGroup;
-			children = (
-				CA582E62A8908CEE66CF73C61B697E22 /* FSCollectionCellRenderable.swift */,
-				101A7633FEF04DAAEEE402E140D5359A /* FSCollectionDelegator.swift */,
-				BD3404CDFD6DFD9DCC534ED4891C7F6B /* FSCollectionHeaderFooter.swift */,
-				C38B3CC836989DF5D78FC6659AE3ADE9 /* FSCollectionHeaderFooterConvertable.swift */,
-				9EC3124C95D726444C1008A6F8C7BCC1 /* FSCollectionHeaderFooterViewRenderable.swift */,
-				0B03F220384739DE31C455CFC1821563 /* FSCollectionItem.swift */,
-				2D89FA29066C102A1DCCFD454B757D23 /* FSCollectionItemConvertable.swift */,
-				883901D0CD4F67E90D7043BA9405C6EC /* FSCollectionManager.swift */,
-				82CBD79E5B52A0ECC8EA65DE67F74ADD /* FSCollectionSection.swift */,
-				CB1FF48D7A4EB840B5FA04254C454B0E /* FSCollectionSectionConvertable.swift */,
-				4F8E84ECE95BFE9A80A381150A7880A5 /* Images.xcassets */,
-				D8FE3BD1B49F2665B5D64CA8C93D6194 /* Defaults */,
-				D8365BB7B6542B8961ED6A73E6A0A6F2 /* Extensions */,
-				389825695570BC440E57E53F9BA4D415 /* Internal */,
-				7AE3CD84D3E9D0EA389FF06CAB5A5B1B /* Pod */,
-				44036FF1C295D74D73639429DAFDB434 /* Protocols */,
-				473802E5F1EADE08B71A7A2251A5458A /* PublicNamespace */,
-				7000D9DA732B6891370F719EBED4A446 /* Support Files */,
+				239CA8CF2BA305954D88235B91ED1E86 /* FSCollectionCellRenderable.swift */,
+				23F1E130BBC73CDC319B259579D6559B /* FSCollectionDelegator.swift */,
+				FA8924F9C9A981A87E584BD39E6A70A9 /* FSCollectionHeaderFooter.swift */,
+				16744D29E7799BF6A84F329F6056CF7F /* FSCollectionHeaderFooterConvertable.swift */,
+				1067DA787B967EA5EC6BDC0A66D28BAE /* FSCollectionHeaderFooterViewRenderable.swift */,
+				864A45828D9C3B0D0958B74FF259BCD1 /* FSCollectionItem.swift */,
+				F80DFF19BB37896EB4B883EA8F16863F /* FSCollectionItemConvertable.swift */,
+				801AB24A87E34157EE59ED52440D87EE /* FSCollectionManager.swift */,
+				EEC749F7274BAFF12F042EC2AA1338EB /* FSCollectionSection.swift */,
+				B438BF3520560A1AFC2A175133F0F90D /* FSCollectionSectionConvertable.swift */,
+				FAC02643DC50B864347959AD6EAA99CA /* Images.xcassets */,
+				621F88BF6B40AD814D6857CE824C2472 /* Base */,
+				FAA7D0A269DF15426A96416E843F339E /* CollectionViewLayouts */,
+				519177582D24373C5F5AF54EE188C10F /* Defaults */,
+				84A17EC5C1672733DB17BC544E63962D /* Extensions */,
+				D1A4EF8BAD9C605BFEB81DE984B1796D /* Internal */,
+				796111CF19849E32E79ECECCF3109064 /* Pod */,
+				C4F5237A5658F3514F39A64B93364E74 /* Protocols */,
+				93290A140F32AD26B24BA8F80119B02B /* PublicNamespace */,
+				BE017A4E94862BC6EB2684771CBE1B45 /* Support Files */,
 			);
 			name = FSCollectionKit;
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		BBBA6CE47CDAA2604310A4D10181FA35 /* Development Pods */ = {
+		519177582D24373C5F5AF54EE188C10F /* Defaults */ = {
 			isa = PBXGroup;
 			children = (
-				9660D7EFBE2B7DB0F5E9C753AC569CE4 /* FSCollectionKit */,
+				56AECD08830FADB5F5F7396C93779877 /* FSCollectionBlankItem.swift */,
+				054548C98594204D97A76597EA3F214B /* FSCollectionSeparatorHeaderFooter.swift */,
+				722DF11BA03ED2A6A72B07177F2BC7D2 /* FSCollectionSeparatorItem.swift */,
+				F7D00FAF4981089906746BDA9215E3DB /* FSCollectionTitleHeaderFooter.swift */,
+				16E4C56B010A6A13895303D224A986D3 /* FSCollectionTitleItem.swift */,
 			);
-			name = "Development Pods";
+			name = Defaults;
+			path = Source/Classes/Defaults;
+			sourceTree = "<group>";
+		};
+		621F88BF6B40AD814D6857CE824C2472 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				2E79E715FC9329D6F764FB427FC2BA84 /* CollectionReusableCell.swift */,
+				798D173D9C54F6C3C3FD281F3A6260D8 /* CollectionViewLayoutAttributes.swift */,
+				980F16A110CC7C671A6E4E5F74C7E6D7 /* FSCollectionLayoutableHeaderFooter.swift */,
+				C43AFE618B30BDBF17E26C8401C05B6D /* FSCollectionLayoutableItem.swift */,
+			);
+			name = Base;
+			path = Source/Classes/Base;
+			sourceTree = "<group>";
+		};
+		796111CF19849E32E79ECECCF3109064 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				4F0342F5DD1E4AF18508202CC184E938 /* FSCollectionKit.podspec */,
+				5A957DFCA26D180708CAE6F51EF09F2A /* LICENSE */,
+				05CC373C0EF8BB07FB276B2BE6F8B8A4 /* README.md */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		84A17EC5C1672733DB17BC544E63962D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D739E7FCC0EF1BD469ECB6E6188FDE03 /* UICollectionView+FSCollectionKit.swift */,
+			);
+			name = Extensions;
+			path = Source/Classes/Extensions;
+			sourceTree = "<group>";
+		};
+		93290A140F32AD26B24BA8F80119B02B /* PublicNamespace */ = {
+			isa = PBXGroup;
+			children = (
+				3F4A5D584FCF3BA6F3F8DD25FF38654E /* PublicNamespace.swift */,
+			);
+			name = PublicNamespace;
+			path = Source/Classes/PublicNamespace;
+			sourceTree = "<group>";
+		};
+		989A0ACEAC1117E123B22E5159EAEB9D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				221A6C296F03877E17A3C51DBC5FDFBB /* CACornerMask+FSCollectionKit.swift */,
+				C9018681972A77D1205DA5752944B994 /* CoreGraphics+FSCollectionKit.swift */,
+				5DE6A1695E43149A83724410159545A5 /* NSAttributedString+FSCollectionKit.swift */,
+				4A09FD4DFD4E74F5A3DC7C5A95D1A282 /* UIColor+FSCollectionKit.swift */,
+				B495AF951E9C4FF27EFEDD635FF39FC5 /* UIImage+FSCollectionKit.swift */,
+				5FA3C41E6D1D27938105A91A22AA3B9D /* UIScreen+FSCollectionKit.swift */,
+			);
+			name = Extensions;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		BE017A4E94862BC6EB2684771CBE1B45 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F965312892D5C2D893E61C910AA53EE9 /* FSCollectionKit.modulemap */,
+				4CC94E1ED20ED1AEF9B352FE10FD3371 /* FSCollectionKit-dummy.m */,
+				FFDA2F94D5892C4CACD50D4A6565B9DF /* FSCollectionKit-Info.plist */,
+				18351F40FA3ADEB85DA0E3A7A71D38E1 /* FSCollectionKit-prefix.pch */,
+				B0E9E29C7CC4A8D9570853C443996984 /* FSCollectionKit-umbrella.h */,
+				6A857EC04C6E7C54D42609DCB737A52D /* FSCollectionKit.debug.xcconfig */,
+				68D8FEF8065C796068AC08BB765E1CED /* FSCollectionKit.release.xcconfig */,
+				87E0E6E4C9390D227D0534366324965A /* ResourceBundle-FSCollectionKit-FSCollectionKit-Info.plist */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/FSCollectionKit";
+			sourceTree = "<group>";
+		};
+		C4F5237A5658F3514F39A64B93364E74 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				25B53607871C8C1A7663701998068181 /* FSCollectionLayoutable.swift */,
+			);
+			name = Protocols;
+			path = Source/Classes/Protocols;
+			sourceTree = "<group>";
+		};
+		C88CB791437B23B85DF090318F7C793B /* InsetGroupLayout */ = {
+			isa = PBXGroup;
+			children = (
+				DD5CBCF327FB585EF20D935955F4DF84 /* CollectionInsetGroupLayout.swift */,
+				564C872F52526251715F01E7761C6FCE /* CollectionInsetGroupLayoutAttributes.swift */,
+				D9DC281B02D3DCE296774B76F60AF67A /* CollectionInsetGroupLayoutDelegate.swift */,
+			);
+			name = InsetGroupLayout;
+			path = InsetGroupLayout;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
 			isa = PBXGroup;
 			children = (
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
-				BBBA6CE47CDAA2604310A4D10181FA35 /* Development Pods */,
+				EFF5F2BB7FCE046B4C92A7D3590A5619 /* Development Pods */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
 				14F70427058EF8F9DE25ADFFB0ADE045 /* Products */,
 				EFA36A06001C10322891C5D251ADBD18 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		D8365BB7B6542B8961ED6A73E6A0A6F2 /* Extensions */ = {
+		D1A4EF8BAD9C605BFEB81DE984B1796D /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				A544056B869AC8F3CAA10EF423CF695D /* UICollectionView+FSCollectionKit.swift */,
+				D632AAEBC139D3C4BFF4E4E50F4E17B4 /* InternalNamespace.swift */,
+				989A0ACEAC1117E123B22E5159EAEB9D /* Extensions */,
+				16E0EF38FC13539DEDEE5B668104E15C /* Views */,
 			);
-			name = Extensions;
-			path = Source/Classes/Extensions;
-			sourceTree = "<group>";
-		};
-		D8FE3BD1B49F2665B5D64CA8C93D6194 /* Defaults */ = {
-			isa = PBXGroup;
-			children = (
-				D7F987F9B198DAC0A2FDA854A8811412 /* FSCollectionBlankItem.swift */,
-				4C6947EE187F0F16D02C87D831FBD902 /* FSCollectionSeparatorHeaderFooter.swift */,
-				6A01959896B3E562458267F55E4863C7 /* FSCollectionSeparatorItem.swift */,
-				D5BEF2B4CA8AB45D8A18669386E65DD3 /* FSCollectionTitleHeaderFooter.swift */,
-				7EBA6380AB346F699DB4DF02437E753D /* FSCollectionTitleItem.swift */,
-				6781BF3F394D274320EA1E14397887B8 /* Base */,
-			);
-			name = Defaults;
-			path = Source/Classes/Defaults;
-			sourceTree = "<group>";
-		};
-		EDACF32BD0F7724DE92B19977EDD5BB4 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				065D636A169F8C35AA860817EC1C7E8C /* _FSSeparatorView.swift */,
-			);
-			name = Views;
-			path = Views;
+			name = Internal;
+			path = Source/Classes/Internal;
 			sourceTree = "<group>";
 		};
 		EFA36A06001C10322891C5D251ADBD18 /* Targets Support Files */ = {
@@ -354,22 +377,41 @@
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
+		EFF5F2BB7FCE046B4C92A7D3590A5619 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3840D925DDF0CF3322532AB778C34506 /* FSCollectionKit */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		FAA7D0A269DF15426A96416E843F339E /* CollectionViewLayouts */ = {
+			isa = PBXGroup;
+			children = (
+				5B5630E222611DAC9D9FD632FCBA09A2 /* CollectionViewAnimatedFlowLayout.swift */,
+				93CC3221859898DAB003EA8D72863214 /* FSCollectionViewFlowLayout.swift */,
+				C88CB791437B23B85DF090318F7C793B /* InsetGroupLayout */,
+			);
+			name = CollectionViewLayouts;
+			path = Source/Classes/CollectionViewLayouts;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		5E13E2E680B783D8F2B7B8432C247DEE /* Headers */ = {
+		4A7927C5CE0F36D4B7CD9F22D093E85F /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B1BB99374DF8B0399752D9BDE9A2E32 /* Pods-FSCollectionKit_Example-umbrella.h in Headers */,
+				B872B99DF00B4FB2177578E6B8127048 /* FSCollectionKit-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D0004AC3913198842BB6B4289A623848 /* Headers */ = {
+		5BE04BD07430C6630E955A298099596E /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				02E38518D116E1EB61A8A36F572617FF /* FSCollectionKit-umbrella.h in Headers */,
+				08FF2E18F5EB199EC2CCF21147E4FF2A /* Pods-FSCollectionKit_Example-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,17 +420,17 @@
 /* Begin PBXNativeTarget section */
 		4ECEF69AF322D727488C71CB58CE4537 /* FSCollectionKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = B5AD0090E38FADDC3BD3345600F199FA /* Build configuration list for PBXNativeTarget "FSCollectionKit" */;
+			buildConfigurationList = 3575472EE2D0AC963FCD439C0A552322 /* Build configuration list for PBXNativeTarget "FSCollectionKit" */;
 			buildPhases = (
-				D0004AC3913198842BB6B4289A623848 /* Headers */,
-				D3F475F1093E92278E1F97CF05CC9B85 /* Sources */,
-				070B4F9DA0160F60169E50BE863AAC98 /* Frameworks */,
-				F6E71D0DB0470A5FA04C1EA8AB94812E /* Resources */,
+				4A7927C5CE0F36D4B7CD9F22D093E85F /* Headers */,
+				6751E55C2CA00BDBD0A9B9953076CD4E /* Sources */,
+				32BDE5CE5C0B3A17312EA7396F8614A8 /* Frameworks */,
+				D49A715FB1A885BE10D9E8569C03E95D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				2A9C72C784B87B9587CE109F9AD200E4 /* PBXTargetDependency */,
+				7B53038ADB3DCCE94520A23B0D29CF72 /* PBXTargetDependency */,
 			);
 			name = FSCollectionKit;
 			productName = FSCollectionKit;
@@ -397,17 +439,17 @@
 		};
 		BAA33A5C7BCAC14094F241F74A9036A0 /* Pods-FSCollectionKit_Example */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 0DF1BD2184F54D0325891CD8026C6A95 /* Build configuration list for PBXNativeTarget "Pods-FSCollectionKit_Example" */;
+			buildConfigurationList = D45BF74EFF0BD4D5121657F165303F66 /* Build configuration list for PBXNativeTarget "Pods-FSCollectionKit_Example" */;
 			buildPhases = (
-				5E13E2E680B783D8F2B7B8432C247DEE /* Headers */,
-				FC34C0220A62F73E527623C6673168A4 /* Sources */,
-				E2C812760FA17156B679E365D94F1F31 /* Frameworks */,
-				9E0489304D106748B892D1BB7691ECB4 /* Resources */,
+				5BE04BD07430C6630E955A298099596E /* Headers */,
+				8E288DAD054F08DEA1F6C5A58BC5E70B /* Sources */,
+				F111F686074021E0A5FEC8B97163B5B6 /* Frameworks */,
+				74E3D32EBEE39D40A836393DD990C7B3 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				D28A2EDEBFEAE832DBD0F53518F3ADF0 /* PBXTargetDependency */,
+				C7A36AB7C0200238A2BD71E42ED80998 /* PBXTargetDependency */,
 			);
 			name = "Pods-FSCollectionKit_Example";
 			productName = Pods_FSCollectionKit_Example;
@@ -416,11 +458,11 @@
 		};
 		FCF6339D93FDB4EF3981E9EABA67C0E7 /* FSCollectionKit-FSCollectionKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 48B3F80FC382E888EB51F8ABCCED9AB8 /* Build configuration list for PBXNativeTarget "FSCollectionKit-FSCollectionKit" */;
+			buildConfigurationList = CC2541D22B6F4ABFCC3DB1717E11BEE7 /* Build configuration list for PBXNativeTarget "FSCollectionKit-FSCollectionKit" */;
 			buildPhases = (
-				C359F59251C7D969B80806377413DF8F /* Sources */,
-				295C73885F6492A487B3256BA52A6FB0 /* Frameworks */,
-				AE859BAE5CD9EA15202A824317A51E08 /* Resources */,
+				53DA16DC2D60BC34546E1937B3955051 /* Sources */,
+				AB93E366145FDF71CB05BFF03C6AA84A /* Frameworks */,
+				7A76EC41AABB66A19B49F77FA75757A2 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -437,8 +479,8 @@
 		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
 				ORGANIZATIONNAME = Sheng;
 			};
 			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
@@ -451,6 +493,7 @@
 			);
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			minimizedProjectReferenceProxies = 0;
+			preferredProjectObjectVersion = 77;
 			productRefGroup = 14F70427058EF8F9DE25ADFFB0ADE045 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -463,118 +506,109 @@
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9E0489304D106748B892D1BB7691ECB4 /* Resources */ = {
+		74E3D32EBEE39D40A836393DD990C7B3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AE859BAE5CD9EA15202A824317A51E08 /* Resources */ = {
+		7A76EC41AABB66A19B49F77FA75757A2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7130166828B2CA404B2D26E09AF0DF81 /* Images.xcassets in Resources */,
+				DD240EF28F6F09B1AB063168A2CBBCD2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F6E71D0DB0470A5FA04C1EA8AB94812E /* Resources */ = {
+		D49A715FB1A885BE10D9E8569C03E95D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E575EF3D5487215AE490AD6C1B3C9D14 /* FSCollectionKit-FSCollectionKit in Resources */,
+				B3C4B9FE39336050275FC6D6BCBFB98F /* FSCollectionKit-FSCollectionKit in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		C359F59251C7D969B80806377413DF8F /* Sources */ = {
+		53DA16DC2D60BC34546E1937B3955051 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		D3F475F1093E92278E1F97CF05CC9B85 /* Sources */ = {
+		6751E55C2CA00BDBD0A9B9953076CD4E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4FFD0B4C90C4A73C929A109C528F07B /* _FSSeparatorView.swift in Sources */,
-				65658A42A001AF9BB7676B75D848F85C /* CoreGraphics+FSCollectionKit.swift in Sources */,
-				D443378E72DC0AF31CAB8BC43F4A266B /* FSCollectionBlankItem.swift in Sources */,
-				42D3B870D5F4E1C01A6071D4D75056D3 /* FSCollectionCellRenderable.swift in Sources */,
-				CE702392FFCA64FCD104A9AF2B82DABC /* FSCollectionDelegator.swift in Sources */,
-				1FCF87D1F392DD2EAF096CA8872F9D14 /* FSCollectionHeaderFooter.swift in Sources */,
-				243A48C3592C22FA7B97D0E9F8E51826 /* FSCollectionHeaderFooterConvertable.swift in Sources */,
-				7DAA7662E6C073E39CA5B9B3F5C69341 /* FSCollectionHeaderFooterViewRenderable.swift in Sources */,
-				381E4B52569574001C7652AD5F1C9094 /* FSCollectionItem.swift in Sources */,
-				AD760AE2080C2C4DD9EAC7CA1C04434B /* FSCollectionItemConvertable.swift in Sources */,
-				893FE591F0BB26F9DDAB2E8573B450BF /* FSCollectionKit-dummy.m in Sources */,
-				79F1A78479AF952AAA2134DB0971AC74 /* FSCollectionLayoutable.swift in Sources */,
-				33404EAA8B8E72E5726A7A9BE38BD861 /* FSCollectionLayoutableHeaderFooter.swift in Sources */,
-				892CB51BA200484A9BEF44AA4DEB83A4 /* FSCollectionLayoutableItem.swift in Sources */,
-				B00460AA2202A053A6BFDA88085A39A0 /* FSCollectionManager.swift in Sources */,
-				1F0BA9284849124F65B6B0FC7326AE86 /* FSCollectionSection.swift in Sources */,
-				0BD6F3B312E31DDDC04D31751CE8ECB5 /* FSCollectionSectionConvertable.swift in Sources */,
-				9912E3ADC36235DBD309FFEF51D2FF08 /* FSCollectionSeparatorHeaderFooter.swift in Sources */,
-				91A46B98995BBB855F9FADEBE4A25878 /* FSCollectionSeparatorItem.swift in Sources */,
-				F68BC32C5B12C0106C4E6B4947B30A5D /* FSCollectionTitleHeaderFooter.swift in Sources */,
-				936A879217FC754EF4D641BC05EC094E /* FSCollectionTitleItem.swift in Sources */,
-				910C04B9A0146C68B728BDE0A607C9AB /* InternalNamespace.swift in Sources */,
-				2396E061A61350E324BF62B450F0E179 /* NSAttributedString+FSCollectionKit.swift in Sources */,
-				6A7D6022AF22EEBC346954EA310C96AC /* PublicNamespace.swift in Sources */,
-				38EC5AB6224E0942348A3AE8B5142F98 /* UICollectionView+FSCollectionKit.swift in Sources */,
-				333655033B8303E16AC38729289FE9A6 /* UIColor+FSCollectionKit.swift in Sources */,
-				8F0376EC443D86AA412F70A4E7FD52A6 /* UIImage+FSCollectionKit.swift in Sources */,
-				D8D39EAAE1850CA65F7B35884DD5FAF6 /* UIScreen+FSCollectionKit.swift in Sources */,
+				022CDA797732CC276E079EE85FFC91DA /* _FSSeparatorView.swift in Sources */,
+				2FFE111DDE73777A5E94A49A67E4CC37 /* CACornerMask+FSCollectionKit.swift in Sources */,
+				1EF7F5748FFBED8063D15D6706C91927 /* CollectionInsetGroupLayout.swift in Sources */,
+				243BAB022E1509A2391456CF73C34C1E /* CollectionInsetGroupLayoutAttributes.swift in Sources */,
+				D5952A7A6C8F5B8AB4AC55CA41671ACF /* CollectionInsetGroupLayoutDelegate.swift in Sources */,
+				A603DF28110D7F32E9647607A1BD7B5F /* CollectionReusableCell.swift in Sources */,
+				DBD43C2C705A56E64DE19916737CCA7C /* CollectionViewAnimatedFlowLayout.swift in Sources */,
+				8B932461D7A4C2FAF502DDAE1E590EEA /* CollectionViewLayoutAttributes.swift in Sources */,
+				B47D9E86B8ED3F29E701857AB9CF3C64 /* CoreGraphics+FSCollectionKit.swift in Sources */,
+				8C09D188CA693F9DC11D726421EB6F27 /* FSCollectionBlankItem.swift in Sources */,
+				AC9801F01DEFE2438DDCEFF6D00D30F3 /* FSCollectionCellRenderable.swift in Sources */,
+				35E0E98C1178D89EDABB2C7194794BA3 /* FSCollectionDelegator.swift in Sources */,
+				9A3EA56ED18F8FC9DF1955781D2D352E /* FSCollectionHeaderFooter.swift in Sources */,
+				153FDA706EDF3BCE948B0AB432FFE292 /* FSCollectionHeaderFooterConvertable.swift in Sources */,
+				7F932534B8D16E31B6E762E8D98DD951 /* FSCollectionHeaderFooterViewRenderable.swift in Sources */,
+				68390FB1D29B2BBCCBFB89E4490047FF /* FSCollectionItem.swift in Sources */,
+				D282FA61D577D17CC5F99FFD107E47AD /* FSCollectionItemConvertable.swift in Sources */,
+				E592CC5083A79141C8A3F085EB8F5EA3 /* FSCollectionKit-dummy.m in Sources */,
+				B3460CB3DD3418630039F0E63A4E17AA /* FSCollectionLayoutable.swift in Sources */,
+				A853B59C4E96F65A83E0BAE0757E5F30 /* FSCollectionLayoutableHeaderFooter.swift in Sources */,
+				0108E32FADD1CF821A86BA88016A3B77 /* FSCollectionLayoutableItem.swift in Sources */,
+				ADA4D107F3EC29C62E64FC710F50619A /* FSCollectionManager.swift in Sources */,
+				C95D96C777470A3B6F51A73B3C3C7968 /* FSCollectionSection.swift in Sources */,
+				FED1C6BB92ACB440183B67C559F80976 /* FSCollectionSectionConvertable.swift in Sources */,
+				DF2BC48F485514344FADCC92498A08B3 /* FSCollectionSeparatorHeaderFooter.swift in Sources */,
+				C9A452CF4AC36883F36813C16540E480 /* FSCollectionSeparatorItem.swift in Sources */,
+				A931BF877F2CA661F2B100DD96102611 /* FSCollectionTitleHeaderFooter.swift in Sources */,
+				0BA230BCD9AAF7D9AA6D24F224BDB404 /* FSCollectionTitleItem.swift in Sources */,
+				95397F22A849A82A3403AA086C7A2237 /* FSCollectionViewFlowLayout.swift in Sources */,
+				2BA2345A3FF271F2033FF83596461417 /* InternalNamespace.swift in Sources */,
+				62A0177C3E8D6D9CC660EE6842251460 /* NSAttributedString+FSCollectionKit.swift in Sources */,
+				C51162E2BC219CBFECC90B7AE49E6B10 /* PublicNamespace.swift in Sources */,
+				192FB0D86720D0EDD9A3FB6AB6F5D1E6 /* UICollectionView+FSCollectionKit.swift in Sources */,
+				34E688DE1332E1D48FF5A715A5475D6F /* UIColor+FSCollectionKit.swift in Sources */,
+				3CB0FE6B41E3AD3AF5D0FB6D80DB3EC0 /* UIImage+FSCollectionKit.swift in Sources */,
+				D3FB39152FF3993082E3C07232C05F51 /* UIScreen+FSCollectionKit.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		FC34C0220A62F73E527623C6673168A4 /* Sources */ = {
+		8E288DAD054F08DEA1F6C5A58BC5E70B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C163063AB3F76D3B82A8231841CAD7A0 /* Pods-FSCollectionKit_Example-dummy.m in Sources */,
+				B9BE128AE5E3A6EB0834D5E05FEAD760 /* Pods-FSCollectionKit_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		2A9C72C784B87B9587CE109F9AD200E4 /* PBXTargetDependency */ = {
+		7B53038ADB3DCCE94520A23B0D29CF72 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = "FSCollectionKit-FSCollectionKit";
 			target = FCF6339D93FDB4EF3981E9EABA67C0E7 /* FSCollectionKit-FSCollectionKit */;
-			targetProxy = 50A6C1BEB95484F044B903DA026BD99C /* PBXContainerItemProxy */;
+			targetProxy = 737C4CF504B4374417B39D25E8625888 /* PBXContainerItemProxy */;
 		};
-		D28A2EDEBFEAE832DBD0F53518F3ADF0 /* PBXTargetDependency */ = {
+		C7A36AB7C0200238A2BD71E42ED80998 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FSCollectionKit;
 			target = 4ECEF69AF322D727488C71CB58CE4537 /* FSCollectionKit */;
-			targetProxy = 76ED2A14EC7A0544C0D2ABF94CE43CF6 /* PBXContainerItemProxy */;
+			targetProxy = 534D56A25813A854233B23285B1772B0 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		35BE21FE96A747B1C573A43322550325 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC6A8169692A730E47F622D4EF7EB5A7 /* FSCollectionKit.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGNING_ALLOWED = NO;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FSCollectionKit";
-				IBSC_MODULE = FSCollectionKit;
-				INFOPLIST_FILE = "Target Support Files/FSCollectionKit/ResourceBundle-FSCollectionKit-FSCollectionKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_NAME = FSCollectionKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Debug;
-		};
-		45260F4FF281CE5C1CD1ED3A37595218 /* Release */ = {
+		6A51D6B6A49196CEDC63CC32D3F306B4 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = ECAE774CDA5273AC716B849DA542F521 /* Pods-FSCollectionKit_Example.release.xcconfig */;
 			buildSettings = {
@@ -589,6 +623,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = "Target Support Files/Pods-FSCollectionKit_Example/Pods-FSCollectionKit_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -609,7 +645,24 @@
 			};
 			name = Release;
 		};
-		519897890D3FE9E6FD79E58EF7961B80 /* Debug */ = {
+		7049B3ED4E632DF2B508AB44E36E397E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68D8FEF8065C796068AC08BB765E1CED /* FSCollectionKit.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FSCollectionKit";
+				IBSC_MODULE = FSCollectionKit;
+				INFOPLIST_FILE = "Target Support Files/FSCollectionKit/ResourceBundle-FSCollectionKit-FSCollectionKit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_NAME = FSCollectionKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
+		900A96D793FE2399B2EFF2AF3CD88CF0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DAE66C6A15F9897AAD577A03890DD425 /* Pods-FSCollectionKit_Example.debug.xcconfig */;
 			buildSettings = {
@@ -624,6 +677,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				INFOPLIST_FILE = "Target Support Files/Pods-FSCollectionKit_Example/Pods-FSCollectionKit_Example-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
@@ -642,23 +697,6 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
-		};
-		5846AD052FAB8DC7F7FFD334497DFF9E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1ED1405F7B56446D347466B47D6BB1A5 /* FSCollectionKit.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGNING_ALLOWED = NO;
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FSCollectionKit";
-				IBSC_MODULE = FSCollectionKit;
-				INFOPLIST_FILE = "Target Support Files/FSCollectionKit/ResourceBundle-FSCollectionKit-FSCollectionKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				PRODUCT_NAME = FSCollectionKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
 		};
 		903A0004D3E6651EFD5D2E16214D101B /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -719,71 +757,6 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.0;
 				SYMROOT = "${SRCROOT}/../build";
-			};
-			name = Release;
-		};
-		91EFA58417D1614A06044B9008B1DB81 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = AC6A8169692A730E47F622D4EF7EB5A7 /* FSCollectionKit.debug.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/FSCollectionKit/FSCollectionKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FSCollectionKit/FSCollectionKit-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FSCollectionKit/FSCollectionKit.modulemap";
-				PRODUCT_MODULE_NAME = FSCollectionKit;
-				PRODUCT_NAME = FSCollectionKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		B435352AEAAC14734D0AE9BAF5E5DD8C /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1ED1405F7B56446D347466B47D6BB1A5 /* FSCollectionKit.release.xcconfig */;
-			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/FSCollectionKit/FSCollectionKit-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/FSCollectionKit/FSCollectionKit-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/FSCollectionKit/FSCollectionKit.modulemap";
-				PRODUCT_MODULE_NAME = FSCollectionKit;
-				PRODUCT_NAME = FSCollectionKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
@@ -853,14 +826,104 @@
 			};
 			name = Debug;
 		};
+		BAC8773E5366CC6C82AC658CB645EB20 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 68D8FEF8065C796068AC08BB765E1CED /* FSCollectionKit.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/FSCollectionKit/FSCollectionKit-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/FSCollectionKit/FSCollectionKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FSCollectionKit/FSCollectionKit.modulemap";
+				PRODUCT_MODULE_NAME = FSCollectionKit;
+				PRODUCT_NAME = FSCollectionKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		BCCB0C7DF0F387E37CF5238352428957 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A857EC04C6E7C54D42609DCB737A52D /* FSCollectionKit.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FSCollectionKit";
+				IBSC_MODULE = FSCollectionKit;
+				INFOPLIST_FILE = "Target Support Files/FSCollectionKit/ResourceBundle-FSCollectionKit-FSCollectionKit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				PRODUCT_NAME = FSCollectionKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Debug;
+		};
+		E0E64700560B1E7B42E6C7F14A82A047 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6A857EC04C6E7C54D42609DCB737A52D /* FSCollectionKit.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/FSCollectionKit/FSCollectionKit-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/FSCollectionKit/FSCollectionKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/FSCollectionKit/FSCollectionKit.modulemap";
+				PRODUCT_MODULE_NAME = FSCollectionKit;
+				PRODUCT_NAME = FSCollectionKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		0DF1BD2184F54D0325891CD8026C6A95 /* Build configuration list for PBXNativeTarget "Pods-FSCollectionKit_Example" */ = {
+		3575472EE2D0AC963FCD439C0A552322 /* Build configuration list for PBXNativeTarget "FSCollectionKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				519897890D3FE9E6FD79E58EF7961B80 /* Debug */,
-				45260F4FF281CE5C1CD1ED3A37595218 /* Release */,
+				E0E64700560B1E7B42E6C7F14A82A047 /* Debug */,
+				BAC8773E5366CC6C82AC658CB645EB20 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -874,20 +937,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		48B3F80FC382E888EB51F8ABCCED9AB8 /* Build configuration list for PBXNativeTarget "FSCollectionKit-FSCollectionKit" */ = {
+		CC2541D22B6F4ABFCC3DB1717E11BEE7 /* Build configuration list for PBXNativeTarget "FSCollectionKit-FSCollectionKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				35BE21FE96A747B1C573A43322550325 /* Debug */,
-				5846AD052FAB8DC7F7FFD334497DFF9E /* Release */,
+				BCCB0C7DF0F387E37CF5238352428957 /* Debug */,
+				7049B3ED4E632DF2B508AB44E36E397E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		B5AD0090E38FADDC3BD3345600F199FA /* Build configuration list for PBXNativeTarget "FSCollectionKit" */ = {
+		D45BF74EFF0BD4D5121657F165303F66 /* Build configuration list for PBXNativeTarget "Pods-FSCollectionKit_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				91EFA58417D1614A06044B9008B1DB81 /* Debug */,
-				B435352AEAAC14734D0AE9BAF5E5DD8C /* Release */,
+				900A96D793FE2399B2EFF2AF3CD88CF0 /* Debug */,
+				6A51D6B6A49196CEDC63CC32D3F306B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
