@@ -109,6 +109,8 @@ open class FSCollectionTitleItem: FSCollectionLayoutableItem {
     public var accessoryType: FSCollectionTitleItem.AccessoryType = .none
     
     /// accessoryType 为 `.detail` 时显示的图标，默认为一个箭头的图标。
+    /// 当 ``FSCollectionTitleItem/isRTLLanguage`` 为 true 时会自动翻转该图标。
+    ///
     public var accessoryDetailIcon: UIImage? = .inner.image(named: "icon_accessory_detail")
     
     public var iconFrame: CGRect = .zero
@@ -131,6 +133,11 @@ open class FSCollectionTitleItem: FSCollectionLayoutableItem {
     public var isDetailHidden = true
     public var isAccessoryHidden = true
     public var isAccessoryDetailHidden = true
+    
+    /// 是否适配 RTL，默认为 false。
+    /// 需在调用 ``updateLayout`` 方法之前设置，否则无效。
+    /// 子类则需要在调用 ``super.updateLayout()`` 之前设置。
+    public var isRTLLanguage = false
     
     // MARK: Initialization
     
@@ -357,6 +364,15 @@ open class FSCollectionTitleItem: FSCollectionLayoutableItem {
             let h = max(0, separatorHeight)
             let y = size.height - h
             separatorFrame = .init(x: x, y: y, width: w, height: h)
+        }
+        if isRTLLanguage {
+            iconFrame = iconFrame.inner.mirrorsForRTLLanguage(with: size.width)
+            titleFrame = titleFrame.inner.mirrorsForRTLLanguage(with: size.width)
+            subTitleFrame = subTitleFrame.inner.mirrorsForRTLLanguage(with: size.width)
+            detailFrame = detailFrame.inner.mirrorsForRTLLanguage(with: size.width)
+            accessoryFrame = accessoryFrame.inner.mirrorsForRTLLanguage(with: size.width)
+            separatorFrame = separatorFrame.inner.mirrorsForRTLLanguage(with: size.width)
+            accessoryDetailIcon = accessoryDetailIcon?.imageFlippedForRightToLeftLayoutDirection()
         }
     }
 }
