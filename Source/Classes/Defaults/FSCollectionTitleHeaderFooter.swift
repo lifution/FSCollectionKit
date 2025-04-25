@@ -270,7 +270,12 @@ open class FSCollectionTitleHeaderFooter: FSCollectionLayoutableHeaderFooter {
                     }
                     return spacing
                 }()
-                let attr_text = NSAttributedString.inner.attributedString(string: text, font: titleFont, color: color)
+                let attr_text = NSAttributedString.inner.attributedString(
+                    string: text,
+                    font: titleFont,
+                    color: color,
+                    textAlignment: isRTLLanguage ? .right : .left
+                )
                 titleText = attr_text
                 size = attr_text.inner.size(limitedWidth: maxLayoutWidth)
             } else {
@@ -362,6 +367,7 @@ private class FSCollectionTitleHeaderFooterView: FSCollectionLayoutableHeaderFoo
     private let titleLabel: UILabel = {
         let label = UILabel()
         label.isHidden = true
+        label.numberOfLines = 0
         return label
     }()
     
