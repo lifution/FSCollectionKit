@@ -52,7 +52,7 @@ class ViewController: UIViewController {
             for _ in 0..<100 {
                 let item = FSCollectionItem()
                 item.size = .init(width: (CGFloat(arc4random() % 100) + 50.0), height: (CGFloat(arc4random() % 100) + 30.0))
-                item.onWillDisplay = { (collectionView, cell, indexPath) in
+                item.onWillDisplay = { (collectionView, cell, indexPath, item) in
                     cell.contentView.backgroundColor = UIColor.red.withAlphaComponent(0.3)
                 }
                 items.append(item)
@@ -63,7 +63,7 @@ class ViewController: UIViewController {
             header.title = "洗尽铅华"
             header.subTitle = "天地不仁，以万物为刍狗"
             header.accessoryType = .detail
-            header.containerWidth = view.frame.width
+            header.containerSize = view.frame.size
             header.onDidSelect = {
                 print("did select header")
             }
@@ -87,10 +87,10 @@ class ViewController: UIViewController {
                 for _ in 0..<(arc4random() % 5 + 1) {
                     let item = FSCollectionItem()
                     item.size = .init(width: FSCollectionItem.AutomaticWidth, height: 100.0)
-                    item.onWillDisplay = { (collectionView, cell, indexPath) in
+                    item.onWillDisplay = { (collectionView, cell, indexPath, item) in
                         cell.contentView.backgroundColor = UIColor.red.withAlphaComponent(0.3)
                     }
-                    item.onDidSelect = { (_, _) in
+                    item.onDidSelect = { (_, _, _) in
                         print("did select")
                     }
                     items.append(item)
@@ -109,7 +109,7 @@ class ViewController: UIViewController {
                     header.accessoryType = .detail
                 }
                 header.size.height = 50.0
-                header.containerWidth = view.frame.width
+                header.containerSize = view.frame.size
                 header.automaticallyAdjustsHeight = false
                 header.updateLayout()
                 header.onDidSelect = { [weak self] in
