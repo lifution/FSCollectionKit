@@ -78,12 +78,18 @@ open class FSCollectionLayoutableItem: FSCollectionItem, FSCollectionItemLayouta
     // MARK: Open
     
     /// 重新绘制内容并刷新 cell
-    /// 高度不变时是 rerender cell，高度变化时是 reload cell
+    /// size 不变时是 rerender cell，size 变化时是 reload cell。
     open func reload() {
-        let before = size.height
+        let before = size
         updateLayout()
-        let after = size.height
-        reload(abs(after - before) >= 0.5 ? .reload : .reRender)
+        let after = size
+        var needsReload = false
+        if abs(after.width - before.width) >= 0.5 {
+            needsReload = true
+        } else if abs(after.height - before.height) >= 0.5 {
+            needsReload = true
+        }
+        reload(needsReload ? .reload : .reRender)
     }
 }
 
