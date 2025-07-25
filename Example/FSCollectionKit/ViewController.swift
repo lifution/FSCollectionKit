@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     
     private lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
+        layout.sectionHeadersPinToVisibleBounds = true
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collection.fsck.manager = manager
         return collection
