@@ -351,7 +351,7 @@ open class FSCollectionTitleHeaderFooter: FSCollectionLayoutableHeaderFooter {
 }
 
 
-private class FSCollectionTitleHeaderFooterView: FSCollectionLayoutableHeaderFooterView {
+open class FSCollectionTitleHeaderFooterView: FSCollectionLayoutableHeaderFooterView {
     
     // MARK: Properties/Private
     
@@ -392,14 +392,14 @@ private class FSCollectionTitleHeaderFooterView: FSCollectionLayoutableHeaderFoo
         p_didInitialize()
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
         p_didInitialize()
     }
     
     // MARK: Override
     
-    override func prepareForReuse() {
+    open override func prepareForReuse() {
         super.prepareForReuse()
         header?.reloadHandler = nil
         header = nil
@@ -474,7 +474,7 @@ private class FSCollectionTitleHeaderFooterView: FSCollectionLayoutableHeaderFoo
     
     // MARK: FSCollectionHeaderFooterViewRenderable
     
-    override func render(with headerFooter: FSCollectionHeaderFooterConvertable) {
+    open override func render(with headerFooter: FSCollectionHeaderFooterConvertable) {
         super.render(with: headerFooter)
         guard let header = headerFooter as? FSCollectionTitleHeaderFooter else { return }
         self.header = header
