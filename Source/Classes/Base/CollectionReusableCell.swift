@@ -44,6 +44,6 @@ open class CollectionReusableCell: UICollectionViewCell {
         defer {
             didInitialize()
         }
-        layer.masksToBounds = true
+        clipsToBounds = true
     }
 }

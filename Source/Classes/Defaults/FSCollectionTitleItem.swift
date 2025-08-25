@@ -113,6 +113,14 @@ open class FSCollectionTitleItem: FSCollectionLayoutableItem {
     ///
     public var accessoryDetailIcon: UIImage? = .inner.image(named: "icon_accessory_detail")
     
+    /// 作用于 cell/contentView
+    ///
+    public var cornerRadius: CGFloat = 0.0
+    
+    /// 作用于 cell/contentView
+    ///
+    public var clipsToBounds = false
+    
     public var iconFrame: CGRect = .zero
     public var titleFrame: CGRect = .zero
     public var subTitleFrame: CGRect = .zero
@@ -448,5 +456,8 @@ open class FSCollectionTitleCell: FSCollectionLayoutableCell {
         subTitleLabel.attributedText = item.subTitleText
         detailLabel.attributedText = item.detailText
         accessoryDetailView.image = item.accessoryDetailIcon
+        
+        contentView.clipsToBounds = item.clipsToBounds
+        contentView.layer.cornerRadius = item.cornerRadius
     }
 }
