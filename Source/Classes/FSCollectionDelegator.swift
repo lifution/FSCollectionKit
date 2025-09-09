@@ -9,7 +9,11 @@
 import UIKit
 
 final class FSCollectionDelegator: NSObject {
-    weak var manager: FSCollectionManager!
+    unowned let manager: FSCollectionManager
+    init(manager: FSCollectionManager) {
+        self.manager = manager
+        super.init()
+    }
 }
 
 private extension FSCollectionDelegator {
@@ -29,6 +33,14 @@ private extension FSCollectionDelegator {
             return nil
         }
         return section.items[indexPath.item]
+    }
+    
+    func holderViewForSupplementaryElement(of collectionView: UICollectionView, kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        assert(false, "数据错误")
+        let reuseId = "_error_placeholder_supplementary_id"
+        collectionView.register(UICollectionReusableView.self, forCellWithReuseIdentifier: reuseId)
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: reuseId, for: indexPath)
+        return view
     }
 }
 
@@ -52,12 +64,19 @@ extension FSCollectionDelegator: UICollectionViewDataSource {
             let section = p_section(at: indexPath.section),
             indexPath.item < section.items.count
         else {
-            preconditionFailure("Invalid data.")
+            assert(false, "数据错误")
+            let reuseId = "_error_placeholder_cell_id"
+            collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseId)
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseId, for: indexPath)
+            return cell
         }
         let item = section.items[indexPath.item]
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: item.reuseIdentifier, for: indexPath)
+        ///
         /// cellForItemAt 和 willDisplay 两个方法并不是同步调用的，有时候调用了 cellForItemAt 但却不会立即调用 willDisplay 的，
-        /// 因此更新 cell 的操作必须放在 `cellForItemAt` 方法中。
+        /// 有时候即使在视觉上已经看到 cell 出现了，但是 `willDisplay` 方法还是不会调用的，如果把 render 放在 `willDisplay` 中
+        /// 就有可能导致 UI 更新不及时，因此更新 cell 的操作必须放在 `cellForItemAt` 方法中。
+        ///
         if let renderable = cell as? FSCollectionCellRenderable {
             renderable.render(with: item)
         }
@@ -66,21 +85,21 @@ extension FSCollectionDelegator: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         guard let section = p_section(at: indexPath.section) else {
-            preconditionFailure("Invalid supplementary view type for this collection view.")
+            return holderViewForSupplementaryElement(of: collectionView, kind: kind, at: indexPath)
         }
         switch kind {
         case UICollectionView.elementKindSectionHeader:
             guard let header = section.header else {
-                preconditionFailure("Invalid supplementary view type for this collection view.")
+                return holderViewForSupplementaryElement(of: collectionView, kind: kind, at: indexPath)
             }
             return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: header.reuseIdentifier, for: indexPath)
         case UICollectionView.elementKindSectionFooter:
             guard let footer = section.footer else {
-                preconditionFailure("Invalid supplementary view type for this collection view.")
+                return holderViewForSupplementaryElement(of: collectionView, kind: kind, at: indexPath)
             }
             return collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: footer.reuseIdentifier, for: indexPath)
         default:
-            preconditionFailure("Invalid supplementary view type for this collection view.")
+            return holderViewForSupplementaryElement(of: collectionView, kind: kind, at: indexPath)
         }
     }
 }
@@ -191,11 +210,8 @@ extension FSCollectionDelegator: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         guard let section = p_section(at: indexPath.section), indexPath.item < section.items.count else {
-            #if DEBUG
-            fatalError("数据访问越界")
-            #else
+            assert(false, "数据错误")
             return .zero
-            #endif
         }
         var size = section.items[indexPath.item].size
         do {
@@ -236,7 +252,8 @@ extension FSCollectionDelegator: UICollectionViewDelegateFlowLayout {
                             }
                         }
                     default:
-                        fatalError("unknown type")
+                        assert(false, "unknown type")
+                        break
                     }
                 }
             }

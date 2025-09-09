@@ -15,8 +15,6 @@ import UIKit
 ///
 public final class FSCollectionManager {
     
-    // MARK: Properties/Public
-    
     public var sections: [FSCollectionSectionConvertable] = [] {
         didSet {
             p_collectionDataDidUpdate()
@@ -28,9 +26,9 @@ public final class FSCollectionManager {
     
     public private(set) weak var collectionView: UICollectionView?
     
-    // MARK: Properties/Private
+    // MARK: =
     
-    private let delegator: FSCollectionDelegator = FSCollectionDelegator()
+    private var delegator: FSCollectionDelegator?
     
     /// 记录已注册的 cellClass，以免多次注册。
     private var registeredCellMap: [String: AnyClass] = [:]
@@ -43,11 +41,16 @@ public final class FSCollectionManager {
     
     private var emptyView: UIView?
     
-    // MARK: Initialization
+    // MARK: =
     
     public init(sections: [FSCollectionSectionConvertable] = []) {
-        delegator.manager = self
         self.sections = sections
+    }
+    
+    // MARK: =
+    
+    deinit {
+        delegator = nil
     }
 }
 
@@ -55,50 +58,31 @@ public final class FSCollectionManager {
 
 private extension FSCollectionManager {
     
-    func p_registerIfNeeded() {
-        guard let collection = collectionView, sections.count > 0 else { return }
+    func p_register() {
+        guard
+            let collection = collectionView,
+            !sections.isEmpty
+        else {
+            return
+        }
         for section in sections {
+            // -
             for item in section.items {
-                let shouldRegister = !registeredCellMap.contains(where: { (key, value) -> Bool in
-                    if key == item.reuseIdentifier, NSStringFromClass(value) == NSStringFromClass(item.cellType) {
-                        return true
-                    }
-                    return false
-                })
-                if shouldRegister {
-                    collection.register(item.cellType, forCellWithReuseIdentifier: item.reuseIdentifier)
-                    registeredCellMap[item.reuseIdentifier] = item.cellType
-                }
+                collection.register(item.cellType, forCellWithReuseIdentifier: item.reuseIdentifier)
             }
-            
             if let header = section.header {
-                let shouldRegister = !registeredHeaderMap.contains(where: { (key, value) -> Bool in
-                    if key == header.reuseIdentifier, NSStringFromClass(value) == NSStringFromClass(header.viewType) {
-                        return true
-                    }
-                    return false
-                })
-                if shouldRegister {
-                    collection.register(header.viewType,
-                                        forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                                        withReuseIdentifier: header.reuseIdentifier)
-                    registeredHeaderMap[header.reuseIdentifier] = header.viewType
-                }
+                collection.register(
+                    header.viewType,
+                    forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                    withReuseIdentifier: header.reuseIdentifier
+                )
             }
-
             if let footer = section.footer {
-                let shouldRegister = !registeredFooterMap.contains(where: { (key, value) -> Bool in
-                    if key == footer.reuseIdentifier, NSStringFromClass(value) == NSStringFromClass(footer.viewType) {
-                        return true
-                    }
-                    return false
-                })
-                if shouldRegister {
-                    collection.register(footer.viewType,
-                                        forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
-                                        withReuseIdentifier: footer.reuseIdentifier)
-                    registeredFooterMap[footer.reuseIdentifier] = footer.viewType
-                }
+                collection.register(
+                    footer.viewType,
+                    forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+                    withReuseIdentifier: footer.reuseIdentifier
+                )
             }
         }
     }
@@ -140,7 +124,7 @@ private extension FSCollectionManager {
     }
     
     func p_collectionDataDidUpdate() {
-        p_registerIfNeeded()
+        p_register()
         p_updateReloadHandlers()
     }
     
@@ -199,8 +183,9 @@ extension FSCollectionManager {
             registeredFooterMap = [:]
         }
         self.collectionView = collectionView
-        p_registerIfNeeded()
+        p_register()
         p_updateEmptyView()
+        delegator = .init(manager: self)
         collectionView.delegate = delegator
         collectionView.dataSource = delegator
     }
@@ -300,9 +285,10 @@ public extension FSCollectionManager {
     }
     
     /// 更新布局
+    ///
     /// 该方法只适用于遵守 ``FSCollectionContentLayoutable/FSCollectionItemLayoutable`` 协议的
     /// header/footer/item。
-    /// 在调用该方法前，外部需要确定 collection view 的 frame.size 不为 (0, 0)。
+    ///
     func updateCollectionLayout(needsReload: Bool = true) {
         let containerSize = collectionView?.frame.size ?? .zero
         sections.forEach { section in
