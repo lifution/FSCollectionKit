@@ -30,15 +30,6 @@ public final class FSCollectionManager {
     
     private var delegator: FSCollectionDelegator?
     
-    /// 记录已注册的 cellClass，以免多次注册。
-    private var registeredCellMap: [String: AnyClass] = [:]
-    
-    /// 记录已注册的 headerClass，以免多次注册。
-    private var registeredHeaderMap: [String: AnyClass] = [:]
-    
-    /// 记录已注册的 footerClass，以免多次注册。
-    private var registeredFooterMap: [String: AnyClass] = [:]
-    
     private var emptyView: UIView?
     
     // MARK: =
@@ -177,11 +168,6 @@ private extension FSCollectionManager {
 extension FSCollectionManager {
     
     func bind(to collectionView: UICollectionView) {
-        if let collection = self.collectionView, collection !== collectionView {
-            registeredCellMap = [:]
-            registeredHeaderMap = [:]
-            registeredFooterMap = [:]
-        }
         self.collectionView = collectionView
         p_register()
         p_updateEmptyView()
