@@ -115,7 +115,8 @@ class ViewController: UIViewController {
                 header.updateLayout()
                 header.onDidSelect = { [weak self] in
                     print("did select header")
-                    let vc = ViewController()
+//                    let vc = ViewController()
+                    let vc = InsetGroupedViewController()
                     self?.navigationController?.pushViewController(vc, animated: true)
                 }
                 

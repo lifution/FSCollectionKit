@@ -28,7 +28,7 @@ open class CollectionReusableCell: UICollectionViewCell {
         super.apply(layoutAttributes)
         /// Fix: ``layoutAttributes.zIndex`` not work.
         layer.zPosition = CGFloat(layoutAttributes.zIndex)
-        if let attributes = layoutAttributes as? CollectionInsetGroupLayoutAttributes {
+        if let attributes = layoutAttributes as? CollectionInsetGroupedLayoutAttributes {
             layer.cornerRadius = attributes.cornerRadius
             layer.maskedCorners = attributes.maskedCorners
         }

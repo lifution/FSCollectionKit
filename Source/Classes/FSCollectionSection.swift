@@ -9,10 +9,10 @@
 import UIKit
 
 ///
-/// ``FSCollectionSectionConvertable`` 协议的默认实现类，用于快速构建。
+/// FSCollectionSectionConvertable 协议的默认实现类，用于快速构建。
 ///
 /// - Note:
-///   - 若想拓展业务请自行创建类实现 ``FSCollectionSectionConvertable`` 协议。
+///   - 若想拓展业务请自行创建类实现 FSCollectionSectionConvertable 协议。
 ///
 open class FSCollectionSection: FSCollectionSectionConvertable {
     

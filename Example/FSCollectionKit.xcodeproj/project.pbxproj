@@ -13,6 +13,7 @@
 		607FACDD1AFB9204008FA782 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDC1AFB9204008FA782 /* Images.xcassets */; };
 		607FACE01AFB9204008FA782 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 607FACDE1AFB9204008FA782 /* LaunchScreen.xib */; };
 		97624EAE2174406C309927C5 /* Pods_FSCollectionKit_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FEAC998B1A0B1CE5338872FB /* Pods_FSCollectionKit_Example.framework */; };
+		BFC1EA042EB8B392001FB04E /* InsetGroupedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFC1EA032EB8B392001FB04E /* InsetGroupedViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		6381D63EA269CC90753273B6 /* FSCollectionKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = FSCollectionKit.podspec; path = ../FSCollectionKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		63C9B70FC6D5F22D8EDE681D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		877A56C6529E6D63E7F5DA7E /* Pods-FSCollectionKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSCollectionKit_Example.debug.xcconfig"; path = "Target Support Files/Pods-FSCollectionKit_Example/Pods-FSCollectionKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		BFC1EA032EB8B392001FB04E /* InsetGroupedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InsetGroupedViewController.swift; sourceTree = "<group>"; };
 		CA084E964A4A9CC2F20892AE /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		EE975F5E92A34C1CC7850920 /* Pods-FSCollectionKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FSCollectionKit_Example.release.xcconfig"; path = "Target Support Files/Pods-FSCollectionKit_Example/Pods-FSCollectionKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		FEAC998B1A0B1CE5338872FB /* Pods_FSCollectionKit_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FSCollectionKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +76,7 @@
 		607FACD21AFB9204008FA782 /* Example for FSCollectionKit */ = {
 			isa = PBXGroup;
 			children = (
+				BFC1EA022EB8B379001FB04E /* Examples */,
 				607FACD51AFB9204008FA782 /* AppDelegate.swift */,
 				607FACD71AFB9204008FA782 /* ViewController.swift */,
 				607FACD91AFB9204008FA782 /* Main.storyboard */,
@@ -101,6 +104,14 @@
 				63C9B70FC6D5F22D8EDE681D /* LICENSE */,
 			);
 			name = "Podspec Metadata";
+			sourceTree = "<group>";
+		};
+		BFC1EA022EB8B379001FB04E /* Examples */ = {
+			isa = PBXGroup;
+			children = (
+				BFC1EA032EB8B392001FB04E /* InsetGroupedViewController.swift */,
+			);
+			path = Examples;
 			sourceTree = "<group>";
 		};
 		EA5EAB379C83017D28E11E52 /* Frameworks */ = {
@@ -192,10 +203,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-FSCollectionKit_Example/Pods-FSCollectionKit_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/FSCollectionKit/FSCollectionKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/SwipeCellKit/SwipeCellKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FSCollectionKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwipeCellKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -231,6 +246,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BFC1EA042EB8B392001FB04E /* InsetGroupedViewController.swift in Sources */,
 				607FACD81AFB9204008FA782 /* ViewController.swift in Sources */,
 				607FACD61AFB9204008FA782 /* AppDelegate.swift in Sources */,
 			);

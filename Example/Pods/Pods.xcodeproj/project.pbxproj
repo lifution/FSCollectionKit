@@ -7,137 +7,334 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0844C3A7C1001065DAB1F1E1A67516BB /* FSCollectionItemConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C92EF5AF875E4EC4F92BCD4AC3E896A /* FSCollectionItemConvertable.swift */; };
-		08FF2E18F5EB199EC2CCF21147E4FF2A /* Pods-FSCollectionKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F2C7B9388A5C09164A25B284DB8BAD48 /* Pods-FSCollectionKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		11653798BEB77E279504A15D16382569 /* FSCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2312A3D1AED3130ED7CF487293D422 /* FSCollectionViewFlowLayout.swift */; };
-		16967DB6C529677083E0DF3146B734F2 /* CACornerMask+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3009C5ADC3C6D13EA03F6C9B9A3AD49A /* CACornerMask+FSCollectionKit.swift */; };
-		1C0818AF1B4484DD2120D9DAB159FA21 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
-		1F700B4EA6623BBB00124E9642A59364 /* FSCollectionSeparatorHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA4605FEE455D73D6DFFB608DEA2C14 /* FSCollectionSeparatorHeaderFooter.swift */; };
-		227EE412A77E753EBDD769F3F30B06EC /* FSCollectionHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB7E4FA144F4FABAB1F477A92633350 /* FSCollectionHeaderFooter.swift */; };
-		236BA058F5CAFE97694A1056036F4B51 /* NSAttributedString+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192D988EAD73EDD3B4C50022C956EFA /* NSAttributedString+FSCollectionKit.swift */; };
-		254E55B239A65E74F223AFF5D7441C0C /* FSCollectionSeparatorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C537FE5BB3CAF4083E26F0837298550 /* FSCollectionSeparatorItem.swift */; };
-		3824467191B3ED91B7B738C5EF8FD8F8 /* PublicNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C61E45F3F1743B72BEFFF196C2D71E /* PublicNamespace.swift */; };
+		05AD3D2081E09AB2A20EBA10BE00F322 /* FSCollectionLayoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A1B0C5BDE6098C4BDD5CB9C090536 /* FSCollectionLayoutable.swift */; };
+		064D909CD827405E8DCC309DB1B7775A /* ConstraintLayoutSupportDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B904F70795B44B450156B2E65835D4D /* ConstraintLayoutSupportDSL.swift */; };
+		0749A7495FBE05FA76F307109FC835BD /* FSCollectionLayoutableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468810658AFBFC6155D3F46EE5C04A46 /* FSCollectionLayoutableItem.swift */; };
+		098288E324C5C2D859158F1B523C823F /* SwipeActionTransitioning.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF73317F75A2C1F8504C25E73DBE750 /* SwipeActionTransitioning.swift */; };
+		09E1F569A93FAD4B9149E30B9301F44A /* ConstraintPriority.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C141A430334C2BA8A651CBBF9B962B2 /* ConstraintPriority.swift */; };
+		0CA7A132ABE7018DE9295456732F38BB /* ConstraintAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40353E5600415C9B3B2614D3E9FF196F /* ConstraintAttributes.swift */; };
+		0DE5DB9C6227B3416778D8417DD95EA9 /* ConstraintView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = C430F25486FFA9581ED2607DDD9E3B52 /* ConstraintView+Extensions.swift */; };
+		100753DC18183D7CABAFBA2C854EAD32 /* SwipeExpanding.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD61E0E2FD71D0E16A28D7FCB0106AFE /* SwipeExpanding.swift */; };
+		10D0BBF00B87961D7C824DABFD090927 /* FSCollectionTitleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7B95ED701B72489342C1A1755EE29 /* FSCollectionTitleItem.swift */; };
+		1194E62AA3F6F506799B1A43B16942B5 /* ConstraintDirectionalInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC5FD4CC7DABFFAF09515585C1588C76 /* ConstraintDirectionalInsets.swift */; };
+		137DD6D447FBA9BAC1C01F3DEEE71429 /* FSCollectionHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB7E4FA144F4FABAB1F477A92633350 /* FSCollectionHeaderFooter.swift */; };
+		1398BDC7A27153890B41359542E02145 /* FSCollectionTitleHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED8CBAF96D13637E055DBFE7818EA0 /* FSCollectionTitleHeaderFooter.swift */; };
+		15F8180A1366CA512DAB68B9C4B00482 /* UICollectionView+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE7FDA0FC295811E601415295A5EB73 /* UICollectionView+FSCollectionKit.swift */; };
+		192A9040024B19D1EF17704813E43199 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
+		205EB01AED14BB574DD54EAFE26E4786 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
+		227BEDFC6407EEB230426BE11367D35C /* SwipeActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 605D684D674B979AD62A2E59400486A1 /* SwipeActionButton.swift */; };
+		2903D9B38906AF9AF330128809DA0A46 /* FSCollectionLayoutableHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EFCB569E05033DDBD9A67B618E3DEC /* FSCollectionLayoutableHeaderFooter.swift */; };
+		29D6DD5FD9E7884E33DE1A8FD28E82F0 /* _FSSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCFA33FB4909100E4A62CF980CD765E /* _FSSeparatorView.swift */; };
+		2B2EB369550CE92CEEFCBFD3D32B8A3F /* ConstraintInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B60B9282ABDAB51AA0FA71F2342664 /* ConstraintInsetTarget.swift */; };
+		30CDFBD2030234FFFF389A0817579C88 /* SwipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C33F48DF10AF43C136E170A8BA1321C /* SwipeController.swift */; };
+		3326AA57A6F52FCA8E648DA6BDDDB6D3 /* FSCollectionSeparatorItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C537FE5BB3CAF4083E26F0837298550 /* FSCollectionSeparatorItem.swift */; };
+		340E18D61B8BC1B9FA02F7225B543FBE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D2C0EADCC29E2ECA5573383F25C1395 /* Images.xcassets */; };
+		3577F172FA68CBAE47CFEE6FE25C5404 /* ConstraintOffsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4CAAEDC6296CA0C4C2FE625533EBD26 /* ConstraintOffsetTarget.swift */; };
 		3917E592C51D75B0FB11195837DF401E /* FSCollectionKit-FSCollectionKit in Resources */ = {isa = PBXBuildFile; fileRef = 7624F5175E25D8E4F3E5FFD1BE4D9D8E /* FSCollectionKit-FSCollectionKit */; };
-		3AA0E937ACF97A5A6CEA99D8B5F65197 /* FSCollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07D8E9FC4F2B4454128B9E2D161D379 /* FSCollectionItem.swift */; };
-		3C686DCC9E542FE3047448E0A412809B /* FSCollectionLayoutableItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 468810658AFBFC6155D3F46EE5C04A46 /* FSCollectionLayoutableItem.swift */; };
-		3DCAFB201446656790E3AFA0D3003104 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D2C0EADCC29E2ECA5573383F25C1395 /* Images.xcassets */; };
-		466139F116860405A4E0C69581A8159C /* _FSSeparatorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DCFA33FB4909100E4A62CF980CD765E /* _FSSeparatorView.swift */; };
-		499146A1C9B1C0224B9D619494B1C784 /* FSCollectionSectionConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BFCAE51EB16177AD6DB05B31A5B4BC /* FSCollectionSectionConvertable.swift */; };
-		4AF7B33B67CC7C71E303590670F72D79 /* FSCollectionHeaderFooterViewRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C3D5B8E0545170EBE52BF22B75D0F /* FSCollectionHeaderFooterViewRenderable.swift */; };
+		3B30E2EB6F5F6C3477F68ADADDF51B8C /* FSCollectionKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D67D2A66150325444FEF1F720BC54D /* FSCollectionKit-dummy.m */; };
+		3D3B646B4988314275B40E97BEB16C7F /* ConstraintLayoutGuideDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = BDDE73AA7680D999ACE0BC3C98E2DCBE /* ConstraintLayoutGuideDSL.swift */; };
+		3D8C3C2A862D6D7DD55B5A60DB71D952 /* CollectionInsetGroupedLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AEE50CC134C364ECF667A473BB3F01E /* CollectionInsetGroupedLayoutDelegate.swift */; };
+		3DF1484BC335D6D65B59680831A8328F /* UIScreen+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D06B61D80F784E5999EEB5A8A0B673 /* UIScreen+FSCollectionKit.swift */; };
+		437B655619222F3D969C86862D377E75 /* Swipeable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A851E1A236BFC76979D73FB15307A53C /* Swipeable.swift */; };
+		44372DB42CEA534192B18B2C34897B54 /* SwipeFeedback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CE856AAC33D45C9AAF43A0AC812BD57 /* SwipeFeedback.swift */; };
+		4912139FC8A106D0257676C3AF521BD0 /* FSCollectionHeaderFooterViewRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66C3D5B8E0545170EBE52BF22B75D0F /* FSCollectionHeaderFooterViewRenderable.swift */; };
+		4BF1ECB1494EC78F9E064C8715F1B416 /* SwipeActionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6D4681F2FFC4157913EDBC0EA4FBCD /* SwipeActionsView.swift */; };
+		4F4DEB687C0E4834A5B291DEE0651D6A /* ConstraintMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCDC18FE1A3BAAD03E587F30188F6A1C /* ConstraintMaker.swift */; };
+		4F716E21E994CF247E61E99C8F944DFC /* InternalNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE58610E75BD3F1EEB49F8CDAD84C8 /* InternalNamespace.swift */; };
 		5175EBB1DDF1F5A664395C4AE1E9BD26 /* FSCollectionKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D3720FBC666EDA7D654E1EF9ECF1F1AA /* FSCollectionKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		51A5ED3869CDD0FA8CF843ADB9965DAC /* InternalNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FCE58610E75BD3F1EEB49F8CDAD84C8 /* InternalNamespace.swift */; };
-		600D7DF80605086B44F95DDBC56EA844 /* FSCollectionDelegator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700B85E139E81871390B98DCD4C1EB90 /* FSCollectionDelegator.swift */; };
-		657FFE286F2C1D91026647AB2DEB014E /* FSCollectionLayoutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901A1B0C5BDE6098C4BDD5CB9C090536 /* FSCollectionLayoutable.swift */; };
-		660053B5B94BF1A31B2A2DD185DEC48B /* CollectionInsetGroupLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49915C28D0928AA51E9695A0431A5CF7 /* CollectionInsetGroupLayoutAttributes.swift */; };
-		6BDDEF5653ACCF5A3D9818F51EE8055F /* FSCollectionTitleHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EED8CBAF96D13637E055DBFE7818EA0 /* FSCollectionTitleHeaderFooter.swift */; };
-		75C63E79F9D3B2A984F15DE8D93EE038 /* UIImage+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15DF2F98A9C67F8255D19C7FDD72B3E /* UIImage+FSCollectionKit.swift */; };
-		795F83111B6A3E57D031D9A89CA5B4A3 /* CoreGraphics+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E95024C94631890482B3320A1A2949 /* CoreGraphics+FSCollectionKit.swift */; };
+		5526C348EAA0885BDBBE48B4517B1B89 /* CoreGraphics+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94E95024C94631890482B3320A1A2949 /* CoreGraphics+FSCollectionKit.swift */; };
+		57C4F6EFB30DDD14E960AC2D6B34F904 /* SnapKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = B8F411AD4B4A47773BB434FFA1E38EEA /* SnapKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5922A6A0AE7152CF436356B3556F1835 /* ConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCCC3BD430AECAE4C679FC744B436013 /* ConstraintItem.swift */; };
+		59F34874DA4ABB2F5C4E09EA6865936B /* ConstraintLayoutGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 884F6C4A155827B2A9A8F29A249E8904 /* ConstraintLayoutGuide.swift */; };
+		5AF40E95BF56F62EF5F7E62C48575F8E /* CollectionInsetGroupedLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 213C8586BDA04ED5B2711DAE447FF132 /* CollectionInsetGroupedLayout.swift */; };
+		5DD091D9747F8403245B2518036CFF5A /* CollectionInsetGroupedLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC0439AE8791AEB9A3ADE69501F26EB /* CollectionInsetGroupedLayoutAttributes.swift */; };
+		69E94E83B08E746C648186A8E4A4AC33 /* CollectionReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B222A06AEE1FA2924EF308037CFA5 /* CollectionReusableCell.swift */; };
+		6B7757C68773A5777DF0C2697D07F966 /* SwipeTableViewCell+Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9946E4E0DD50336A6CEA213CD9AA3FE5 /* SwipeTableViewCell+Accessibility.swift */; };
+		6C11789C27012116A7810A62DDB98C13 /* FSCollectionBlankItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33F6EC580FCC81682F259622BCBF8B2 /* FSCollectionBlankItem.swift */; };
+		6E39129FC8643A70C276801FEF4C280D /* Constraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 392D32C6865786FD289201DDFE7825F1 /* Constraint.swift */; };
+		720AA40F7E6C239FBA1183C307A13F41 /* SwipeExpansionStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A39805BFFACEB4F3D0A3BB636480127 /* SwipeExpansionStyle.swift */; };
+		757CCD0532CD46CFCEF61A6BCDD4FA6A /* SwipeCellKit-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 068E79C1612B92E5596190945E5318C6 /* SwipeCellKit-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		780BADD651F96BA6E2CFA6B75DDEBDCA /* FSCollectionViewFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A2312A3D1AED3130ED7CF487293D422 /* FSCollectionViewFlowLayout.swift */; };
 		79DFCC04EE7FE6A366C418A04659DDF2 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
-		8D3A0D2103E94BBD56C0829C2B875EE6 /* FSCollectionKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = A1D67D2A66150325444FEF1F720BC54D /* FSCollectionKit-dummy.m */; };
-		8E7C08D9B5306237127CAB4E22943006 /* UnfairLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C39A91ADC1B015D1F3CD967E264A52E /* UnfairLock.swift */; };
-		9A0DD5B05F5EE401F9FFFBD2F8096D04 /* UICollectionView+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AE7FDA0FC295811E601415295A5EB73 /* UICollectionView+FSCollectionKit.swift */; };
-		9B1078E4C8CD31A24C5BACA662604405 /* UIScreen+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D06B61D80F784E5999EEB5A8A0B673 /* UIScreen+FSCollectionKit.swift */; };
-		A6737FF72291D825A230C73292E9122D /* CollectionReusableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D0B222A06AEE1FA2924EF308037CFA5 /* CollectionReusableCell.swift */; };
-		AFD02910262195A78913604940A22D2A /* FSCollectionHeaderFooterConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB7E5949784F39D47D6BAD33DBA6518 /* FSCollectionHeaderFooterConvertable.swift */; };
-		B9BE128AE5E3A6EB0834D5E05FEAD760 /* Pods-FSCollectionKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B602FAC2A3471BE0E069ABAE84D008B6 /* Pods-FSCollectionKit_Example-dummy.m */; };
-		BB488BD9E719DC92E5C2EF730851E8F6 /* CollectionViewAnimatedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDA237FF88D33A39600D2835785F616 /* CollectionViewAnimatedFlowLayout.swift */; };
-		BBD1AE0BBDCB5CD406A772228114F0D0 /* FSCollectionBlankItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B33F6EC580FCC81682F259622BCBF8B2 /* FSCollectionBlankItem.swift */; };
-		BF9DDEAFB6EB48B0A53F4E67A78101BA /* CollectionViewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF081CBCF77ED9E479AD884A5DF31CA /* CollectionViewLayoutAttributes.swift */; };
-		C7EDD619A5B18C0A436F2252AAAFB2B6 /* FSCollectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895AE70846AFB82130CF53A648BBCB1E /* FSCollectionManager.swift */; };
-		C949C4695ACBE310C9F4F06EF6F5E798 /* FSCollectionTitleItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E7B95ED701B72489342C1A1755EE29 /* FSCollectionTitleItem.swift */; };
-		D2445E12717458466CAA5B5B0F4755D9 /* CollectionInsetGroupLayoutDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD9FB3AB202ECB0BA41BF488D29B2121 /* CollectionInsetGroupLayoutDelegate.swift */; };
-		D330726B774B37DB72651B0716505CB7 /* FSCollectionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9081E9F7308D92CC347B6EEF84EC5190 /* FSCollectionSection.swift */; };
+		7AF516B98D45391B909D507D0244104C /* ConstraintDescription.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0EF719965CEC92589A553F876D16276 /* ConstraintDescription.swift */; };
+		7D42390CDB4FA147504B03DA2A174A0C /* ConstraintViewDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA60C134E19A94A1C29994E143880109 /* ConstraintViewDSL.swift */; };
+		7E962AEAE933566D3400E8671F7FB326 /* Pods-FSCollectionKit_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = F2C7B9388A5C09164A25B284DB8BAD48 /* Pods-FSCollectionKit_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		850B3D593EBE38192504A9CAAA7E2FD2 /* FSCollectionHeaderFooterConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB7E5949784F39D47D6BAD33DBA6518 /* FSCollectionHeaderFooterConvertable.swift */; };
+		868A9F524A7985BDA1EA124D9BF4CA63 /* ConstraintDSL.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD77C2FDB5D3A3980D608FEEE62E3C33 /* ConstraintDSL.swift */; };
+		86CAB01D950C8BC35EDE0BDC01A2500B /* ConstraintView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62EFFD620D6ED4527C496FB893D0800F /* ConstraintView.swift */; };
+		87578AE9D52413D975A95AE8C0C728DE /* NSAttributedString+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B192D988EAD73EDD3B4C50022C956EFA /* NSAttributedString+FSCollectionKit.swift */; };
+		875EE9FA20B77CE36B4773485DA581D0 /* SwipeTransitionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8D18E0F44FC1ADFB1296BFA2AE2858D /* SwipeTransitionLayout.swift */; };
+		883EDEE1C699497CF2A77C3B8A32A790 /* ConstraintMultiplierTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACFCFD9D074A22762CD5DEF0DBA75659 /* ConstraintMultiplierTarget.swift */; };
+		8BABA32F7B94A25D8E9208C0A8D90B2E /* ConstraintMakerRelatable+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B953E144D349B79E6A21B3DFD30F6CA0 /* ConstraintMakerRelatable+Extensions.swift */; };
+		8EFB18A4DA44E794EF96F7CA12229C85 /* FSCollectionSeparatorHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEA4605FEE455D73D6DFFB608DEA2C14 /* FSCollectionSeparatorHeaderFooter.swift */; };
+		900EAA54AF572313FFAF612623B30EF5 /* FSCollectionItemConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C92EF5AF875E4EC4F92BCD4AC3E896A /* FSCollectionItemConvertable.swift */; };
+		9372C846CF70DF414F5D1061262F0B20 /* SwipeTableViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8446AA638CE3B19CE779F1056FA4343E /* SwipeTableViewCellDelegate.swift */; };
+		93A8AD6E5A539DFD5631F6A87D96DE77 /* FSCollectionSectionConvertable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44BFCAE51EB16177AD6DB05B31A5B4BC /* FSCollectionSectionConvertable.swift */; };
+		96A984B24FAB1175B1A97B7425E68E19 /* PublicNamespace.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C61E45F3F1743B72BEFFF196C2D71E /* PublicNamespace.swift */; };
+		96E8FD318430C456F592BA59FC29EA82 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 742BA965FBCE5A2396299EC3E7B8EB3F /* Extensions.swift */; };
+		995D6F186A9139EDC86DA6B53719BCA8 /* Pods-FSCollectionKit_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B602FAC2A3471BE0E069ABAE84D008B6 /* Pods-FSCollectionKit_Example-dummy.m */; };
+		99A461F6600F78DCB1B91441DA95F739 /* UIImage+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = B15DF2F98A9C67F8255D19C7FDD72B3E /* UIImage+FSCollectionKit.swift */; };
+		9D9C7BA31C5A81E22633BB66B0086D19 /* SwipeTableViewCell+Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2B9E23E6F6A0C00F13FACBF39D0A04 /* SwipeTableViewCell+Display.swift */; };
+		9E0045B41BFE697DB4ADE151228024D2 /* SnapKit-SnapKit_Privacy in Resources */ = {isa = PBXBuildFile; fileRef = B9DCB5EC0B1CDADD221717CADDF62359 /* SnapKit-SnapKit_Privacy */; };
+		A0E79F044BB38415A2A7E5957B13A45A /* UnfairLock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C39A91ADC1B015D1F3CD967E264A52E /* UnfairLock.swift */; };
+		A4BABA06B9CB90E60A0D498B6E678536 /* SwipeCellKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EC1EC08AA821D3C300418A802C6A422C /* SwipeCellKit-dummy.m */; };
+		A6656EE74DA2A11F638B96AB17BABFB8 /* CollectionViewLayoutAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF081CBCF77ED9E479AD884A5DF31CA /* CollectionViewLayoutAttributes.swift */; };
+		A9BEED77A139F557A6927935D54768AF /* SwipeAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 083B640FB9F20C5853B8672B5E48EB76 /* SwipeAnimator.swift */; };
+		AA41141F78FB3667AACA1480CB8E7958 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = EBC2909161BFED01153F084058007401 /* PrivacyInfo.xcprivacy */; };
+		AABEF13464BA7F4621BD94736C1D057C /* ConstraintMakerPrioritizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCC0357D02C78DADA614B5580077AAE /* ConstraintMakerPrioritizable.swift */; };
+		AAD3108C9AA66B67605F6D466D387FA1 /* FSCollectionCellRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186F137038EA9083C32BB577BEF5D4EE /* FSCollectionCellRenderable.swift */; };
+		AB7CC9FD37266C6A4ECE09B2144B08C6 /* SwipeOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7BA939285A02B6B6A14696519616606 /* SwipeOptions.swift */; };
+		AE224EDB6D044C0FE86B086E950FC2F9 /* Debugging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A90EAFDD006E7FBF44147139B256B9 /* Debugging.swift */; };
+		AF760C78F1C7E11BF7CB9E9B29903530 /* ConstraintInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = A408EE8B2196129C30D250B36ABA5234 /* ConstraintInsets.swift */; };
+		B0875E3AB8718E7DFE5C53497C02A15E /* ConstraintLayoutSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1C861F605D985FE0ACD20ED333BC18D7 /* ConstraintLayoutSupport.swift */; };
+		B745C1D7D4EE882DE35BB11747D91519 /* SwipeCollectionViewCell+Display.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1575A8BEA4F4A168D4A81E14CE1C5CB /* SwipeCollectionViewCell+Display.swift */; };
+		B903049E7C1BED7918DAB208754107C7 /* ConstraintMakerFinalizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7DA6D259908070F416715E052B89BB4 /* ConstraintMakerFinalizable.swift */; };
+		BA2FB695DEB0D179253EEB8DFCE3578B /* SnapKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E0CE82CE364A2FDD8488E7D454FE9447 /* SnapKit-dummy.m */; };
+		BB5A90C447D7AC8B3FE562F4C4C90B40 /* UIColor+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5499E747868F1A147B8DAB5C38C24F0 /* UIColor+FSCollectionKit.swift */; };
+		BDA5C7CC91E86448237CF40954FAC5AF /* ConstraintMakerRelatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA67BABC3F03C078DEA2BDC4CF6BDD65 /* ConstraintMakerRelatable.swift */; };
+		BE7DFFE36CDBA986652DA179125BA12C /* CACornerMask+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3009C5ADC3C6D13EA03F6C9B9A3AD49A /* CACornerMask+FSCollectionKit.swift */; };
+		BF1AE4D97E813B95C43EA4A298B973D1 /* LayoutConstraint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92AA25A4FF3D82B1913BFBDD6FAB913E /* LayoutConstraint.swift */; };
+		C07CB3E9A4D1BF00F841E4285629A2B2 /* ConstraintRelatableTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125BE72E881B4ABB85E127A1F55414D7 /* ConstraintRelatableTarget.swift */; };
+		C14F10B663FE2898EACAB90C202B3F50 /* ConstraintMakerEditable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2149AC594650DE66C3A9ABD3632D3BEE /* ConstraintMakerEditable.swift */; };
+		C6A4302ACE006C4E2CDD481287E2916B /* Typealiases.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B21D1A3CD49E57B0C0799317628C939 /* Typealiases.swift */; };
+		C6F45595676957ADBEC18EB3F23EAEC4 /* LayoutConstraintItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9EF2A4AAB2769C69FC01D20F3628DF0C /* LayoutConstraintItem.swift */; };
+		C74E88A4DD704900E830765C7E486682 /* SwipeCollectionViewCell+Accessibility.swift in Sources */ = {isa = PBXBuildFile; fileRef = C037BED0F9CAD0DBCC862F51C1F4419B /* SwipeCollectionViewCell+Accessibility.swift */; };
+		C79EA5635CB6C5B66899CBA85B61BAAA /* SwipeAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F3C383C5B66638F342F6EA5769167FC /* SwipeAction.swift */; };
+		CE593943A9E7CF83822CF60304BCAD43 /* ConstraintConstantTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF98A80695BBA284614170A42D4BEBA /* ConstraintConstantTarget.swift */; };
+		D2F43369E77648CBA51F8AD589CB85BF /* FSCollectionSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9081E9F7308D92CC347B6EEF84EC5190 /* FSCollectionSection.swift */; };
+		D3CCBF502AB8E725372C1FA3A70D4BEC /* FSCollectionDelegator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700B85E139E81871390B98DCD4C1EB90 /* FSCollectionDelegator.swift */; };
+		D4218DA55B2BA45937589200CC0DF1FB /* ConstraintMakerExtendable.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAFC5AAEF879B064641AEAED11381819 /* ConstraintMakerExtendable.swift */; };
+		D5ADAF8380731A3CAC5C2D45A69E5D81 /* CollectionViewAnimatedFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5FDA237FF88D33A39600D2835785F616 /* CollectionViewAnimatedFlowLayout.swift */; };
+		D88AAC4FC903B2BA1F7D6B4172CF2152 /* SwipeCollectionViewCellDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E34C26E3BCC2D427932010413EFA9EB4 /* SwipeCollectionViewCellDelegate.swift */; };
 		DA027281CCF492DC2F5498C56573AA99 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */; };
-		DB5D76DE01D40EBB243B8D8AF6102810 /* FSCollectionLayoutableHeaderFooter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EFCB569E05033DDBD9A67B618E3DEC /* FSCollectionLayoutableHeaderFooter.swift */; };
-		E5DC1B2B46CAD48D4903858C41B5403A /* FSCollectionCellRenderable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 186F137038EA9083C32BB577BEF5D4EE /* FSCollectionCellRenderable.swift */; };
-		E8E803DECF84DBDC02F7A5A3A2EC6FD2 /* CollectionInsetGroupLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4542EDB3F7799818F03C1B8457F21D4C /* CollectionInsetGroupLayout.swift */; };
-		F8B34064101C632DE3F29FB0967E4DA8 /* UIColor+FSCollectionKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = E5499E747868F1A147B8DAB5C38C24F0 /* UIColor+FSCollectionKit.swift */; };
+		DBA4803F4765E1650B8C6841157F5D73 /* ConstraintPriorityTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6D7796B6BA1B2BB0B3203698097AE105 /* ConstraintPriorityTarget.swift */; };
+		DDCA8BC73DFD406AEA11976113EA982F /* SwipeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F7128884036A8D1A81BD0F2ADE9DF82 /* SwipeCollectionViewCell.swift */; };
+		DDE8CE3746090D965FAA5CF2465A51D9 /* SwipeAccessibilityCustomAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D772B753C70C835603DE959C7369D1D6 /* SwipeAccessibilityCustomAction.swift */; };
+		E37671A03B4C17A1CF3766A6125833BB /* ConstraintDirectionalInsetTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3794F67E4E52D4DFFBC5B89FB5E3EB41 /* ConstraintDirectionalInsetTarget.swift */; };
+		E3D779DEE753C0B0D33BA8E73A980265 /* ConstraintLayoutGuide+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBC991926EEDA7C344DE7222978CB8AC /* ConstraintLayoutGuide+Extensions.swift */; };
+		ECC5C2ADC2682F9171FEA22AF10DCE53 /* ConstraintRelation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92FC14CCF642C77BA581593BAA3F4EBE /* ConstraintRelation.swift */; };
+		F1739C80D88A61D9789CF31F62E30DBD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */; };
+		F2C04FC3A67458F4ECCD0E499E7FEFC2 /* SwipeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EAB66F6E9D4EFCE4F6EB76B384E829D /* SwipeTableViewCell.swift */; };
+		F3BA33B8B03D2D1F324CC28AC5841BCF /* FSCollectionItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F07D8E9FC4F2B4454128B9E2D161D379 /* FSCollectionItem.swift */; };
+		F3BCAF0B258DD6A69EF0CB66E99627C1 /* FSCollectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895AE70846AFB82130CF53A648BBCB1E /* FSCollectionManager.swift */; };
+		F6F33E8B268F3D41075374D95B8088DC /* UILayoutSupport+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8870BF1FDE066713345A28AD1E5D5A4A /* UILayoutSupport+Extensions.swift */; };
+		F9EBA65892D78A31C068D727D84BCB88 /* ConstraintConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = D74F6F47814D912B37020183F28824B4 /* ConstraintConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		83388DCB3F4F986DA8D143AB43F2E99E /* PBXContainerItemProxy */ = {
+		4C9D377308CCFB09FDB76EDFB9C628DA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 4ECEF69AF322D727488C71CB58CE4537;
 			remoteInfo = FSCollectionKit;
 		};
-		F41DD62E86C91D3AFD5CE15BAF0EE47E /* PBXContainerItemProxy */ = {
+		865091A17C9512846B52C3F20D5C6BB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8A8DB685241263AFDF5E6B20FE67B93A;
+			remoteInfo = "SnapKit-SnapKit_Privacy";
+		};
+		958672A665BB5F5F3E16AC780C0510BC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = FCF6339D93FDB4EF3981E9EABA67C0E7;
 			remoteInfo = "FSCollectionKit-FSCollectionKit";
 		};
+		D2E77A54EDA5597BDD5DF2D653701CE5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 19622742EBA51E823D6DAE3F8CDBFAD4;
+			remoteInfo = SnapKit;
+		};
+		E22B0825C090C18DCB55C196781FFC7F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1DE44C23B82E6671E9E1541D06DE0E87;
+			remoteInfo = SwipeCellKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		068E79C1612B92E5596190945E5318C6 /* SwipeCellKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwipeCellKit-umbrella.h"; sourceTree = "<group>"; };
+		083B640FB9F20C5853B8672B5E48EB76 /* SwipeAnimator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeAnimator.swift; path = Source/SwipeAnimator.swift; sourceTree = "<group>"; };
+		0AEE50CC134C364ECF667A473BB3F01E /* CollectionInsetGroupedLayoutDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionInsetGroupedLayoutDelegate.swift; sourceTree = "<group>"; };
 		0D2C0EADCC29E2ECA5573383F25C1395 /* Images.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Source/Assets/Images.xcassets; sourceTree = "<group>"; };
 		0E1E3A04632D8CBBE0761A5D5533FC60 /* Pods-FSCollectionKit_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-FSCollectionKit_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0EAB66F6E9D4EFCE4F6EB76B384E829D /* SwipeTableViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeTableViewCell.swift; path = Source/SwipeTableViewCell.swift; sourceTree = "<group>"; };
 		0ED3DF1F844892148B492F8973A5D637 /* Pods-FSCollectionKit_Example */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = "Pods-FSCollectionKit_Example"; path = Pods_FSCollectionKit_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0F3C383C5B66638F342F6EA5769167FC /* SwipeAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeAction.swift; path = Source/SwipeAction.swift; sourceTree = "<group>"; };
+		125BE72E881B4ABB85E127A1F55414D7 /* ConstraintRelatableTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelatableTarget.swift; path = Sources/ConstraintRelatableTarget.swift; sourceTree = "<group>"; };
+		17B60B9282ABDAB51AA0FA71F2342664 /* ConstraintInsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsetTarget.swift; path = Sources/ConstraintInsetTarget.swift; sourceTree = "<group>"; };
 		186F137038EA9083C32BB577BEF5D4EE /* FSCollectionCellRenderable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionCellRenderable.swift; path = Source/Classes/FSCollectionCellRenderable.swift; sourceTree = "<group>"; };
+		1C861F605D985FE0ACD20ED333BC18D7 /* ConstraintLayoutSupport.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupport.swift; path = Sources/ConstraintLayoutSupport.swift; sourceTree = "<group>"; };
 		20E964ED6F2A9E6C9D98E42AB5ECF8E4 /* Pods-FSCollectionKit_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FSCollectionKit_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		213C8586BDA04ED5B2711DAE447FF132 /* CollectionInsetGroupedLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionInsetGroupedLayout.swift; sourceTree = "<group>"; };
+		2149AC594650DE66C3A9ABD3632D3BEE /* ConstraintMakerEditable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerEditable.swift; path = Sources/ConstraintMakerEditable.swift; sourceTree = "<group>"; };
+		26E2AD05BE3878CC0DF6F85D6E6F8F45 /* SnapKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SnapKit.modulemap; sourceTree = "<group>"; };
 		277128462C252B594AC4CC6D8FBD8D92 /* FSCollectionKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = FSCollectionKit.modulemap; sourceTree = "<group>"; };
 		2A2312A3D1AED3130ED7CF487293D422 /* FSCollectionViewFlowLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionViewFlowLayout.swift; sourceTree = "<group>"; };
+		2BCC0357D02C78DADA614B5580077AAE /* ConstraintMakerPrioritizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerPrioritizable.swift; path = Sources/ConstraintMakerPrioritizable.swift; sourceTree = "<group>"; };
+		2C33F48DF10AF43C136E170A8BA1321C /* SwipeController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeController.swift; path = Source/SwipeController.swift; sourceTree = "<group>"; };
 		2C39A91ADC1B015D1F3CD967E264A52E /* UnfairLock.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = UnfairLock.swift; sourceTree = "<group>"; };
 		2C92EF5AF875E4EC4F92BCD4AC3E896A /* FSCollectionItemConvertable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionItemConvertable.swift; path = Source/Classes/FSCollectionItemConvertable.swift; sourceTree = "<group>"; };
 		3009C5ADC3C6D13EA03F6C9B9A3AD49A /* CACornerMask+FSCollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CACornerMask+FSCollectionKit.swift"; sourceTree = "<group>"; };
+		3794F67E4E52D4DFFBC5B89FB5E3EB41 /* ConstraintDirectionalInsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDirectionalInsetTarget.swift; path = Sources/ConstraintDirectionalInsetTarget.swift; sourceTree = "<group>"; };
+		392D32C6865786FD289201DDFE7825F1 /* Constraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Constraint.swift; path = Sources/Constraint.swift; sourceTree = "<group>"; };
+		3B21D1A3CD49E57B0C0799317628C939 /* Typealiases.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Typealiases.swift; path = Sources/Typealiases.swift; sourceTree = "<group>"; };
 		3C5E0050049E8517BCFC54111C5E4678 /* FSCollectionKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FSCollectionKit-prefix.pch"; sourceTree = "<group>"; };
 		3D0B222A06AEE1FA2924EF308037CFA5 /* CollectionReusableCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionReusableCell.swift; sourceTree = "<group>"; };
+		40353E5600415C9B3B2614D3E9FF196F /* ConstraintAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintAttributes.swift; path = Sources/ConstraintAttributes.swift; sourceTree = "<group>"; };
 		43A5DE3B3482C31AD7006B20CF92FB19 /* Pods-FSCollectionKit_Example-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-FSCollectionKit_Example-Info.plist"; sourceTree = "<group>"; };
 		44BFCAE51EB16177AD6DB05B31A5B4BC /* FSCollectionSectionConvertable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionSectionConvertable.swift; path = Source/Classes/FSCollectionSectionConvertable.swift; sourceTree = "<group>"; };
 		44D06B61D80F784E5999EEB5A8A0B673 /* UIScreen+FSCollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIScreen+FSCollectionKit.swift"; sourceTree = "<group>"; };
-		4542EDB3F7799818F03C1B8457F21D4C /* CollectionInsetGroupLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionInsetGroupLayout.swift; sourceTree = "<group>"; };
 		468810658AFBFC6155D3F46EE5C04A46 /* FSCollectionLayoutableItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionLayoutableItem.swift; sourceTree = "<group>"; };
-		49915C28D0928AA51E9695A0431A5CF7 /* CollectionInsetGroupLayoutAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionInsetGroupLayoutAttributes.swift; sourceTree = "<group>"; };
 		4C537FE5BB3CAF4083E26F0837298550 /* FSCollectionSeparatorItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionSeparatorItem.swift; sourceTree = "<group>"; };
 		4EED8CBAF96D13637E055DBFE7818EA0 /* FSCollectionTitleHeaderFooter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionTitleHeaderFooter.swift; sourceTree = "<group>"; };
+		4F6D4681F2FFC4157913EDBC0EA4FBCD /* SwipeActionsView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeActionsView.swift; path = Source/SwipeActionsView.swift; sourceTree = "<group>"; };
 		4FCE58610E75BD3F1EEB49F8CDAD84C8 /* InternalNamespace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = InternalNamespace.swift; sourceTree = "<group>"; };
 		5A187D52672FF752F795A260A3C7FECE /* ResourceBundle-FSCollectionKit-FSCollectionKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-FSCollectionKit-FSCollectionKit-Info.plist"; sourceTree = "<group>"; };
 		5DCFA33FB4909100E4A62CF980CD765E /* _FSSeparatorView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = _FSSeparatorView.swift; sourceTree = "<group>"; };
 		5FDA237FF88D33A39600D2835785F616 /* CollectionViewAnimatedFlowLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionViewAnimatedFlowLayout.swift; sourceTree = "<group>"; };
+		605D684D674B979AD62A2E59400486A1 /* SwipeActionButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeActionButton.swift; path = Source/SwipeActionButton.swift; sourceTree = "<group>"; };
+		62EFFD620D6ED4527C496FB893D0800F /* ConstraintView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintView.swift; path = Sources/ConstraintView.swift; sourceTree = "<group>"; };
+		67A90EAFDD006E7FBF44147139B256B9 /* Debugging.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Debugging.swift; path = Sources/Debugging.swift; sourceTree = "<group>"; };
+		6A39805BFFACEB4F3D0A3BB636480127 /* SwipeExpansionStyle.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeExpansionStyle.swift; path = Source/SwipeExpansionStyle.swift; sourceTree = "<group>"; };
 		6AE7FDA0FC295811E601415295A5EB73 /* UICollectionView+FSCollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UICollectionView+FSCollectionKit.swift"; sourceTree = "<group>"; };
+		6CE856AAC33D45C9AAF43A0AC812BD57 /* SwipeFeedback.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeFeedback.swift; path = Source/SwipeFeedback.swift; sourceTree = "<group>"; };
+		6D7796B6BA1B2BB0B3203698097AE105 /* ConstraintPriorityTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriorityTarget.swift; path = Sources/ConstraintPriorityTarget.swift; sourceTree = "<group>"; };
 		700B85E139E81871390B98DCD4C1EB90 /* FSCollectionDelegator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionDelegator.swift; path = Source/Classes/FSCollectionDelegator.swift; sourceTree = "<group>"; };
 		7010ECC68DA440402C364452F74F80AA /* FSCollectionKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "FSCollectionKit-Info.plist"; sourceTree = "<group>"; };
+		742BA965FBCE5A2396299EC3E7B8EB3F /* Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Source/Extensions.swift; sourceTree = "<group>"; };
 		7624F5175E25D8E4F3E5FFD1BE4D9D8E /* FSCollectionKit-FSCollectionKit */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "FSCollectionKit-FSCollectionKit"; path = FSCollectionKit.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		78AF40AF99250EDFE15D5BD421B2B1F1 /* Pods-FSCollectionKit_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-FSCollectionKit_Example-frameworks.sh"; sourceTree = "<group>"; };
+		7B904F70795B44B450156B2E65835D4D /* ConstraintLayoutSupportDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutSupportDSL.swift; path = Sources/ConstraintLayoutSupportDSL.swift; sourceTree = "<group>"; };
 		8193349D819536E58C58A34C1B7DF545 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		8446AA638CE3B19CE779F1056FA4343E /* SwipeTableViewCellDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeTableViewCellDelegate.swift; path = Source/SwipeTableViewCellDelegate.swift; sourceTree = "<group>"; };
+		86926F1F91BAC7B51C809FD8F529A1EB /* SwipeCellKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwipeCellKit.debug.xcconfig; sourceTree = "<group>"; };
+		884F6C4A155827B2A9A8F29A249E8904 /* ConstraintLayoutGuide.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuide.swift; path = Sources/ConstraintLayoutGuide.swift; sourceTree = "<group>"; };
+		8870BF1FDE066713345A28AD1E5D5A4A /* UILayoutSupport+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UILayoutSupport+Extensions.swift"; path = "Sources/UILayoutSupport+Extensions.swift"; sourceTree = "<group>"; };
 		895AE70846AFB82130CF53A648BBCB1E /* FSCollectionManager.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionManager.swift; path = Source/Classes/FSCollectionManager.swift; sourceTree = "<group>"; };
+		8F7128884036A8D1A81BD0F2ADE9DF82 /* SwipeCollectionViewCell.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeCollectionViewCell.swift; path = Source/SwipeCollectionViewCell.swift; sourceTree = "<group>"; };
 		901A1B0C5BDE6098C4BDD5CB9C090536 /* FSCollectionLayoutable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionLayoutable.swift; sourceTree = "<group>"; };
 		9081E9F7308D92CC347B6EEF84EC5190 /* FSCollectionSection.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionSection.swift; path = Source/Classes/FSCollectionSection.swift; sourceTree = "<group>"; };
+		924CB54B40B51877AAFD1DA22A676304 /* SnapKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-prefix.pch"; sourceTree = "<group>"; };
+		92AA25A4FF3D82B1913BFBDD6FAB913E /* LayoutConstraint.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraint.swift; path = Sources/LayoutConstraint.swift; sourceTree = "<group>"; };
+		92FC14CCF642C77BA581593BAA3F4EBE /* ConstraintRelation.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintRelation.swift; path = Sources/ConstraintRelation.swift; sourceTree = "<group>"; };
 		9383C4AD3F0894DCD4FF851909AE18E9 /* FSCollectionKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FSCollectionKit.debug.xcconfig; sourceTree = "<group>"; };
 		94E95024C94631890482B3320A1A2949 /* CoreGraphics+FSCollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "CoreGraphics+FSCollectionKit.swift"; sourceTree = "<group>"; };
+		979486118B3E90C08386079D57962701 /* SnapKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SnapKit; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		992B9F0911333E2F87A933FA7516CCD2 /* SnapKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SnapKit-Info.plist"; sourceTree = "<group>"; };
+		9946E4E0DD50336A6CEA213CD9AA3FE5 /* SwipeTableViewCell+Accessibility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwipeTableViewCell+Accessibility.swift"; path = "Source/SwipeTableViewCell+Accessibility.swift"; sourceTree = "<group>"; };
+		9C141A430334C2BA8A651CBBF9B962B2 /* ConstraintPriority.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintPriority.swift; path = Sources/ConstraintPriority.swift; sourceTree = "<group>"; };
 		9CB7E4FA144F4FABAB1F477A92633350 /* FSCollectionHeaderFooter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionHeaderFooter.swift; path = Source/Classes/FSCollectionHeaderFooter.swift; sourceTree = "<group>"; };
 		9CF081CBCF77ED9E479AD884A5DF31CA /* CollectionViewLayoutAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionViewLayoutAttributes.swift; sourceTree = "<group>"; };
+		9D443E759FE97A6C0CA5A3B5E4142EBA /* SwipeCellKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SwipeCellKit; path = SwipeCellKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		9EF2A4AAB2769C69FC01D20F3628DF0C /* LayoutConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConstraintItem.swift; path = Sources/LayoutConstraintItem.swift; sourceTree = "<group>"; };
+		A1575A8BEA4F4A168D4A81E14CE1C5CB /* SwipeCollectionViewCell+Display.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwipeCollectionViewCell+Display.swift"; path = "Source/SwipeCollectionViewCell+Display.swift"; sourceTree = "<group>"; };
 		A1D67D2A66150325444FEF1F720BC54D /* FSCollectionKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "FSCollectionKit-dummy.m"; sourceTree = "<group>"; };
+		A408EE8B2196129C30D250B36ABA5234 /* ConstraintInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintInsets.swift; path = Sources/ConstraintInsets.swift; sourceTree = "<group>"; };
+		A7DA6D259908070F416715E052B89BB4 /* ConstraintMakerFinalizable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerFinalizable.swift; path = Sources/ConstraintMakerFinalizable.swift; sourceTree = "<group>"; };
+		A851E1A236BFC76979D73FB15307A53C /* Swipeable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Swipeable.swift; path = Source/Swipeable.swift; sourceTree = "<group>"; };
+		ACFCFD9D074A22762CD5DEF0DBA75659 /* ConstraintMultiplierTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMultiplierTarget.swift; path = Sources/ConstraintMultiplierTarget.swift; sourceTree = "<group>"; };
+		AD2B9E23E6F6A0C00F13FACBF39D0A04 /* SwipeTableViewCell+Display.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwipeTableViewCell+Display.swift"; path = "Source/SwipeTableViewCell+Display.swift"; sourceTree = "<group>"; };
 		AEA4605FEE455D73D6DFFB608DEA2C14 /* FSCollectionSeparatorHeaderFooter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionSeparatorHeaderFooter.swift; sourceTree = "<group>"; };
 		B0EFCB569E05033DDBD9A67B618E3DEC /* FSCollectionLayoutableHeaderFooter.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionLayoutableHeaderFooter.swift; sourceTree = "<group>"; };
 		B15DF2F98A9C67F8255D19C7FDD72B3E /* UIImage+FSCollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIImage+FSCollectionKit.swift"; sourceTree = "<group>"; };
 		B192D988EAD73EDD3B4C50022C956EFA /* NSAttributedString+FSCollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "NSAttributedString+FSCollectionKit.swift"; sourceTree = "<group>"; };
 		B33F6EC580FCC81682F259622BCBF8B2 /* FSCollectionBlankItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionBlankItem.swift; sourceTree = "<group>"; };
+		B4CAAEDC6296CA0C4C2FE625533EBD26 /* ConstraintOffsetTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintOffsetTarget.swift; path = Sources/ConstraintOffsetTarget.swift; sourceTree = "<group>"; };
 		B602FAC2A3471BE0E069ABAE84D008B6 /* Pods-FSCollectionKit_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-FSCollectionKit_Example-dummy.m"; sourceTree = "<group>"; };
+		B7BA939285A02B6B6A14696519616606 /* SwipeOptions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeOptions.swift; path = Source/SwipeOptions.swift; sourceTree = "<group>"; };
+		B8D18E0F44FC1ADFB1296BFA2AE2858D /* SwipeTransitionLayout.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeTransitionLayout.swift; path = Source/SwipeTransitionLayout.swift; sourceTree = "<group>"; };
 		B8E7B95ED701B72489342C1A1755EE29 /* FSCollectionTitleItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = FSCollectionTitleItem.swift; sourceTree = "<group>"; };
+		B8F411AD4B4A47773BB434FFA1E38EEA /* SnapKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SnapKit-umbrella.h"; sourceTree = "<group>"; };
+		B953E144D349B79E6A21B3DFD30F6CA0 /* ConstraintMakerRelatable+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintMakerRelatable+Extensions.swift"; path = "Sources/ConstraintMakerRelatable+Extensions.swift"; sourceTree = "<group>"; };
 		B9A726D484D35833FE9EE9C7AF500C84 /* FSCollectionKit */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = FSCollectionKit; path = FSCollectionKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B9DCB5EC0B1CDADD221717CADDF62359 /* SnapKit-SnapKit_Privacy */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; name = "SnapKit-SnapKit_Privacy"; path = SnapKit_Privacy.bundle; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB35B94B5BABD490319C4083D111E56C /* FSCollectionKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = FSCollectionKit.release.xcconfig; sourceTree = "<group>"; };
-		BD9FB3AB202ECB0BA41BF488D29B2121 /* CollectionInsetGroupLayoutDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionInsetGroupLayoutDelegate.swift; sourceTree = "<group>"; };
+		BBC0439AE8791AEB9A3ADE69501F26EB /* CollectionInsetGroupedLayoutAttributes.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = CollectionInsetGroupedLayoutAttributes.swift; sourceTree = "<group>"; };
+		BD61E0E2FD71D0E16A28D7FCB0106AFE /* SwipeExpanding.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeExpanding.swift; path = Source/SwipeExpanding.swift; sourceTree = "<group>"; };
+		BD77C2FDB5D3A3980D608FEEE62E3C33 /* ConstraintDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDSL.swift; path = Sources/ConstraintDSL.swift; sourceTree = "<group>"; };
 		BDAF6FF61A28CBFAEBAEEA4F72803913 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
+		BDDE73AA7680D999ACE0BC3C98E2DCBE /* ConstraintLayoutGuideDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintLayoutGuideDSL.swift; path = Sources/ConstraintLayoutGuideDSL.swift; sourceTree = "<group>"; };
+		C037BED0F9CAD0DBCC862F51C1F4419B /* SwipeCollectionViewCell+Accessibility.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "SwipeCollectionViewCell+Accessibility.swift"; path = "Source/SwipeCollectionViewCell+Accessibility.swift"; sourceTree = "<group>"; };
+		C430F25486FFA9581ED2607DDD9E3B52 /* ConstraintView+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintView+Extensions.swift"; path = "Sources/ConstraintView+Extensions.swift"; sourceTree = "<group>"; };
 		C4E466612102638CF20E4DF6E1245293 /* FSCollectionKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; path = FSCollectionKit.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		CA67BABC3F03C078DEA2BDC4CF6BDD65 /* ConstraintMakerRelatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerRelatable.swift; path = Sources/ConstraintMakerRelatable.swift; sourceTree = "<group>"; };
+		D0EF719965CEC92589A553F876D16276 /* ConstraintDescription.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDescription.swift; path = Sources/ConstraintDescription.swift; sourceTree = "<group>"; };
 		D3720FBC666EDA7D654E1EF9ECF1F1AA /* FSCollectionKit-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "FSCollectionKit-umbrella.h"; sourceTree = "<group>"; };
 		D4BA6B1869B9216E22BCF8169D66CF6D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
+		D74F6F47814D912B37020183F28824B4 /* ConstraintConfig.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConfig.swift; path = Sources/ConstraintConfig.swift; sourceTree = "<group>"; };
+		D772B753C70C835603DE959C7369D1D6 /* SwipeAccessibilityCustomAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeAccessibilityCustomAction.swift; path = Source/SwipeAccessibilityCustomAction.swift; sourceTree = "<group>"; };
+		D7DC7881B06DAC229CCF6931BD10CDE4 /* SwipeCellKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "SwipeCellKit-Info.plist"; sourceTree = "<group>"; };
+		DACEE048F45129CC989AAF4A43A805C6 /* SnapKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.debug.xcconfig; sourceTree = "<group>"; };
 		DAE66C6A15F9897AAD577A03890DD425 /* Pods-FSCollectionKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FSCollectionKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		DC5FD4CC7DABFFAF09515585C1588C76 /* ConstraintDirectionalInsets.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintDirectionalInsets.swift; path = Sources/ConstraintDirectionalInsets.swift; sourceTree = "<group>"; };
+		DCCC3BD430AECAE4C679FC744B436013 /* ConstraintItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintItem.swift; path = Sources/ConstraintItem.swift; sourceTree = "<group>"; };
+		DCDC18FE1A3BAAD03E587F30188F6A1C /* ConstraintMaker.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMaker.swift; path = Sources/ConstraintMaker.swift; sourceTree = "<group>"; };
+		DF51052D775B968E088F1E5A0430BC4A /* SwipeCellKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SwipeCellKit-prefix.pch"; sourceTree = "<group>"; };
+		E0CE82CE364A2FDD8488E7D454FE9447 /* SnapKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SnapKit-dummy.m"; sourceTree = "<group>"; };
+		E33D68D92277E46AF9D9CE047E18204C /* SnapKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SnapKit.release.xcconfig; sourceTree = "<group>"; };
+		E34C26E3BCC2D427932010413EFA9EB4 /* SwipeCollectionViewCellDelegate.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeCollectionViewCellDelegate.swift; path = Source/SwipeCollectionViewCellDelegate.swift; sourceTree = "<group>"; };
 		E5499E747868F1A147B8DAB5C38C24F0 /* UIColor+FSCollectionKit.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = "UIColor+FSCollectionKit.swift"; sourceTree = "<group>"; };
+		EAFC5AAEF879B064641AEAED11381819 /* ConstraintMakerExtendable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintMakerExtendable.swift; path = Sources/ConstraintMakerExtendable.swift; sourceTree = "<group>"; };
+		EBC2909161BFED01153F084058007401 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = Sources/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		EBC991926EEDA7C344DE7222978CB8AC /* ConstraintLayoutGuide+Extensions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "ConstraintLayoutGuide+Extensions.swift"; path = "Sources/ConstraintLayoutGuide+Extensions.swift"; sourceTree = "<group>"; };
+		EBF98A80695BBA284614170A42D4BEBA /* ConstraintConstantTarget.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintConstantTarget.swift; path = Sources/ConstraintConstantTarget.swift; sourceTree = "<group>"; };
+		EC1EC08AA821D3C300418A802C6A422C /* SwipeCellKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SwipeCellKit-dummy.m"; sourceTree = "<group>"; };
 		ECAE774CDA5273AC716B849DA542F521 /* Pods-FSCollectionKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-FSCollectionKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 		ECF4CA3AF5536D14B4E015504E7AEEC0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		EE6CB7A7A4DAD06E21026B30E655829B /* ResourceBundle-SnapKit_Privacy-SnapKit-Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "ResourceBundle-SnapKit_Privacy-SnapKit-Info.plist"; sourceTree = "<group>"; };
+		EFF73317F75A2C1F8504C25E73DBE750 /* SwipeActionTransitioning.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwipeActionTransitioning.swift; path = Source/SwipeActionTransitioning.swift; sourceTree = "<group>"; };
 		F07D8E9FC4F2B4454128B9E2D161D379 /* FSCollectionItem.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionItem.swift; path = Source/Classes/FSCollectionItem.swift; sourceTree = "<group>"; };
+		F0980C28192990F7C11E9FA83B897719 /* SwipeCellKit.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = SwipeCellKit.modulemap; sourceTree = "<group>"; };
 		F2C7B9388A5C09164A25B284DB8BAD48 /* Pods-FSCollectionKit_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-FSCollectionKit_Example-umbrella.h"; sourceTree = "<group>"; };
 		F315729C68E86262E705A690C31EDB6F /* Pods-FSCollectionKit_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-FSCollectionKit_Example.modulemap"; sourceTree = "<group>"; };
+		F5355D0750DB71E44E1725ECD5BFAAAA /* SwipeCellKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SwipeCellKit.release.xcconfig; sourceTree = "<group>"; };
 		F5C61E45F3F1743B72BEFFF196C2D71E /* PublicNamespace.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = PublicNamespace.swift; sourceTree = "<group>"; };
 		F66C3D5B8E0545170EBE52BF22B75D0F /* FSCollectionHeaderFooterViewRenderable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionHeaderFooterViewRenderable.swift; path = Source/Classes/FSCollectionHeaderFooterViewRenderable.swift; sourceTree = "<group>"; };
+		FA60C134E19A94A1C29994E143880109 /* ConstraintViewDSL.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ConstraintViewDSL.swift; path = Sources/ConstraintViewDSL.swift; sourceTree = "<group>"; };
 		FAB7E5949784F39D47D6BAD33DBA6518 /* FSCollectionHeaderFooterConvertable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FSCollectionHeaderFooterConvertable.swift; path = Source/Classes/FSCollectionHeaderFooterConvertable.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		33428AC36668E3ED52DB70316F843FB8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				205EB01AED14BB574DD54EAFE26E4786 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3EDD9217303385ED38E9B1F318EA992E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				192A9040024B19D1EF17704813E43199 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C0118B7C9CDD56431669D76834431FE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F1739C80D88A61D9789CF31F62E30DBD /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4C17FF223F2B338ADE8C93F5A4964B01 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		532BE0552C410FD774E08114A1E62C31 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -147,32 +344,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		DBF5CB49128501675439CD6893F4B667 /* Frameworks */ = {
+		609CDC4273C2BA67BC92C54EB7E82E8B /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		F111F686074021E0A5FEC8B97163B5B6 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				1C0818AF1B4484DD2120D9DAB159FA21 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		14F70427058EF8F9DE25ADFFB0ADE045 /* Products */ = {
+		026C9D0F30018115326C62A8163D0C4B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				B9A726D484D35833FE9EE9C7AF500C84 /* FSCollectionKit */,
-				7624F5175E25D8E4F3E5FFD1BE4D9D8E /* FSCollectionKit-FSCollectionKit */,
-				0ED3DF1F844892148B492F8973A5D637 /* Pods-FSCollectionKit_Example */,
+				EBC2909161BFED01153F084058007401 /* PrivacyInfo.xcprivacy */,
 			);
-			name = Products;
+			name = Resources;
 			sourceTree = "<group>";
 		};
 		1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */ = {
@@ -226,6 +413,15 @@
 			path = Source/Classes/Protocols;
 			sourceTree = "<group>";
 		};
+		2DD8303E5D910DB14C5BC82EAE48BAD5 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9A0435CA1E9C668F36A68F5D0A86C585 /* SnapKit */,
+				9435A0EAEAC2AB3025A4366AA9A97642 /* SwipeCellKit */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		37DAE86F9E5FA65BE29C63450622E019 /* Pods-FSCollectionKit_Example */ = {
 			isa = PBXGroup;
 			children = (
@@ -264,12 +460,27 @@
 			path = Lock;
 			sourceTree = "<group>";
 		};
+		5EA7C6654A2422B50459F44DD9594DE0 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F0980C28192990F7C11E9FA83B897719 /* SwipeCellKit.modulemap */,
+				EC1EC08AA821D3C300418A802C6A422C /* SwipeCellKit-dummy.m */,
+				D7DC7881B06DAC229CCF6931BD10CDE4 /* SwipeCellKit-Info.plist */,
+				DF51052D775B968E088F1E5A0430BC4A /* SwipeCellKit-prefix.pch */,
+				068E79C1612B92E5596190945E5318C6 /* SwipeCellKit-umbrella.h */,
+				86926F1F91BAC7B51C809FD8F529A1EB /* SwipeCellKit.debug.xcconfig */,
+				F5355D0750DB71E44E1725ECD5BFAAAA /* SwipeCellKit.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SwipeCellKit";
+			sourceTree = "<group>";
+		};
 		6860187786AFD8EC65222404F53C46D9 /* CollectionViewLayouts */ = {
 			isa = PBXGroup;
 			children = (
 				5FDA237FF88D33A39600D2835785F616 /* CollectionViewAnimatedFlowLayout.swift */,
 				2A2312A3D1AED3130ED7CF487293D422 /* FSCollectionViewFlowLayout.swift */,
-				BFF26B81EC6A452CD0E387A9E274CBDE /* InsetGroupLayout */,
+				9A006314F3850343D3777581DAB7A72D /* InsetGroupLayout */,
 			);
 			name = CollectionViewLayouts;
 			path = Source/Classes/CollectionViewLayouts;
@@ -282,6 +493,95 @@
 			);
 			name = Views;
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9435A0EAEAC2AB3025A4366AA9A97642 /* SwipeCellKit */ = {
+			isa = PBXGroup;
+			children = (
+				742BA965FBCE5A2396299EC3E7B8EB3F /* Extensions.swift */,
+				A851E1A236BFC76979D73FB15307A53C /* Swipeable.swift */,
+				D772B753C70C835603DE959C7369D1D6 /* SwipeAccessibilityCustomAction.swift */,
+				0F3C383C5B66638F342F6EA5769167FC /* SwipeAction.swift */,
+				605D684D674B979AD62A2E59400486A1 /* SwipeActionButton.swift */,
+				4F6D4681F2FFC4157913EDBC0EA4FBCD /* SwipeActionsView.swift */,
+				EFF73317F75A2C1F8504C25E73DBE750 /* SwipeActionTransitioning.swift */,
+				083B640FB9F20C5853B8672B5E48EB76 /* SwipeAnimator.swift */,
+				8F7128884036A8D1A81BD0F2ADE9DF82 /* SwipeCollectionViewCell.swift */,
+				C037BED0F9CAD0DBCC862F51C1F4419B /* SwipeCollectionViewCell+Accessibility.swift */,
+				A1575A8BEA4F4A168D4A81E14CE1C5CB /* SwipeCollectionViewCell+Display.swift */,
+				E34C26E3BCC2D427932010413EFA9EB4 /* SwipeCollectionViewCellDelegate.swift */,
+				2C33F48DF10AF43C136E170A8BA1321C /* SwipeController.swift */,
+				BD61E0E2FD71D0E16A28D7FCB0106AFE /* SwipeExpanding.swift */,
+				6A39805BFFACEB4F3D0A3BB636480127 /* SwipeExpansionStyle.swift */,
+				6CE856AAC33D45C9AAF43A0AC812BD57 /* SwipeFeedback.swift */,
+				B7BA939285A02B6B6A14696519616606 /* SwipeOptions.swift */,
+				0EAB66F6E9D4EFCE4F6EB76B384E829D /* SwipeTableViewCell.swift */,
+				9946E4E0DD50336A6CEA213CD9AA3FE5 /* SwipeTableViewCell+Accessibility.swift */,
+				AD2B9E23E6F6A0C00F13FACBF39D0A04 /* SwipeTableViewCell+Display.swift */,
+				8446AA638CE3B19CE779F1056FA4343E /* SwipeTableViewCellDelegate.swift */,
+				B8D18E0F44FC1ADFB1296BFA2AE2858D /* SwipeTransitionLayout.swift */,
+				5EA7C6654A2422B50459F44DD9594DE0 /* Support Files */,
+			);
+			name = SwipeCellKit;
+			path = SwipeCellKit;
+			sourceTree = "<group>";
+		};
+		9A006314F3850343D3777581DAB7A72D /* InsetGroupLayout */ = {
+			isa = PBXGroup;
+			children = (
+				213C8586BDA04ED5B2711DAE447FF132 /* CollectionInsetGroupedLayout.swift */,
+				BBC0439AE8791AEB9A3ADE69501F26EB /* CollectionInsetGroupedLayoutAttributes.swift */,
+				0AEE50CC134C364ECF667A473BB3F01E /* CollectionInsetGroupedLayoutDelegate.swift */,
+			);
+			name = InsetGroupLayout;
+			path = InsetGroupLayout;
+			sourceTree = "<group>";
+		};
+		9A0435CA1E9C668F36A68F5D0A86C585 /* SnapKit */ = {
+			isa = PBXGroup;
+			children = (
+				392D32C6865786FD289201DDFE7825F1 /* Constraint.swift */,
+				40353E5600415C9B3B2614D3E9FF196F /* ConstraintAttributes.swift */,
+				D74F6F47814D912B37020183F28824B4 /* ConstraintConfig.swift */,
+				EBF98A80695BBA284614170A42D4BEBA /* ConstraintConstantTarget.swift */,
+				D0EF719965CEC92589A553F876D16276 /* ConstraintDescription.swift */,
+				DC5FD4CC7DABFFAF09515585C1588C76 /* ConstraintDirectionalInsets.swift */,
+				3794F67E4E52D4DFFBC5B89FB5E3EB41 /* ConstraintDirectionalInsetTarget.swift */,
+				BD77C2FDB5D3A3980D608FEEE62E3C33 /* ConstraintDSL.swift */,
+				A408EE8B2196129C30D250B36ABA5234 /* ConstraintInsets.swift */,
+				17B60B9282ABDAB51AA0FA71F2342664 /* ConstraintInsetTarget.swift */,
+				DCCC3BD430AECAE4C679FC744B436013 /* ConstraintItem.swift */,
+				884F6C4A155827B2A9A8F29A249E8904 /* ConstraintLayoutGuide.swift */,
+				EBC991926EEDA7C344DE7222978CB8AC /* ConstraintLayoutGuide+Extensions.swift */,
+				BDDE73AA7680D999ACE0BC3C98E2DCBE /* ConstraintLayoutGuideDSL.swift */,
+				1C861F605D985FE0ACD20ED333BC18D7 /* ConstraintLayoutSupport.swift */,
+				7B904F70795B44B450156B2E65835D4D /* ConstraintLayoutSupportDSL.swift */,
+				DCDC18FE1A3BAAD03E587F30188F6A1C /* ConstraintMaker.swift */,
+				2149AC594650DE66C3A9ABD3632D3BEE /* ConstraintMakerEditable.swift */,
+				EAFC5AAEF879B064641AEAED11381819 /* ConstraintMakerExtendable.swift */,
+				A7DA6D259908070F416715E052B89BB4 /* ConstraintMakerFinalizable.swift */,
+				2BCC0357D02C78DADA614B5580077AAE /* ConstraintMakerPrioritizable.swift */,
+				CA67BABC3F03C078DEA2BDC4CF6BDD65 /* ConstraintMakerRelatable.swift */,
+				B953E144D349B79E6A21B3DFD30F6CA0 /* ConstraintMakerRelatable+Extensions.swift */,
+				ACFCFD9D074A22762CD5DEF0DBA75659 /* ConstraintMultiplierTarget.swift */,
+				B4CAAEDC6296CA0C4C2FE625533EBD26 /* ConstraintOffsetTarget.swift */,
+				9C141A430334C2BA8A651CBBF9B962B2 /* ConstraintPriority.swift */,
+				6D7796B6BA1B2BB0B3203698097AE105 /* ConstraintPriorityTarget.swift */,
+				125BE72E881B4ABB85E127A1F55414D7 /* ConstraintRelatableTarget.swift */,
+				92FC14CCF642C77BA581593BAA3F4EBE /* ConstraintRelation.swift */,
+				62EFFD620D6ED4527C496FB893D0800F /* ConstraintView.swift */,
+				C430F25486FFA9581ED2607DDD9E3B52 /* ConstraintView+Extensions.swift */,
+				FA60C134E19A94A1C29994E143880109 /* ConstraintViewDSL.swift */,
+				67A90EAFDD006E7FBF44147139B256B9 /* Debugging.swift */,
+				92AA25A4FF3D82B1913BFBDD6FAB913E /* LayoutConstraint.swift */,
+				9EF2A4AAB2769C69FC01D20F3628DF0C /* LayoutConstraintItem.swift */,
+				3B21D1A3CD49E57B0C0799317628C939 /* Typealiases.swift */,
+				8870BF1FDE066713345A28AD1E5D5A4A /* UILayoutSupport+Extensions.swift */,
+				026C9D0F30018115326C62A8163D0C4B /* Resources */,
+				D64ED334681171C95F551362AD607D84 /* Support Files */,
+			);
+			name = SnapKit;
+			path = SnapKit;
 			sourceTree = "<group>";
 		};
 		9C56C483A6A7A796C60297BCE57F2E81 /* Support Files */ = {
@@ -351,15 +651,17 @@
 			path = ../..;
 			sourceTree = "<group>";
 		};
-		BFF26B81EC6A452CD0E387A9E274CBDE /* InsetGroupLayout */ = {
+		C7AE4B8D714967C7EF9E7DA6A8673B06 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4542EDB3F7799818F03C1B8457F21D4C /* CollectionInsetGroupLayout.swift */,
-				49915C28D0928AA51E9695A0431A5CF7 /* CollectionInsetGroupLayoutAttributes.swift */,
-				BD9FB3AB202ECB0BA41BF488D29B2121 /* CollectionInsetGroupLayoutDelegate.swift */,
+				B9A726D484D35833FE9EE9C7AF500C84 /* FSCollectionKit */,
+				7624F5175E25D8E4F3E5FFD1BE4D9D8E /* FSCollectionKit-FSCollectionKit */,
+				0ED3DF1F844892148B492F8973A5D637 /* Pods-FSCollectionKit_Example */,
+				979486118B3E90C08386079D57962701 /* SnapKit */,
+				B9DCB5EC0B1CDADD221717CADDF62359 /* SnapKit-SnapKit_Privacy */,
+				9D443E759FE97A6C0CA5A3B5E4142EBA /* SwipeCellKit */,
 			);
-			name = InsetGroupLayout;
-			path = InsetGroupLayout;
+			name = Products;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -368,7 +670,8 @@
 				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
 				EFF5F2BB7FCE046B4C92A7D3590A5619 /* Development Pods */,
 				1628BF05B4CAFDCC3549A101F5A10A17 /* Frameworks */,
-				14F70427058EF8F9DE25ADFFB0ADE045 /* Products */,
+				2DD8303E5D910DB14C5BC82EAE48BAD5 /* Pods */,
+				C7AE4B8D714967C7EF9E7DA6A8673B06 /* Products */,
 				EFA36A06001C10322891C5D251ADBD18 /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -380,6 +683,22 @@
 			);
 			name = Extensions;
 			path = Source/Classes/Extensions;
+			sourceTree = "<group>";
+		};
+		D64ED334681171C95F551362AD607D84 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				EE6CB7A7A4DAD06E21026B30E655829B /* ResourceBundle-SnapKit_Privacy-SnapKit-Info.plist */,
+				26E2AD05BE3878CC0DF6F85D6E6F8F45 /* SnapKit.modulemap */,
+				E0CE82CE364A2FDD8488E7D454FE9447 /* SnapKit-dummy.m */,
+				992B9F0911333E2F87A933FA7516CCD2 /* SnapKit-Info.plist */,
+				924CB54B40B51877AAFD1DA22A676304 /* SnapKit-prefix.pch */,
+				B8F411AD4B4A47773BB434FFA1E38EEA /* SnapKit-umbrella.h */,
+				DACEE048F45129CC989AAF4A43A805C6 /* SnapKit.debug.xcconfig */,
+				E33D68D92277E46AF9D9CE047E18204C /* SnapKit.release.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/SnapKit";
 			sourceTree = "<group>";
 		};
 		E3161BB5745C9096CC9E8FD013AF27F0 /* Pod */ = {
@@ -419,49 +738,121 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5BE04BD07430C6630E955A298099596E /* Headers */ = {
+		5A4B638416FFE72F8AAAFE0948926D68 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				08FF2E18F5EB199EC2CCF21147E4FF2A /* Pods-FSCollectionKit_Example-umbrella.h in Headers */,
+				7E962AEAE933566D3400E8671F7FB326 /* Pods-FSCollectionKit_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5B1500FE995B9224E0AF0B42CE93C03B /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57C4F6EFB30DDD14E960AC2D6B34F904 /* SnapKit-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BD4A66E81FF2BD9EAF6CC4E8E1F63896 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				757CCD0532CD46CFCEF61A6BCDD4FA6A /* SwipeCellKit-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		19622742EBA51E823D6DAE3F8CDBFAD4 /* SnapKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 80CE967CAA1D35721519F892BAF7A19B /* Build configuration list for PBXNativeTarget "SnapKit" */;
+			buildPhases = (
+				5B1500FE995B9224E0AF0B42CE93C03B /* Headers */,
+				F7AC6792C89443C7B212A06E810BAB97 /* Sources */,
+				33428AC36668E3ED52DB70316F843FB8 /* Frameworks */,
+				1DEDF411E550D85A1218E1655456A9CD /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AB5524B1EBC1EA11587DCE7A69D5C580 /* PBXTargetDependency */,
+			);
+			name = SnapKit;
+			productName = SnapKit;
+			productReference = 979486118B3E90C08386079D57962701 /* SnapKit */;
+			productType = "com.apple.product-type.framework";
+		};
+		1DE44C23B82E6671E9E1541D06DE0E87 /* SwipeCellKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D2D6B841CDE1087ED3C3E79071FD5A25 /* Build configuration list for PBXNativeTarget "SwipeCellKit" */;
+			buildPhases = (
+				BD4A66E81FF2BD9EAF6CC4E8E1F63896 /* Headers */,
+				096673D07B57AE2AED359317A2669FA8 /* Sources */,
+				3EDD9217303385ED38E9B1F318EA992E /* Frameworks */,
+				F4AA581D546B4EEAEDF10F2F8738D11C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SwipeCellKit;
+			productName = SwipeCellKit;
+			productReference = 9D443E759FE97A6C0CA5A3B5E4142EBA /* SwipeCellKit */;
+			productType = "com.apple.product-type.framework";
+		};
 		4ECEF69AF322D727488C71CB58CE4537 /* FSCollectionKit */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6075823FEBBC6C0AA0F5F6F5671D6FAF /* Build configuration list for PBXNativeTarget "FSCollectionKit" */;
 			buildPhases = (
 				1B59C617A6A1832C36D7DB714AE7566C /* Headers */,
-				7B859DCC95761EB9C0C62460D02511F4 /* Sources */,
+				ED531AC1CCFADDA56C0BF5313815E144 /* Sources */,
 				532BE0552C410FD774E08114A1E62C31 /* Frameworks */,
 				98357C52051B561925585B037215B26F /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				5E85DB41EBE6CFCD47C798F1139F87F6 /* PBXTargetDependency */,
+				F1A6C8620A407CA32C2D92AC79F707B4 /* PBXTargetDependency */,
 			);
 			name = FSCollectionKit;
 			productName = FSCollectionKit;
 			productReference = B9A726D484D35833FE9EE9C7AF500C84 /* FSCollectionKit */;
 			productType = "com.apple.product-type.framework";
 		};
-		BAA33A5C7BCAC14094F241F74A9036A0 /* Pods-FSCollectionKit_Example */ = {
+		8A8DB685241263AFDF5E6B20FE67B93A /* SnapKit-SnapKit_Privacy */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D45BF74EFF0BD4D5121657F165303F66 /* Build configuration list for PBXNativeTarget "Pods-FSCollectionKit_Example" */;
+			buildConfigurationList = 1DBDEE36B9DA5D0D59DF32BBCC2C301C /* Build configuration list for PBXNativeTarget "SnapKit-SnapKit_Privacy" */;
 			buildPhases = (
-				5BE04BD07430C6630E955A298099596E /* Headers */,
-				8E288DAD054F08DEA1F6C5A58BC5E70B /* Sources */,
-				F111F686074021E0A5FEC8B97163B5B6 /* Frameworks */,
-				74E3D32EBEE39D40A836393DD990C7B3 /* Resources */,
+				E5E1CB44E263BE6ED831919140CF361C /* Sources */,
+				4C17FF223F2B338ADE8C93F5A4964B01 /* Frameworks */,
+				CFB758549259CA9ED39686FC8E7F53AB /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				AC18F27BAC64CEA78F875EBE42DB2F45 /* PBXTargetDependency */,
+			);
+			name = "SnapKit-SnapKit_Privacy";
+			productName = SnapKit_Privacy;
+			productReference = B9DCB5EC0B1CDADD221717CADDF62359 /* SnapKit-SnapKit_Privacy */;
+			productType = "com.apple.product-type.bundle";
+		};
+		BAA33A5C7BCAC14094F241F74A9036A0 /* Pods-FSCollectionKit_Example */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 089B574B7A06BF1DFAE64F870A1D097E /* Build configuration list for PBXNativeTarget "Pods-FSCollectionKit_Example" */;
+			buildPhases = (
+				5A4B638416FFE72F8AAAFE0948926D68 /* Headers */,
+				9CDB829DDDC6DFDF0F47687BC88B2EDD /* Sources */,
+				4C0118B7C9CDD56431669D76834431FE /* Frameworks */,
+				DEE1FF0A919C83EDB425D62CC4212708 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				956337E4893325E6511AF15E8EE39B71 /* PBXTargetDependency */,
+				0F9C409F40D684BE5253757D69E11CC2 /* PBXTargetDependency */,
+				2642F0000F08603169DEBCF1FDC0E16C /* PBXTargetDependency */,
 			);
 			name = "Pods-FSCollectionKit_Example";
 			productName = Pods_FSCollectionKit_Example;
@@ -470,11 +861,11 @@
 		};
 		FCF6339D93FDB4EF3981E9EABA67C0E7 /* FSCollectionKit-FSCollectionKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = D83290162BAFD60C0C38C135ED7B7510 /* Build configuration list for PBXNativeTarget "FSCollectionKit-FSCollectionKit" */;
+			buildConfigurationList = E8733526ABF347E44E08155383A0F836 /* Build configuration list for PBXNativeTarget "FSCollectionKit-FSCollectionKit" */;
 			buildPhases = (
-				AE6820BB3FB0C9263321171EA280C303 /* Sources */,
-				DBF5CB49128501675439CD6893F4B667 /* Frameworks */,
-				9DFB4E41000B8C6279F9D1562AA5BA82 /* Resources */,
+				83384496F133A9C133FD31084ED76AFD /* Sources */,
+				609CDC4273C2BA67BC92C54EB7E82E8B /* Frameworks */,
+				0E7137A03A0BC689ABE5CA484DF8C9E4 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -506,22 +897,34 @@
 			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
 			minimizedProjectReferenceProxies = 0;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = 14F70427058EF8F9DE25ADFFB0ADE045 /* Products */;
+			productRefGroup = C7AE4B8D714967C7EF9E7DA6A8673B06 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
 				4ECEF69AF322D727488C71CB58CE4537 /* FSCollectionKit */,
 				FCF6339D93FDB4EF3981E9EABA67C0E7 /* FSCollectionKit-FSCollectionKit */,
 				BAA33A5C7BCAC14094F241F74A9036A0 /* Pods-FSCollectionKit_Example */,
+				19622742EBA51E823D6DAE3F8CDBFAD4 /* SnapKit */,
+				8A8DB685241263AFDF5E6B20FE67B93A /* SnapKit-SnapKit_Privacy */,
+				1DE44C23B82E6671E9E1541D06DE0E87 /* SwipeCellKit */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		74E3D32EBEE39D40A836393DD990C7B3 /* Resources */ = {
+		0E7137A03A0BC689ABE5CA484DF8C9E4 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				340E18D61B8BC1B9FA02F7225B543FBE /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		1DEDF411E550D85A1218E1655456A9CD /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9E0045B41BFE697DB4ADE151228024D2 /* SnapKit-SnapKit_Privacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -533,97 +936,211 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		9DFB4E41000B8C6279F9D1562AA5BA82 /* Resources */ = {
+		CFB758549259CA9ED39686FC8E7F53AB /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3DCAFB201446656790E3AFA0D3003104 /* Images.xcassets in Resources */,
+				AA41141F78FB3667AACA1480CB8E7958 /* PrivacyInfo.xcprivacy in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DEE1FF0A919C83EDB425D62CC4212708 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F4AA581D546B4EEAEDF10F2F8738D11C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7B859DCC95761EB9C0C62460D02511F4 /* Sources */ = {
+		096673D07B57AE2AED359317A2669FA8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				466139F116860405A4E0C69581A8159C /* _FSSeparatorView.swift in Sources */,
-				16967DB6C529677083E0DF3146B734F2 /* CACornerMask+FSCollectionKit.swift in Sources */,
-				E8E803DECF84DBDC02F7A5A3A2EC6FD2 /* CollectionInsetGroupLayout.swift in Sources */,
-				660053B5B94BF1A31B2A2DD185DEC48B /* CollectionInsetGroupLayoutAttributes.swift in Sources */,
-				D2445E12717458466CAA5B5B0F4755D9 /* CollectionInsetGroupLayoutDelegate.swift in Sources */,
-				A6737FF72291D825A230C73292E9122D /* CollectionReusableCell.swift in Sources */,
-				BB488BD9E719DC92E5C2EF730851E8F6 /* CollectionViewAnimatedFlowLayout.swift in Sources */,
-				BF9DDEAFB6EB48B0A53F4E67A78101BA /* CollectionViewLayoutAttributes.swift in Sources */,
-				795F83111B6A3E57D031D9A89CA5B4A3 /* CoreGraphics+FSCollectionKit.swift in Sources */,
-				BBD1AE0BBDCB5CD406A772228114F0D0 /* FSCollectionBlankItem.swift in Sources */,
-				E5DC1B2B46CAD48D4903858C41B5403A /* FSCollectionCellRenderable.swift in Sources */,
-				600D7DF80605086B44F95DDBC56EA844 /* FSCollectionDelegator.swift in Sources */,
-				227EE412A77E753EBDD769F3F30B06EC /* FSCollectionHeaderFooter.swift in Sources */,
-				AFD02910262195A78913604940A22D2A /* FSCollectionHeaderFooterConvertable.swift in Sources */,
-				4AF7B33B67CC7C71E303590670F72D79 /* FSCollectionHeaderFooterViewRenderable.swift in Sources */,
-				3AA0E937ACF97A5A6CEA99D8B5F65197 /* FSCollectionItem.swift in Sources */,
-				0844C3A7C1001065DAB1F1E1A67516BB /* FSCollectionItemConvertable.swift in Sources */,
-				8D3A0D2103E94BBD56C0829C2B875EE6 /* FSCollectionKit-dummy.m in Sources */,
-				657FFE286F2C1D91026647AB2DEB014E /* FSCollectionLayoutable.swift in Sources */,
-				DB5D76DE01D40EBB243B8D8AF6102810 /* FSCollectionLayoutableHeaderFooter.swift in Sources */,
-				3C686DCC9E542FE3047448E0A412809B /* FSCollectionLayoutableItem.swift in Sources */,
-				C7EDD619A5B18C0A436F2252AAAFB2B6 /* FSCollectionManager.swift in Sources */,
-				D330726B774B37DB72651B0716505CB7 /* FSCollectionSection.swift in Sources */,
-				499146A1C9B1C0224B9D619494B1C784 /* FSCollectionSectionConvertable.swift in Sources */,
-				1F700B4EA6623BBB00124E9642A59364 /* FSCollectionSeparatorHeaderFooter.swift in Sources */,
-				254E55B239A65E74F223AFF5D7441C0C /* FSCollectionSeparatorItem.swift in Sources */,
-				6BDDEF5653ACCF5A3D9818F51EE8055F /* FSCollectionTitleHeaderFooter.swift in Sources */,
-				C949C4695ACBE310C9F4F06EF6F5E798 /* FSCollectionTitleItem.swift in Sources */,
-				11653798BEB77E279504A15D16382569 /* FSCollectionViewFlowLayout.swift in Sources */,
-				51A5ED3869CDD0FA8CF843ADB9965DAC /* InternalNamespace.swift in Sources */,
-				236BA058F5CAFE97694A1056036F4B51 /* NSAttributedString+FSCollectionKit.swift in Sources */,
-				3824467191B3ED91B7B738C5EF8FD8F8 /* PublicNamespace.swift in Sources */,
-				9A0DD5B05F5EE401F9FFFBD2F8096D04 /* UICollectionView+FSCollectionKit.swift in Sources */,
-				F8B34064101C632DE3F29FB0967E4DA8 /* UIColor+FSCollectionKit.swift in Sources */,
-				75C63E79F9D3B2A984F15DE8D93EE038 /* UIImage+FSCollectionKit.swift in Sources */,
-				9B1078E4C8CD31A24C5BACA662604405 /* UIScreen+FSCollectionKit.swift in Sources */,
-				8E7C08D9B5306237127CAB4E22943006 /* UnfairLock.swift in Sources */,
+				96E8FD318430C456F592BA59FC29EA82 /* Extensions.swift in Sources */,
+				437B655619222F3D969C86862D377E75 /* Swipeable.swift in Sources */,
+				DDE8CE3746090D965FAA5CF2465A51D9 /* SwipeAccessibilityCustomAction.swift in Sources */,
+				C79EA5635CB6C5B66899CBA85B61BAAA /* SwipeAction.swift in Sources */,
+				227BEDFC6407EEB230426BE11367D35C /* SwipeActionButton.swift in Sources */,
+				4BF1ECB1494EC78F9E064C8715F1B416 /* SwipeActionsView.swift in Sources */,
+				098288E324C5C2D859158F1B523C823F /* SwipeActionTransitioning.swift in Sources */,
+				A9BEED77A139F557A6927935D54768AF /* SwipeAnimator.swift in Sources */,
+				A4BABA06B9CB90E60A0D498B6E678536 /* SwipeCellKit-dummy.m in Sources */,
+				DDCA8BC73DFD406AEA11976113EA982F /* SwipeCollectionViewCell.swift in Sources */,
+				C74E88A4DD704900E830765C7E486682 /* SwipeCollectionViewCell+Accessibility.swift in Sources */,
+				B745C1D7D4EE882DE35BB11747D91519 /* SwipeCollectionViewCell+Display.swift in Sources */,
+				D88AAC4FC903B2BA1F7D6B4172CF2152 /* SwipeCollectionViewCellDelegate.swift in Sources */,
+				30CDFBD2030234FFFF389A0817579C88 /* SwipeController.swift in Sources */,
+				100753DC18183D7CABAFBA2C854EAD32 /* SwipeExpanding.swift in Sources */,
+				720AA40F7E6C239FBA1183C307A13F41 /* SwipeExpansionStyle.swift in Sources */,
+				44372DB42CEA534192B18B2C34897B54 /* SwipeFeedback.swift in Sources */,
+				AB7CC9FD37266C6A4ECE09B2144B08C6 /* SwipeOptions.swift in Sources */,
+				F2C04FC3A67458F4ECCD0E499E7FEFC2 /* SwipeTableViewCell.swift in Sources */,
+				6B7757C68773A5777DF0C2697D07F966 /* SwipeTableViewCell+Accessibility.swift in Sources */,
+				9D9C7BA31C5A81E22633BB66B0086D19 /* SwipeTableViewCell+Display.swift in Sources */,
+				9372C846CF70DF414F5D1061262F0B20 /* SwipeTableViewCellDelegate.swift in Sources */,
+				875EE9FA20B77CE36B4773485DA581D0 /* SwipeTransitionLayout.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		8E288DAD054F08DEA1F6C5A58BC5E70B /* Sources */ = {
+		83384496F133A9C133FD31084ED76AFD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B9BE128AE5E3A6EB0834D5E05FEAD760 /* Pods-FSCollectionKit_Example-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AE6820BB3FB0C9263321171EA280C303 /* Sources */ = {
+		9CDB829DDDC6DFDF0F47687BC88B2EDD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				995D6F186A9139EDC86DA6B53719BCA8 /* Pods-FSCollectionKit_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E5E1CB44E263BE6ED831919140CF361C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED531AC1CCFADDA56C0BF5313815E144 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				29D6DD5FD9E7884E33DE1A8FD28E82F0 /* _FSSeparatorView.swift in Sources */,
+				BE7DFFE36CDBA986652DA179125BA12C /* CACornerMask+FSCollectionKit.swift in Sources */,
+				5AF40E95BF56F62EF5F7E62C48575F8E /* CollectionInsetGroupedLayout.swift in Sources */,
+				5DD091D9747F8403245B2518036CFF5A /* CollectionInsetGroupedLayoutAttributes.swift in Sources */,
+				3D8C3C2A862D6D7DD55B5A60DB71D952 /* CollectionInsetGroupedLayoutDelegate.swift in Sources */,
+				69E94E83B08E746C648186A8E4A4AC33 /* CollectionReusableCell.swift in Sources */,
+				D5ADAF8380731A3CAC5C2D45A69E5D81 /* CollectionViewAnimatedFlowLayout.swift in Sources */,
+				A6656EE74DA2A11F638B96AB17BABFB8 /* CollectionViewLayoutAttributes.swift in Sources */,
+				5526C348EAA0885BDBBE48B4517B1B89 /* CoreGraphics+FSCollectionKit.swift in Sources */,
+				6C11789C27012116A7810A62DDB98C13 /* FSCollectionBlankItem.swift in Sources */,
+				AAD3108C9AA66B67605F6D466D387FA1 /* FSCollectionCellRenderable.swift in Sources */,
+				D3CCBF502AB8E725372C1FA3A70D4BEC /* FSCollectionDelegator.swift in Sources */,
+				137DD6D447FBA9BAC1C01F3DEEE71429 /* FSCollectionHeaderFooter.swift in Sources */,
+				850B3D593EBE38192504A9CAAA7E2FD2 /* FSCollectionHeaderFooterConvertable.swift in Sources */,
+				4912139FC8A106D0257676C3AF521BD0 /* FSCollectionHeaderFooterViewRenderable.swift in Sources */,
+				F3BA33B8B03D2D1F324CC28AC5841BCF /* FSCollectionItem.swift in Sources */,
+				900EAA54AF572313FFAF612623B30EF5 /* FSCollectionItemConvertable.swift in Sources */,
+				3B30E2EB6F5F6C3477F68ADADDF51B8C /* FSCollectionKit-dummy.m in Sources */,
+				05AD3D2081E09AB2A20EBA10BE00F322 /* FSCollectionLayoutable.swift in Sources */,
+				2903D9B38906AF9AF330128809DA0A46 /* FSCollectionLayoutableHeaderFooter.swift in Sources */,
+				0749A7495FBE05FA76F307109FC835BD /* FSCollectionLayoutableItem.swift in Sources */,
+				F3BCAF0B258DD6A69EF0CB66E99627C1 /* FSCollectionManager.swift in Sources */,
+				D2F43369E77648CBA51F8AD589CB85BF /* FSCollectionSection.swift in Sources */,
+				93A8AD6E5A539DFD5631F6A87D96DE77 /* FSCollectionSectionConvertable.swift in Sources */,
+				8EFB18A4DA44E794EF96F7CA12229C85 /* FSCollectionSeparatorHeaderFooter.swift in Sources */,
+				3326AA57A6F52FCA8E648DA6BDDDB6D3 /* FSCollectionSeparatorItem.swift in Sources */,
+				1398BDC7A27153890B41359542E02145 /* FSCollectionTitleHeaderFooter.swift in Sources */,
+				10D0BBF00B87961D7C824DABFD090927 /* FSCollectionTitleItem.swift in Sources */,
+				780BADD651F96BA6E2CFA6B75DDEBDCA /* FSCollectionViewFlowLayout.swift in Sources */,
+				4F716E21E994CF247E61E99C8F944DFC /* InternalNamespace.swift in Sources */,
+				87578AE9D52413D975A95AE8C0C728DE /* NSAttributedString+FSCollectionKit.swift in Sources */,
+				96A984B24FAB1175B1A97B7425E68E19 /* PublicNamespace.swift in Sources */,
+				15F8180A1366CA512DAB68B9C4B00482 /* UICollectionView+FSCollectionKit.swift in Sources */,
+				BB5A90C447D7AC8B3FE562F4C4C90B40 /* UIColor+FSCollectionKit.swift in Sources */,
+				99A461F6600F78DCB1B91441DA95F739 /* UIImage+FSCollectionKit.swift in Sources */,
+				3DF1484BC335D6D65B59680831A8328F /* UIScreen+FSCollectionKit.swift in Sources */,
+				A0E79F044BB38415A2A7E5957B13A45A /* UnfairLock.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		F7AC6792C89443C7B212A06E810BAB97 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6E39129FC8643A70C276801FEF4C280D /* Constraint.swift in Sources */,
+				0CA7A132ABE7018DE9295456732F38BB /* ConstraintAttributes.swift in Sources */,
+				F9EBA65892D78A31C068D727D84BCB88 /* ConstraintConfig.swift in Sources */,
+				CE593943A9E7CF83822CF60304BCAD43 /* ConstraintConstantTarget.swift in Sources */,
+				7AF516B98D45391B909D507D0244104C /* ConstraintDescription.swift in Sources */,
+				1194E62AA3F6F506799B1A43B16942B5 /* ConstraintDirectionalInsets.swift in Sources */,
+				E37671A03B4C17A1CF3766A6125833BB /* ConstraintDirectionalInsetTarget.swift in Sources */,
+				868A9F524A7985BDA1EA124D9BF4CA63 /* ConstraintDSL.swift in Sources */,
+				AF760C78F1C7E11BF7CB9E9B29903530 /* ConstraintInsets.swift in Sources */,
+				2B2EB369550CE92CEEFCBFD3D32B8A3F /* ConstraintInsetTarget.swift in Sources */,
+				5922A6A0AE7152CF436356B3556F1835 /* ConstraintItem.swift in Sources */,
+				59F34874DA4ABB2F5C4E09EA6865936B /* ConstraintLayoutGuide.swift in Sources */,
+				E3D779DEE753C0B0D33BA8E73A980265 /* ConstraintLayoutGuide+Extensions.swift in Sources */,
+				3D3B646B4988314275B40E97BEB16C7F /* ConstraintLayoutGuideDSL.swift in Sources */,
+				B0875E3AB8718E7DFE5C53497C02A15E /* ConstraintLayoutSupport.swift in Sources */,
+				064D909CD827405E8DCC309DB1B7775A /* ConstraintLayoutSupportDSL.swift in Sources */,
+				4F4DEB687C0E4834A5B291DEE0651D6A /* ConstraintMaker.swift in Sources */,
+				C14F10B663FE2898EACAB90C202B3F50 /* ConstraintMakerEditable.swift in Sources */,
+				D4218DA55B2BA45937589200CC0DF1FB /* ConstraintMakerExtendable.swift in Sources */,
+				B903049E7C1BED7918DAB208754107C7 /* ConstraintMakerFinalizable.swift in Sources */,
+				AABEF13464BA7F4621BD94736C1D057C /* ConstraintMakerPrioritizable.swift in Sources */,
+				BDA5C7CC91E86448237CF40954FAC5AF /* ConstraintMakerRelatable.swift in Sources */,
+				8BABA32F7B94A25D8E9208C0A8D90B2E /* ConstraintMakerRelatable+Extensions.swift in Sources */,
+				883EDEE1C699497CF2A77C3B8A32A790 /* ConstraintMultiplierTarget.swift in Sources */,
+				3577F172FA68CBAE47CFEE6FE25C5404 /* ConstraintOffsetTarget.swift in Sources */,
+				09E1F569A93FAD4B9149E30B9301F44A /* ConstraintPriority.swift in Sources */,
+				DBA4803F4765E1650B8C6841157F5D73 /* ConstraintPriorityTarget.swift in Sources */,
+				C07CB3E9A4D1BF00F841E4285629A2B2 /* ConstraintRelatableTarget.swift in Sources */,
+				ECC5C2ADC2682F9171FEA22AF10DCE53 /* ConstraintRelation.swift in Sources */,
+				86CAB01D950C8BC35EDE0BDC01A2500B /* ConstraintView.swift in Sources */,
+				0DE5DB9C6227B3416778D8417DD95EA9 /* ConstraintView+Extensions.swift in Sources */,
+				7D42390CDB4FA147504B03DA2A174A0C /* ConstraintViewDSL.swift in Sources */,
+				AE224EDB6D044C0FE86B086E950FC2F9 /* Debugging.swift in Sources */,
+				BF1AE4D97E813B95C43EA4A298B973D1 /* LayoutConstraint.swift in Sources */,
+				C6F45595676957ADBEC18EB3F23EAEC4 /* LayoutConstraintItem.swift in Sources */,
+				BA2FB695DEB0D179253EEB8DFCE3578B /* SnapKit-dummy.m in Sources */,
+				C6A4302ACE006C4E2CDD481287E2916B /* Typealiases.swift in Sources */,
+				F6F33E8B268F3D41075374D95B8088DC /* UILayoutSupport+Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		5E85DB41EBE6CFCD47C798F1139F87F6 /* PBXTargetDependency */ = {
+		0F9C409F40D684BE5253757D69E11CC2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = "FSCollectionKit-FSCollectionKit";
-			target = FCF6339D93FDB4EF3981E9EABA67C0E7 /* FSCollectionKit-FSCollectionKit */;
-			targetProxy = F41DD62E86C91D3AFD5CE15BAF0EE47E /* PBXContainerItemProxy */;
+			name = SnapKit;
+			target = 19622742EBA51E823D6DAE3F8CDBFAD4 /* SnapKit */;
+			targetProxy = D2E77A54EDA5597BDD5DF2D653701CE5 /* PBXContainerItemProxy */;
 		};
-		AC18F27BAC64CEA78F875EBE42DB2F45 /* PBXTargetDependency */ = {
+		2642F0000F08603169DEBCF1FDC0E16C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SwipeCellKit;
+			target = 1DE44C23B82E6671E9E1541D06DE0E87 /* SwipeCellKit */;
+			targetProxy = E22B0825C090C18DCB55C196781FFC7F /* PBXContainerItemProxy */;
+		};
+		956337E4893325E6511AF15E8EE39B71 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = FSCollectionKit;
 			target = 4ECEF69AF322D727488C71CB58CE4537 /* FSCollectionKit */;
-			targetProxy = 83388DCB3F4F986DA8D143AB43F2E99E /* PBXContainerItemProxy */;
+			targetProxy = 4C9D377308CCFB09FDB76EDFB9C628DA /* PBXContainerItemProxy */;
+		};
+		AB5524B1EBC1EA11587DCE7A69D5C580 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "SnapKit-SnapKit_Privacy";
+			target = 8A8DB685241263AFDF5E6B20FE67B93A /* SnapKit-SnapKit_Privacy */;
+			targetProxy = 865091A17C9512846B52C3F20D5C6BB9 /* PBXContainerItemProxy */;
+		};
+		F1A6C8620A407CA32C2D92AC79F707B4 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "FSCollectionKit-FSCollectionKit";
+			target = FCF6339D93FDB4EF3981E9EABA67C0E7 /* FSCollectionKit-FSCollectionKit */;
+			targetProxy = 958672A665BB5F5F3E16AC780C0510BC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		49519DF26AB2AC2DDEF58114A6B577A3 /* Debug */ = {
+		0A4C065C49235BC1C30DA70FD459E103 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DAE66C6A15F9897AAD577A03890DD425 /* Pods-FSCollectionKit_Example.debug.xcconfig */;
+			baseConfigurationReference = ECAE774CDA5273AC716B849DA542F521 /* Pods-FSCollectionKit_Example.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
@@ -654,10 +1171,47 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
+			name = Release;
+		};
+		37A55203739422C476F287DE0EE88AB3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DACEE048F45129CC989AAF4A43A805C6 /* SnapKit.debug.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_IDENTITY = "Don't Code Sign";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SnapKit";
+				IBSC_MODULE = SnapKit;
+				INFOPLIST_FILE = "Target Support Files/SnapKit/ResourceBundle-SnapKit_Privacy-SnapKit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_NAME = SnapKit_Privacy;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
 			name = Debug;
+		};
+		491A20B1627128E440A75B19F1C01880 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BB35B94B5BABD490319C4083D111E56C /* FSCollectionKit.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_IDENTITY = "Don't Code Sign";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FSCollectionKit";
+				IBSC_MODULE = FSCollectionKit;
+				INFOPLIST_FILE = "Target Support Files/FSCollectionKit/ResourceBundle-FSCollectionKit-FSCollectionKit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_NAME = FSCollectionKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
 		};
 		5E28E9CA78E4C7E7D2B1AF9498EC5E48 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -698,24 +1252,6 @@
 			};
 			name = Release;
 		};
-		67A76EBB555F3C49325F45B4401F4430 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BB35B94B5BABD490319C4083D111E56C /* FSCollectionKit.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGNING_ALLOWED = NO;
-				CODE_SIGN_IDENTITY = "Don't Code Sign";
-				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/FSCollectionKit";
-				IBSC_MODULE = FSCollectionKit;
-				INFOPLIST_FILE = "Target Support Files/FSCollectionKit/ResourceBundle-FSCollectionKit-FSCollectionKit-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
-				PRODUCT_NAME = FSCollectionKit;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				WRAPPER_EXTENSION = bundle;
-			};
-			name = Release;
-		};
 		746CAF50A60B8995216191F13CF5FC16 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9383C4AD3F0894DCD4FF851909AE18E9 /* FSCollectionKit.debug.xcconfig */;
@@ -753,6 +1289,83 @@
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
+		};
+		77D84149227E9F76FB1736C45448ACD6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DAE66C6A15F9897AAD577A03890DD425 /* Pods-FSCollectionKit_Example.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_IDENTITY = "Don't Code Sign";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				INFOPLIST_FILE = "Target Support Files/Pods-FSCollectionKit_Example/Pods-FSCollectionKit_Example-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-FSCollectionKit_Example/Pods-FSCollectionKit_Example.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		7C0185413C2CC12CB08304080B6FB7C2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E33D68D92277E46AF9D9CE047E18204C /* SnapKit.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_IDENTITY = "Don't Code Sign";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/SnapKit/SnapKit-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/SnapKit/SnapKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SnapKit/SnapKit.modulemap";
+				PRODUCT_MODULE_NAME = SnapKit;
+				PRODUCT_NAME = SnapKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		8DE5143C03248BB6CD542DE3963D6F3A /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -820,6 +1433,44 @@
 			};
 			name = Debug;
 		};
+		90D69885D63E0A84B0DF412C02814F0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F5355D0750DB71E44E1725ECD5BFAAAA /* SwipeCellKit.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_IDENTITY = "Don't Code Sign";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/SwipeCellKit/SwipeCellKit-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/SwipeCellKit/SwipeCellKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwipeCellKit/SwipeCellKit.modulemap";
+				PRODUCT_MODULE_NAME = SwipeCellKit;
+				PRODUCT_NAME = SwipeCellKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		9E406C6AAF85E580207CD97B0044DEAB /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -882,11 +1533,10 @@
 			};
 			name = Release;
 		};
-		B313CB4B395CE7F4E6D5AF9B54A2444E /* Release */ = {
+		A9D72AC564FBE597100DFF7F29530216 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = ECAE774CDA5273AC716B849DA542F521 /* Pods-FSCollectionKit_Example.release.xcconfig */;
+			baseConfigurationReference = DACEE048F45129CC989AAF4A43A805C6 /* SnapKit.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
 				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGNING_ALLOWED = NO;
@@ -901,27 +1551,64 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				ENABLE_MODULE_VERIFIER = NO;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
-				INFOPLIST_FILE = "Target Support Files/Pods-FSCollectionKit_Example/Pods-FSCollectionKit_Example-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/SnapKit/SnapKit-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/SnapKit/SnapKit-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-FSCollectionKit_Example/Pods-FSCollectionKit_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/SnapKit/SnapKit.modulemap";
+				PRODUCT_MODULE_NAME = SnapKit;
+				PRODUCT_NAME = SnapKit;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		FAAC163C80BE5BE13976EE8ACBB496CE /* Debug */ = {
+		ABFE45904E30B62F3FFFE193935BBA5A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 86926F1F91BAC7B51C809FD8F529A1EB /* SwipeCellKit.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_IDENTITY = "Don't Code Sign";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = NO;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/SwipeCellKit/SwipeCellKit-prefix.pch";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = "Target Support Files/SwipeCellKit/SwipeCellKit-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/SwipeCellKit/SwipeCellKit.modulemap";
+				PRODUCT_MODULE_NAME = SwipeCellKit;
+				PRODUCT_NAME = SwipeCellKit;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_INSTALL_OBJC_HEADER = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		D2A075003F4A6BEF45C3FAADE8F6BF6A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9383C4AD3F0894DCD4FF851909AE18E9 /* FSCollectionKit.debug.xcconfig */;
 			buildSettings = {
@@ -939,9 +1626,45 @@
 			};
 			name = Debug;
 		};
+		E4E825267F119070EE838164BCA10BCB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E33D68D92277E46AF9D9CE047E18204C /* SnapKit.release.xcconfig */;
+			buildSettings = {
+				CODE_SIGNING_ALLOWED = NO;
+				CODE_SIGN_IDENTITY = "Don't Code Sign";
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)/SnapKit";
+				IBSC_MODULE = SnapKit;
+				INFOPLIST_FILE = "Target Support Files/SnapKit/ResourceBundle-SnapKit_Privacy-SnapKit-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				PRODUCT_NAME = SnapKit_Privacy;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = bundle;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		089B574B7A06BF1DFAE64F870A1D097E /* Build configuration list for PBXNativeTarget "Pods-FSCollectionKit_Example" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				77D84149227E9F76FB1736C45448ACD6 /* Debug */,
+				0A4C065C49235BC1C30DA70FD459E103 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DBDEE36B9DA5D0D59DF32BBCC2C301C /* Build configuration list for PBXNativeTarget "SnapKit-SnapKit_Privacy" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				37A55203739422C476F287DE0EE88AB3 /* Debug */,
+				E4E825267F119070EE838164BCA10BCB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -960,20 +1683,29 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D45BF74EFF0BD4D5121657F165303F66 /* Build configuration list for PBXNativeTarget "Pods-FSCollectionKit_Example" */ = {
+		80CE967CAA1D35721519F892BAF7A19B /* Build configuration list for PBXNativeTarget "SnapKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				49519DF26AB2AC2DDEF58114A6B577A3 /* Debug */,
-				B313CB4B395CE7F4E6D5AF9B54A2444E /* Release */,
+				A9D72AC564FBE597100DFF7F29530216 /* Debug */,
+				7C0185413C2CC12CB08304080B6FB7C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		D83290162BAFD60C0C38C135ED7B7510 /* Build configuration list for PBXNativeTarget "FSCollectionKit-FSCollectionKit" */ = {
+		D2D6B841CDE1087ED3C3E79071FD5A25 /* Build configuration list for PBXNativeTarget "SwipeCellKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				FAAC163C80BE5BE13976EE8ACBB496CE /* Debug */,
-				67A76EBB555F3C49325F45B4401F4430 /* Release */,
+				ABFE45904E30B62F3FFFE193935BBA5A /* Debug */,
+				90D69885D63E0A84B0DF412C02814F0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E8733526ABF347E44E08155383A0F836 /* Build configuration list for PBXNativeTarget "FSCollectionKit-FSCollectionKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D2A075003F4A6BEF45C3FAADE8F6BF6A /* Debug */,
+				491A20B1627128E440A75B19F1C01880 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -1,5 +1,5 @@
 //
-//  CollectionInsetGroupLayout.swift
+//  CollectionInsetGroupedLayout.swift
 //  CollectionKit
 //
 //  Created by Sheng on 2024/11/4.
@@ -9,18 +9,20 @@
 import UIKit
 import Foundation
 
-open class CollectionInsetGroupLayout: FSCollectionViewFlowLayout {
+open class CollectionInsetGroupedLayout: FSCollectionViewFlowLayout {
     
-    // MARK: Properties/Open
+    // MARK: =
     
-    open weak var delegate: CollectionInsetGroupLayoutDelegate?
+    open weak var delegate: CollectionInsetGroupedLayoutDelegate?
     
-    // MARK: Properties/Private
+    // MARK: =
     
-    private var decorations = [Int: InsetGroupDecorationAttributes]()
+    private var decorations = [Int: InsetGroupedDecorationAttributesAttributes]()
     private let cornerDecorationViewKind = "_kCornerDecorationViewKind"
     
-    // MARK: Initialization
+    private var contentSize = CGSize.zero
+    
+    // MARK: =
     
     override public init() {
         super.init()
@@ -32,26 +34,32 @@ open class CollectionInsetGroupLayout: FSCollectionViewFlowLayout {
         p_didInitialize()
     }
     
-    // MARK: Private
+    // MARK: =
     
     private func p_didInitialize() {
-        register(InsetGroupDecorationView.self, forDecorationViewOfKind: cornerDecorationViewKind)
+        register(InsetGroupedDecorationAttributesView.self, forDecorationViewOfKind: cornerDecorationViewKind)
     }
 }
 
-// MARK: - Override
+// MARK: =
 
-extension CollectionInsetGroupLayout {
+extension CollectionInsetGroupedLayout {
+    
+    open override var collectionViewContentSize: CGSize {
+        contentSize
+    }
     
     open override class var layoutAttributesClass: AnyClass {
-        return CollectionInsetGroupLayoutAttributes.self
+        return CollectionInsetGroupedLayoutAttributes.self
     }
     
     open override func prepare() {
         super.prepare()
-        var attributeses = [Int: InsetGroupDecorationAttributes]()
+        var attributesMap = [Int: InsetGroupedDecorationAttributesAttributes]()
+        var contentSize = CGSize.zero
         defer {
-            decorations = attributeses
+            decorations = attributesMap
+            self.contentSize = contentSize
         }
         guard
             let collectionView = collectionView,
@@ -61,7 +69,7 @@ extension CollectionInsetGroupLayout {
         }
         let numberOfSections = collectionView.numberOfSections
         for section in 0..<numberOfSections {
-            if !delegate.collectionView(collectionView, shouldShowGroupAt: section) {
+            if !delegate.collectionView(collectionView, shouldShowInsetGroupedAt: section) {
                 continue
             }
             let numberOfItems = collectionView.numberOfItems(inSection: section)
@@ -77,41 +85,48 @@ extension CollectionInsetGroupLayout {
             if let flow = collectionView.delegate as? UICollectionViewDelegateFlowLayout {
                 inset = flow.collectionView?(collectionView, layout: self, insetForSectionAt: section) ?? .zero
             }
+            
             let first = layoutAttributesForItem(at: .init(item: 0, section: section))?.frame ?? .zero
             let last = layoutAttributesForItem(at: .init(item: numberOfItems - 1, section: section))?.frame ?? .zero
             let sectionFrame = first.union(last)
             if sectionFrame.size == .zero {
                 continue
             }
+            
+            let groupedInsets = delegate.collectionView(collectionView, insetGroupedInsetsAt: section)
+            
             if scrollDirection == .horizontal {
-                x = sectionFrame.minX
-                y = inset.top
-                w = sectionFrame.width
-                h = containerSize.height - inset.top - inset.bottom
+                x = sectionFrame.minX + groupedInsets.left
+                y = inset.top + groupedInsets.top
+                w = sectionFrame.width - (groupedInsets.left + groupedInsets.right)
+                h = containerSize.height - inset.top - inset.bottom - (groupedInsets.top + groupedInsets.bottom)
             } else {
-                x = inset.left
-                y = sectionFrame.minY
-                w = containerSize.width - inset.left - inset.right
-                h = sectionFrame.height
+                x = inset.left + groupedInsets.left
+                y = sectionFrame.minY + groupedInsets.top
+                w = containerSize.width - inset.left - inset.right - (groupedInsets.left + groupedInsets.right)
+                h = sectionFrame.height - (groupedInsets.top + groupedInsets.bottom)
             }
-            let attributes = InsetGroupDecorationAttributes(forDecorationViewOfKind: cornerDecorationViewKind,
-                                                            with: .init(item: 0, section: section))
+            
+            let attributes = InsetGroupedDecorationAttributesAttributes(
+                forDecorationViewOfKind: cornerDecorationViewKind,
+                with: .init(item: 0, section: section)
+            )
             attributes.frame = .init(x: x, y: y, width: w, height: h)
             attributes.zIndex = -1
-            attributes.color = delegate.collectionView(collectionView, groupBackgroundColorAt: section) ?? .clear
-            attributes.cornerRadius = delegate.collectionView(collectionView, groupCornerRadiusAt: section)
-            attributes.borderWidth = delegate.collectionView(collectionView, groupBorderWidthAt: section)
-            attributes.borderColor = delegate.collectionView(collectionView, groupBorderColorAt: section)
-            attributeses[section] = attributes
+            attributes.color = delegate.collectionView(collectionView, insetGroupedBackgroundColorAt: section) ?? .clear
+            attributes.cornerRadius = delegate.collectionView(collectionView, insetGroupedCornerRadiusAt: section)
+            attributes.borderWidth = delegate.collectionView(collectionView, insetGroupedBorderWidthAt: section)
+            attributes.borderColor = delegate.collectionView(collectionView, insetGroupedBorderColorAt: section)
+            attributesMap[section] = attributes
             do {
-                let cornerRadius = delegate.collectionView(collectionView, groupCornerRadiusAt: section)
+                let cornerRadius = delegate.collectionView(collectionView, insetGroupedCornerRadiusAt: section)
                 if numberOfItems == 1 {
-                    if let attributes = layoutAttributesForItem(at: .init(item: 0, section: section)) as? CollectionInsetGroupLayoutAttributes {
+                    if let attributes = layoutAttributesForItem(at: .init(item: 0, section: section)) as? CollectionInsetGroupedLayoutAttributes {
                         attributes.cornerRadius = cornerRadius
                         attributes.maskedCorners = .inner.all
                     }
                 } else {
-                    if let attributes = layoutAttributesForItem(at: .init(item: 0, section: section)) as? CollectionInsetGroupLayoutAttributes {
+                    if let attributes = layoutAttributesForItem(at: .init(item: 0, section: section)) as? CollectionInsetGroupedLayoutAttributes {
                         attributes.cornerRadius = cornerRadius
                         if scrollDirection == .vertical {
                             attributes.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
@@ -119,7 +134,7 @@ extension CollectionInsetGroupLayout {
                             attributes.maskedCorners = [.layerMinXMinYCorner, .layerMinXMaxYCorner]
                         }
                     }
-                    if let attributes = layoutAttributesForItem(at: .init(item: numberOfItems - 1, section: section)) as? CollectionInsetGroupLayoutAttributes {
+                    if let attributes = layoutAttributesForItem(at: .init(item: numberOfItems - 1, section: section)) as? CollectionInsetGroupedLayoutAttributes {
                         attributes.cornerRadius = cornerRadius
                         if scrollDirection == .vertical {
                             attributes.maskedCorners = [.layerMinXMaxYCorner, .layerMaxXMaxYCorner]
@@ -146,7 +161,7 @@ extension CollectionInsetGroupLayout {
     }
 }
 
-private final class InsetGroupDecorationAttributes: UICollectionViewLayoutAttributes {
+private final class InsetGroupedDecorationAttributesAttributes: UICollectionViewLayoutAttributes {
     
     var color: UIColor = .white
     var cornerRadius: CGFloat = 10.0
@@ -154,7 +169,7 @@ private final class InsetGroupDecorationAttributes: UICollectionViewLayoutAttrib
     var borderColor: UIColor?
     
     override func copy(with zone: NSZone? = nil) -> Any {
-        let copy = super.copy(with: zone) as! InsetGroupDecorationAttributes
+        let copy = super.copy(with: zone) as! InsetGroupedDecorationAttributesAttributes
         copy.color = color
         copy.cornerRadius = cornerRadius
         copy.borderWidth = borderWidth
@@ -163,7 +178,7 @@ private final class InsetGroupDecorationAttributes: UICollectionViewLayoutAttrib
     }
     
     override func isEqual(_ object: Any?) -> Bool {
-        guard let rhs = object as? InsetGroupDecorationAttributes else {
+        guard let rhs = object as? InsetGroupedDecorationAttributesAttributes else {
             return false
         }
         if !color.isEqual(rhs.color) {
@@ -184,9 +199,9 @@ private final class InsetGroupDecorationAttributes: UICollectionViewLayoutAttrib
     }
 }
 
-private final class InsetGroupDecorationView: UICollectionReusableView {
+private final class InsetGroupedDecorationAttributesView: UICollectionReusableView {
     
-    // MARK: Initialization
+    // MARK: =
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -198,11 +213,11 @@ private final class InsetGroupDecorationView: UICollectionReusableView {
         p_didInitialize()
     }
     
-    // MARK: Override
+    // MARK: =
     
     override func apply(_ layoutAttributes: UICollectionViewLayoutAttributes) {
         super.apply(layoutAttributes)
-        guard let attributes = layoutAttributes as? InsetGroupDecorationAttributes else {
+        guard let attributes = layoutAttributes as? InsetGroupedDecorationAttributesAttributes else {
             return
         }
         backgroundColor = attributes.color
@@ -211,7 +226,7 @@ private final class InsetGroupDecorationView: UICollectionReusableView {
         layer.borderColor = attributes.borderColor?.cgColor
     }
     
-    // MARK: Private
+    // MARK: =
     
     private func p_didInitialize() {
         clipsToBounds = true

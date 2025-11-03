@@ -12,8 +12,9 @@ import Foundation
 /// 特性
 /// 1. 支持开启单击手势，该手势会自动避开 cell 的范围，因此不会影响 cell 的选中回调，一般用于隐藏键盘。
 /// 2. 默认 layout attributes 为 ``CollectionViewLayoutAttributes``，且默认每个 section 的最后
-///    一个 item 的 ``layoutAttriubtes.isSeparatorHidden`` 为 true，其它 item 的则为 false。
-///    可参考 ``FSCollectionLayoutableItem`` 中 ``ignoresSeparatorHidden`` 属性的说明。
+///    一个 item 的 ``layoutAttributes.isSeparatorHidden`` 为 true，其它 item 的则为 false。
+///    可参考 ``FSCollectionLayoutableItem/ignoresSeparatorHidden`` 属性的说明。
+///
 open class FSCollectionViewFlowLayout: UICollectionViewFlowLayout {
     
     // MARK: Properties/Override

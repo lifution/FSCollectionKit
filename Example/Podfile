@@ -3,6 +3,8 @@ use_frameworks!
 platform :ios, '13.0'
 
 target 'FSCollectionKit_Example' do
+  pod 'SnapKit'
+  pod 'SwipeCellKit'
   pod 'FSCollectionKit', :path => '../'
 end
 
