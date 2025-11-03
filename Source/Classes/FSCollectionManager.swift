@@ -29,8 +29,8 @@ public final class FSCollectionManager {
     // MARK: =
     
     private var delegator: FSCollectionDelegator?
-    
     private var emptyView: UIView?
+    private let reloader = CollectionReloader()
     
     // MARK: =
     
@@ -42,6 +42,7 @@ public final class FSCollectionManager {
     
     deinit {
         delegator = nil
+        reloader.stop()
     }
 }
 
@@ -172,6 +173,7 @@ extension FSCollectionManager {
         p_register()
         p_updateEmptyView()
         delegator = .init(manager: self)
+        reloader.collectionView = collectionView
         collectionView.delegate = delegator
         collectionView.dataSource = delegator
     }
@@ -189,14 +191,18 @@ extension FSCollectionManager {
 public extension FSCollectionManager {
     
     func reloadData() {
-        collectionView?.reloadData()
+        reloader.reloadData()
+    }
+    
+    func insertItems(at indexPaths: [IndexPath]) {
+        reloader.insertItems(at: indexPaths)
     }
     
     /// 更新 section 所在的 collectionView-section。
     func reloadSection(of section: FSCollectionSectionConvertable) {
         guard let _ = collectionView?.superview else { return }
         if let index = p_index(for: section) {
-            collectionView?.reloadSections([index])
+            reloader.reloadSections([index])
         }
     }
     
@@ -217,10 +223,7 @@ public extension FSCollectionManager {
     /// 更新 item 所在的 cell。
     func reloadCell(of item: FSCollectionItemConvertable) {
         guard let _ = collectionView?.superview else { return }
-        let indexPaths = p_indexPaths(for: item)
-        if !indexPaths.isEmpty {
-            collectionView?.reloadItems(at: indexPaths)
-        }
+        reloader.reloadItem(item)
     }
     
     /// 重新渲染 item 所在的 cell。
@@ -293,7 +296,7 @@ public extension FSCollectionManager {
             }
         }
         if needsReload {
-            collectionView?.reloadData()
+            reloadData()
         }
     }
 }
